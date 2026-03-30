@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking | AutoStack</title>
+  <link rel="stylesheet" href="css/globals.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body class="web3-page">
+
+  <nav class="web3-nav">
+    <div class="web3-nav-left">
+      <a href="index.html" class="web3-logo" style="text-decoration: none; color: white;">AutoStack</a>
+      <ul class="web3-nav-links">
+        <li><a href="services.html" class="web3-nav-link">Services</a></li>
+        <li><a href="portfolio.html" class="web3-nav-link">Projects</a></li>
+        <li><a href="pricing.html" class="web3-nav-link">Pricing</a></li>
+        <li><a href="about.html" class="web3-nav-link">About</a></li>
+        <li><a href="blog.html" class="web3-nav-link">Blog</a></li>
+          <li>
+            <a href="chat.html" class="web3-nav-link">
+              Ask AI
+            </a>
+          </li>
+        <li><a href="chat.html" class="web3-nav-link">Ask AI</a></li>
+      </ul>
+    </div>
+    <div class="web3-nav-right">
+      <a href="booking.html" class="w3-btn-pill">
+        <button class="w3-btn-pill-inner-dark">Book a Call</button>
+      </a>
+    </div>
+  </nav>
+
+  <main class="w3-container" style="padding-top: 80px; display: flex; flex-direction: column; align-items: center;">
+    
+    <div style="display: flex; justify-content: center; margin-bottom: 24px;">
+      <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 500;">
+        <div style="width: 8px; height: 8px; background: white; border-radius: 50%;"></div> Free Discovery · No Commitment
+      </div>
+    </div>
+
+    <h1 class="w3-heading-large" style="text-align: center;">Tell Us About Your Problem</h1>
+    <p class="w3-text-muted" style="text-align: center; max-width: 500px; margin: 0 auto 40px;">
+      Fill this in — takes 3 minutes. We'll review and get back within 24 hours with a clear plan and price.
+    </p>
+
+    <!-- Progress Steps Header (Visual) -->
+    <div id="progress-container" style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 600px; margin-bottom: 50px; position: relative;">
+      <div id="progress-line" style="position: absolute; top: 50%; left: 0; width: 33%; height: 1px; background: white; z-index: 1; transition: width 0.3s ease;"></div>
+      <div style="position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: rgba(255,255,255,0.2); z-index: 0;"></div>
+      
+      <div id="nav-step-1" class="step-nav active" style="display: flex; flex-direction: column; align-items: center; gap: 8px; position: relative; z-index: 2; background: #000; padding: 0 10px;">
+        <div class="step-circle" style="width: 20px; height: 20px; border-radius: 50%; background: white;"></div>
+        <span class="step-label" style="font-size: 12px; color: white;">Business</span>
+      </div>
+
+      <div id="nav-step-2" class="step-nav" style="display: flex; flex-direction: column; align-items: center; gap: 8px; position: relative; z-index: 2; background: #000; padding: 0 10px;">
+        <div class="step-circle" style="width: 20px; height: 20px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.5); background: black;"></div>
+        <span class="step-label" style="font-size: 12px; color: rgba(255,255,255,0.5);">Problem</span>
+      </div>
+
+      <div id="nav-step-3" class="step-nav" style="display: flex; flex-direction: column; align-items: center; gap: 8px; position: relative; z-index: 2; background: #000; padding: 0 10px;">
+        <div class="step-circle" style="width: 20px; height: 20px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.5); background: black;"></div>
+        <span class="step-label" style="font-size: 12px; color: rgba(255,255,255,0.5);">Details</span>
+      </div>
+    </div>
+
+    <!-- Intake Form -->
+    <div class="w3-card" style="width: 100%; max-width: 600px; margin-bottom: 80px; position: relative;">
+      <form id="intake-form">
+        
+        <!-- STEP 1: BUSINESS -->
+        <div id="step-1" class="form-step" style="display: flex; flex-direction: column; gap: 16px;">
+          <div>
+            <h3 style="font-size: 20px; font-weight: 500; color: white; margin-bottom: 8px;">1. What type of business do you run?</h3>
+          </div>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <label style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); padding: 12px 16px; border-radius: 12px; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.2s;">
+              <input type="radio" name="business_type" value="ecommerce" style="position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none;">
+              <span>🛒 E-Commerce</span>
+            </label>
+            <label style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); padding: 12px 16px; border-radius: 12px; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.2s;">
+              <input type="radio" name="business_type" value="restaurant" style="position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none;">
+              <span>🍽️ Restaurant</span>
+            </label>
+            <label style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); padding: 12px 16px; border-radius: 12px; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.2s;">
+              <input type="radio" name="business_type" value="healthcare" style="position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none;">
+              <span>🏥 Healthcare</span>
+            </label>
+            <label style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); padding: 12px 16px; border-radius: 12px; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.2s;">
+              <input type="radio" name="business_type" value="education" style="position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none;">
+              <span>🎓 Education</span>
+            </label>
+            <label style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); padding: 12px 16px; border-radius: 12px; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.2s;">
+              <input type="radio" name="business_type" value="other" style="position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none;">
+              <span>💼 Other</span>
+            </label>
+          </div>
+          <input type="text" name="business_name" placeholder="Your business name (optional)" style="width: 100%; background: #000; border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; padding: 16px; color: #fff; font-family: var(--font-general); outline: none;">
+          
+          <div style="margin-top: 16px; display: flex; justify-content: flex-end;">
+            <button type="button" onclick="goToStep(2)" class="w3-btn-pill-inner-light" style="padding: 14px 28px; border-radius: 30px; cursor: pointer; border: none; font-size: 15px;">Next &rarr;</button>
+          </div>
+        </div>
+
+        <!-- STEP 2: PROBLEM -->
+        <div id="step-2" class="form-step" style="display: none; flex-direction: column; gap: 16px;">
+          <div>
+            <h3 style="font-size: 20px; font-weight: 500; color: white; margin-bottom: 4px;">2. What do you need help with?</h3>
+            <p class="w3-text-muted" style="font-size: 13px; margin-bottom: 12px;">Select all that apply</p>
+          </div>
+          
+          <label style="display: flex; gap: 12px; align-items: center; background: rgba(255,255,255,0.02); padding: 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); cursor: pointer; transition: all 0.2s;">
+            <input type="checkbox" name="problem_type_multi" value="chatbot" style="width: 18px; height: 18px;">
+            <span style="font-size: 15px; color: white;">I need an AI Chatbot for my business</span>
+          </label>
+          <label style="display: flex; gap: 12px; align-items: center; background: rgba(255,255,255,0.02); padding: 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); cursor: pointer; transition: all 0.2s;">
+            <input type="checkbox" name="problem_type_multi" value="automation" style="width: 18px; height: 18px;">
+            <span style="font-size: 15px; color: white;">I want to automate my repetitive tasks</span>
+          </label>
+          <label style="display: flex; gap: 12px; align-items: center; background: rgba(255,255,255,0.02); padding: 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); cursor: pointer; transition: all 0.2s;">
+            <input type="checkbox" name="problem_type_multi" value="data_system" style="width: 18px; height: 18px;">
+            <span style="font-size: 15px; color: white;">I need a RAG / Document search system</span>
+          </label>
+          <label style="display: flex; gap: 12px; align-items: center; background: rgba(255,255,255,0.02); padding: 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); cursor: pointer; transition: all 0.2s;">
+            <input type="checkbox" name="problem_type_multi" value="full_backend" style="width: 18px; height: 18px;">
+            <span style="font-size: 15px; color: white;">I need a full AI backend system</span>
+          </label>
+
+          <textarea name="problem_description" placeholder="Describe your main problem (e.g. I run a restaurant and I want to automate my order confirmations...)" style="width: 100%; min-height: 120px; background: #000; border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; padding: 16px; color: #fff; font-family: var(--font-general); outline: none; resize: vertical; margin-top: 12px;"></textarea>
+          
+          <div style="margin-top: 16px; display: flex; justify-content: space-between;">
+            <button type="button" onclick="goToStep(1)" style="padding: 14px 28px; border-radius: 30px; cursor: pointer; border: 1px solid rgba(255,255,255,0.3); background: transparent; color: white; font-size: 15px;">&larr; Back</button>
+            <button type="button" onclick="goToStep(3)" class="w3-btn-pill-inner-light" style="padding: 14px 28px; border-radius: 30px; cursor: pointer; border: none; font-size: 15px;">Next &rarr;</button>
+          </div>
+        </div>
+
+        <!-- STEP 3: DETAILS & CONTACT -->
+        <div id="step-3" class="form-step" style="display: none; flex-direction: column; gap: 16px;">
+          <h3 style="font-size: 20px; font-weight: 500; color: white; margin-bottom: 8px;">3. Budget & Contact Details</h3>
+          
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px;">
+            <span style="font-size: 14px; font-weight: 500; color: white; width: 100%;">Budget Range:</span>
+            <label style="cursor: pointer; transition: all 0.2s;">
+              <input type="radio" name="budget_max" value="5000" style="position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none;">
+              <span class="budget-pill" style="border: 1px solid rgba(255,255,255,0.3); padding: 8px 16px; border-radius: 20px; font-size: 13px; color: white; display: inline-block;">Under ₹5K</span>
+            </label>
+            <label style="cursor: pointer; transition: all 0.2s;">
+              <input type="radio" name="budget_max" value="10000" style="position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none;">
+              <span class="budget-pill" style="border: 1px solid rgba(255,255,255,0.3); padding: 8px 16px; border-radius: 20px; font-size: 13px; color: white; display: inline-block;">₹5K–₹10K</span>
+            </label>
+            <label style="cursor: pointer; transition: all 0.2s;">
+              <input type="radio" name="budget_max" value="25000" style="position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none;">
+              <span class="budget-pill" style="border: 1px solid rgba(255,255,255,0.3); padding: 8px 16px; border-radius: 20px; font-size: 13px; color: white; display: inline-block;">₹10K–₹25K</span>
+            </label>
+            <label style="cursor: pointer; transition: all 0.2s;">
+              <input type="radio" name="budget_max" value="50000" style="position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none;">
+              <span class="budget-pill" style="border: 1px solid rgba(255,255,255,0.3); padding: 8px 16px; border-radius: 20px; font-size: 13px; color: white; display: inline-block;">₹25K+</span>
+            </label>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <input type="text" name="client_name" placeholder="Your Name *" required style="width: 100%; background: #000; border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; padding: 16px; color: #fff; outline: none;">
+            <input type="email" name="client_email" placeholder="Your Email *" required style="width: 100%; background: #000; border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; padding: 16px; color: #fff; outline: none;">
+          </div>
+          <input type="text" name="client_whatsapp" placeholder="Your WhatsApp Number *" required style="width: 100%; background: #000; border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; padding: 16px; color: #fff; outline: none;">
+          
+          <div style="margin-top: 16px; display: flex; justify-content: space-between; gap: 12px;">
+            <button type="button" onclick="goToStep(2)" style="padding: 14px 28px; border-radius: 30px; cursor: pointer; border: 1px solid rgba(255,255,255,0.3); background: transparent; color: white; font-size: 15px;">&larr; Back</button>
+            <button type="submit" id="submit-btn" class="w3-btn-pill-inner-light" style="flex: 1; padding: 14px 24px; border-radius: 30px; font-size: 16px; cursor: pointer; border: none; font-weight: 500;">
+              Confirm & Book Call &rarr;
+            </button>
+          </div>
+          <p class="w3-text-muted" style="font-size: 13px; text-align: center; margin-top: 4px;">
+            You'll receive a Google Meet link on your email
+          </p>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      function goToStep(step) {
+        // Hide all steps
+        document.querySelectorAll('.form-step').forEach(el => el.style.display = 'none');
+        // Show target step
+        document.getElementById('step-' + step).style.display = 'flex';
+        
+        // Update progress line and circles
+        const progressLine = document.getElementById('progress-line');
+        const percentages = [0, 0, 50, 100]; // for step 1, 2, 3
+        progressLine.style.width = percentages[step] + '%';
+        
+        for (let i = 1; i <= 3; i++) {
+          const navItem = document.getElementById('nav-step-' + i);
+          const circle = navItem.querySelector('.step-circle');
+          const label = navItem.querySelector('.step-label');
+          if (i <= step) {
+            circle.style.background = 'white';
+            circle.style.borderColor = 'white';
+            label.style.color = 'white';
+          } else {
+            circle.style.background = 'black';
+            circle.style.borderColor = 'rgba(255,255,255,0.5)';
+            label.style.color = 'rgba(255,255,255,0.5)';
+          }
+        }
+      }
+    </script>
+
+
+  </main>
+
+  <footer class="w3-footer">
+    <div class="w3-footer-inner">
+      <div class="w3-footer-logo">AutoStack</div>
+      <div class="w3-footer-links">
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Projects</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
+      </div>
+    </div>
+    <div class="w3-footer-bottom">
+      © 2026 AutoStack · India. Built with n8n + ❤️ by Nithesh
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

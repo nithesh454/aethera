@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | AutoStack</title>
+  <link rel="stylesheet" href="css/globals.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body class="web3-page">
+
+  <nav class="web3-nav">
+    <div class="web3-nav-left">
+      <a href="index.html" class="web3-logo" style="text-decoration: none; color: white;">AutoStack</a>
+      <ul class="web3-nav-links">
+        <li><a href="services.html" class="web3-nav-link">Services</a></li>
+        <li><a href="portfolio.html" class="web3-nav-link">Projects</a></li>
+        <li><a href="pricing.html" class="web3-nav-link">Pricing</a></li>
+        <li><a href="about.html" class="web3-nav-link">About</a></li>
+        <li><a href="blog.html" class="web3-nav-link active">Blog</a></li>
+          <li>
+            <a href="chat.html" class="web3-nav-link">
+              Ask AI
+            </a>
+          </li>
+        <li><a href="chat.html" class="web3-nav-link">Ask AI</a></li>
+      </ul>
+    </div>
+    <div class="web3-nav-right">
+      <a href="booking.html" class="w3-btn-pill">
+        <button class="w3-btn-pill-inner-dark">Book a Call</button>
+      </a>
+    </div>
+  </nav>
+
+  <main class="w3-container" style="padding-top: 180px; min-height: 80vh; text-align: center;">
+    <div style="display: flex; justify-content: center; margin-bottom: 24px;">
+      <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 500;">
+        <div style="width: 8px; height: 8px; background: white; border-radius: 50%;"></div> Coming Soon
+      </div>
+    </div>
+
+    <h1 class="w3-heading-large">AI Insights & Engineering</h1>
+    <p class="w3-text-muted" style="max-width: 600px; margin: 0 auto 60px;">
+      We are currently writing deeply technical tear-downs on how we build RAG systems, scale n8n workloads, and hack Supabase performance. Stay tuned.
+    </p>
+    
+    <form id="newsletter-form" style="display: flex; flex-direction: column; align-items: center; gap: 16px; max-width: 400px; margin: 0 auto;" onsubmit="event.preventDefault(); showToast('Subscribed securely! Incoming soon.', 'success'); this.reset();">
+      <div style="display: flex; width: 100%; gap: 12px;">
+        <input type="email" placeholder="Your best email..." required style="flex: 1; background: #000; border: 1px solid rgba(255,255,255,0.2); border-radius: 30px; padding: 14px 20px; color: white; outline: none; font-family: var(--font-general);">
+        <button type="submit" class="w3-btn-pill-inner-light" style="padding: 14px 28px; border-radius: 30px; font-size: 15px; cursor: pointer; border: none;">Subscribe</button>
+      </div>
+      <p class="w3-text-muted" style="font-size: 13px;">No spam. Unsubscribe anytime.</p>
+    </form>
+
+  </main>
+
+  <footer class="w3-footer">
+    <div class="w3-footer-inner">
+      <div class="w3-footer-logo">AutoStack</div>
+      <div class="w3-footer-links">
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Projects</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="chat.html">Ask AI</a>
+      </div>
+    </div>
+    <div class="w3-footer-bottom">
+      © 2026 AutoStack · India. Built with n8n + ❤️ by Nithesh
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

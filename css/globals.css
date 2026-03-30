@@ -1,0 +1,122 @@
+/* ============================================================
+   WEB3 DESIGN SYSTEM
+   Pure black, General Sans, Glowing Pills, Video Background
+   ============================================================ */
+
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@200,300,400,500,600,700&display=swap');
+
+:root {
+  --bg-pure-black: #000000;
+  --text-white: #ffffff;
+  --text-white-70: rgba(255, 255, 255, 0.7);
+  --text-white-60: rgba(255, 255, 255, 0.6);
+  --border-white-20: rgba(255, 255, 255, 0.2);
+  --bg-white-10: rgba(255, 255, 255, 0.1);
+  --font-general: 'General Sans', sans-serif;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-general);
+  background: var(--bg-pure-black);
+  color: var(--text-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Base utility for other pages to inherit pure black */
+.web3-page {
+  background: var(--bg-pure-black);
+  color: var(--text-white);
+  min-height: 100vh;
+}
+
+/* Helper for container across all pages */
+.w3-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* =====================================================
+   COMPONENTS
+   ===================================================== */
+
+/* Glowing Pill Button Construction */
+.pill-btn-wrapper {
+  position: relative;
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.6px; /* The outer border effect */
+  background: rgba(255,255,255,0.4); /* subtle white outer border */
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.pill-btn-wrapper:hover {
+  transform: translateY(-1px);
+}
+
+/* The top glow streak */
+.pill-btn-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 4px;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.8) 0%, transparent 70%);
+  filter: blur(2px);
+  z-index: 1;
+}
+
+/* Dark variant */
+.pill-btn-dark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-general);
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  background: #000;
+  border-radius: 999px;
+  padding: 11px 29px;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  border: none;
+}
+
+/* Light variant */
+.pill-btn-light {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-general);
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+  background: #fff;
+  border-radius: 999px;
+  padding: 11px 29px;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  border: none;
+}
