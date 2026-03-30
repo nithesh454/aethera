@@ -1,5 +1,5 @@
 // ============================================================
-// AUTOSTACK — Configuration
+// AETHERA — Configuration
 // ============================================================
 
 const CONFIG = {
@@ -8,7 +8,7 @@ const CONFIG = {
   SUPABASE_ANON_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1Y3hranZ4eXlxeW1mdHJ3a2xjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ4NTEyMTcsImV4cCI6MjA5MDQyNzIxN30.LVvk1d3ZzEAFo-aJaBFloBV-rGwra-ANYA8LHs6Nfvo',
 
   // Brand
-  BRAND_NAME: 'AutoStack',
+  BRAND_NAME: 'Aethera',
   FOUNDER: 'Nithesh Devarla',
   YEAR: new Date().getFullYear(),
 };

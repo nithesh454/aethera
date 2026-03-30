@@ -1,4 +1,4 @@
-# 🔧 AutoStack — All n8n Workflows
+# 🔧 Aethera — All n8n Workflows
 ## Complete workflow descriptions + JSON structures
 
 ---
@@ -84,8 +84,8 @@
       "type": "n8n-nodes-base.emailSend",
       "parameters": {
         "toEmail": "={{$json.client_email}}",
-        "subject": "✅ We received your request — AutoStack",
-        "text": "Hi {{$json.client_name}},\n\nThank you for reaching out!\n\nWe've received your request for: {{$json.service_name}}\n\nOur team will review your requirements and get back to you within 24 hours.\n\nMeanwhile, you can book a discovery call at: YOUR_BOOKING_LINK\n\nBest,\nNithesh\nAutoStack"
+        "subject": "✅ We received your request — Aethera",
+        "text": "Hi {{$json.client_name}},\n\nThank you for reaching out!\n\nWe've received your request for: {{$json.service_name}}\n\nOur team will review your requirements and get back to you within 24 hours.\n\nMeanwhile, you can book a discovery call at: YOUR_BOOKING_LINK\n\nBest,\nNithesh\nAethera"
       }
     },
     {
@@ -131,7 +131,7 @@
       "parameters": {
         "operation": "create",
         "calendarId": "primary",
-        "summary": "Discovery Call — {{$json.body.client_name}} (AutoStack)",
+        "summary": "Discovery Call — {{$json.body.client_name}} (Aethera)",
         "description": "Client: {{$json.body.client_name}}\nEmail: {{$json.body.client_email}}\nBusiness: {{$json.body.business_type}}\nNeed: {{$json.body.problem_type}}\n\nProblem:\n{{$json.body.problem_description}}",
         "start": "={{$json.body.scheduled_at}}",
         "end": "={{$json.body.scheduled_at_end}}",
@@ -184,8 +184,8 @@
       "type": "n8n-nodes-base.emailSend",
       "parameters": {
         "toEmail": "={{$('Booking Webhook').json.body.client_email}}",
-        "subject": "📅 Your Call is Confirmed — AutoStack",
-        "html": "<h2>Your Discovery Call is Confirmed!</h2><p>Hi {{$('Booking Webhook').json.body.client_name}},</p><p>Looking forward to speaking with you!</p><p><strong>Date & Time:</strong> {{$('Booking Webhook').json.body.scheduled_at_display}}</p><p><strong>Google Meet Link:</strong> <a href='{{$json.meet_link}}'>{{$json.meet_link}}</a></p><p>If you need to reschedule, just reply to this email.</p><p>Best,<br>Nithesh<br>AutoStack</p>"
+        "subject": "📅 Your Call is Confirmed — Aethera",
+        "html": "<h2>Your Discovery Call is Confirmed!</h2><p>Hi {{$('Booking Webhook').json.body.client_name}},</p><p>Looking forward to speaking with you!</p><p><strong>Date & Time:</strong> {{$('Booking Webhook').json.body.scheduled_at_display}}</p><p><strong>Google Meet Link:</strong> <a href='{{$json.meet_link}}'>{{$json.meet_link}}</a></p><p>If you need to reschedule, just reply to this email.</p><p>Best,<br>Nithesh<br>Aethera</p>"
       }
     },
     {
@@ -239,7 +239,7 @@
       "type": "n8n-nodes-base.emailSend",
       "parameters": {
         "toEmail": "={{$json.client_email}}",
-        "subject": "Following up on your AI project — AutoStack",
+        "subject": "Following up on your AI project — Aethera",
         "html": "<p>Hi {{$json.client_name}},</p><p>Just checking in! We reviewed your request for <strong>{{$json.service_name}}</strong> and we have some exciting ideas for your business.</p><p>Would you like to jump on a quick 20-minute call to discuss?</p><p><a href='YOUR_BOOKING_LINK'>👉 Book a Free Call Here</a></p><p>Best,<br>Nithesh</p>"
       }
     },
@@ -340,7 +340,7 @@
           "values": [
             {
               "role": "system",
-              "content": "You are a helpful assistant for AutoStack, an AI automation agency run by Nithesh. Answer questions about our services, pricing, and capabilities based on the context provided. Be friendly and professional. If unsure, suggest booking a call."
+              "content": "You are a helpful assistant for Aethera, an AI automation agency run by Nithesh. Answer questions about our services, pricing, and capabilities based on the context provided. Be friendly and professional. If unsure, suggest booking a call."
             },
             {
               "role": "user",
@@ -508,7 +508,7 @@
         "method": "POST",
         "url": "YOUR_WHATSAPP_API",
         "body": {
-          "message": "📊 *Weekly Report — AutoStack*\n\n🆕 New Orders: {{$json.total}}\n✅ Confirmed: {{$json.confirmed}}\n💰 Pipeline Value: ₹{{$json.totalValue}}\n\n📋 By Service:\n{{$json.serviceBreakdown}}\n\nHave a great week! 🚀"
+          "message": "📊 *Weekly Report — Aethera*\n\n🆕 New Orders: {{$json.total}}\n✅ Confirmed: {{$json.confirmed}}\n💰 Pipeline Value: ₹{{$json.totalValue}}\n\n📋 By Service:\n{{$json.serviceBreakdown}}\n\nHave a great week! 🚀"
         }
       }
     }

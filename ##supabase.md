@@ -6,7 +6,7 @@
 ## PROMPT TO GIVE ANTIGRAVITY:
 
 ```
-Generate a complete frontend JavaScript file for the AutoStack website.
+Generate a complete frontend JavaScript file for the Aethera website.
 Pure vanilla JS. No frameworks. Works with HTML files directly.
 
 SUPABASE SETUP:

@@ -1,5 +1,5 @@
 -- ============================================================
--- AUTOSTACK / NITHAI — COMPLETE SUPABASE SCHEMA
+-- AETHERA / NITHAI — COMPLETE SUPABASE SCHEMA
 -- Copy-paste this entire file into Supabase SQL Editor
 -- ============================================================
 

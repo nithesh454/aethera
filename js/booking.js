@@ -1,5 +1,5 @@
 // ============================================================
-// AUTOSTACK — Booking / Intake Form JS
+// AETHERA — Booking / Intake Form JS
 // Multi-step form, calendar, budget slider, submission
 // ============================================================
 

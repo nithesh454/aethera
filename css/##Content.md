@@ -1,4 +1,4 @@
-# 🎨 AutoStack — Web3 Design + Full Structure
+# 🎨 Aethera — Web3 Design + Full Structure
 ## Antigravity Prompts: Web3 aesthetic + your original page content
 
 ---
@@ -32,7 +32,7 @@ Applied as background-clip: text
 
 NAVBAR (same on all pages):
 - Pure black background, 120px horizontal padding, 20px vertical padding
-- Left: Logo wordmark "AutoStack" in white 187px wide
+- Left: Logo wordmark "Aethera" in white 187px wide
 - Nav links (14px, font-medium, white): "Services", "Projects", "Pricing", "About", "Blog"
   Each link has small white chevron-down icon (14px gap)
 - Right: Pill button "Book a Call"
@@ -80,7 +80,7 @@ RESPONSIVE: Mobile-first, nav collapses below md breakpoint
 ```
 [PASTE GLOBAL DESIGN SYSTEM ABOVE FIRST]
 
-Build a full landing page for "AutoStack" — an AI automation agency
+Build a full landing page for "Aethera" — an AI automation agency
 for small businesses. Use the Web3 design system above throughout.
 
 HERO SECTION:
@@ -199,10 +199,10 @@ Below: muted text "No commitment · Free consultation · Reply within 24hrs"
 
 FOOTER:
 Pure black. Top border: 1px rgba(255,255,255,0.1)
-Left: "AutoStack" wordmark + "AI Automation for Small Businesses"
+Left: "Aethera" wordmark + "AI Automation for Small Businesses"
 Center: Nav links (Services / Projects / Pricing / About / Blog)
 Right: "Built with n8n + ❤️ by Nithesh" + social icons
-Bottom: "© 2024 AutoStack · India"
+Bottom: "© 2024 Aethera · India"
 ```
 
 ---
@@ -212,7 +212,7 @@ Bottom: "© 2024 AutoStack · India"
 ```
 [PASTE GLOBAL DESIGN SYSTEM ABOVE FIRST]
 
-Build a services ordering page for AutoStack. Black background,
+Build a services ordering page for Aethera. Black background,
 Web3 design system. User can browse and order AI services.
 
 HERO (no video, just black bg):
@@ -318,7 +318,7 @@ Secondary button: "Book a Free Call"
 ```
 [PASTE GLOBAL DESIGN SYSTEM ABOVE FIRST]
 
-Build a 4-step problem intake and booking page for AutoStack.
+Build a 4-step problem intake and booking page for Aethera.
 Black background, Web3 design. Concept: Smart order form.
 
 HERO:
@@ -445,7 +445,7 @@ the Google Meet link. See you soon!"
 ```
 [PASTE GLOBAL DESIGN SYSTEM ABOVE FIRST]
 
-Build a portfolio/projects page for AutoStack. Black background,
+Build a portfolio/projects page for Aethera. Black background,
 Web3 design. Showcases all AI projects built by Nithesh.
 
 HERO (black bg, no video):
@@ -524,7 +524,7 @@ Primary button: "Start Your Project →"
 ```
 [PASTE GLOBAL DESIGN SYSTEM ABOVE FIRST]
 
-Build a pricing page for AutoStack. Black background, Web3 design.
+Build a pricing page for Aethera. Black background, Web3 design.
 3 tiers + comparison table + FAQ.
 
 HERO:
@@ -644,7 +644,7 @@ Muted below: "Typically reply within 2–4 hours"
 ```
 [PASTE GLOBAL DESIGN SYSTEM ABOVE FIRST]
 
-Build an about page for AutoStack / Nithesh Devarla.
+Build an about page for Aethera / Nithesh Devarla.
 Black background, Web3 design. Personal, trustworthy, developer-focused.
 
 HERO:
@@ -669,7 +669,7 @@ Right (60%): Story card (dark glass card)
     "I'm an n8n Automation Engineer specializing in RAG systems,
     hybrid search, and full AI backends.
 
-    I started AutoStack because I saw small businesses struggling
+    I started Aethera because I saw small businesses struggling
     with tools built for enterprise — too complex, too expensive,
     too generic.
 

@@ -1,7 +1,7 @@
 # 🎨 Design System — AI Automation Startup (Skeuomorphic)
 
 ## Brand Identity
-- **Brand Name**: AutoStack / NithAI *(choose one)*
+- **Brand Name**: Aethera / NithAI *(choose one)*
 - **Tagline**: "We Build AI Systems That Work While You Sleep"
 - **Style**: Skeuomorphic — realistic, tactile, premium leather & paper feel
 - **Audience**: Small business owners who want trust + premium feel

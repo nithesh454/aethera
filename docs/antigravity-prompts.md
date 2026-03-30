@@ -1,4 +1,4 @@
-# 🎨 AutoStack — Antigravity Master Prompt File
+# 🎨 Aethera — Antigravity Master Prompt File
 ## Paste these directly into Antigravity for each page
 
 ---
@@ -6,7 +6,7 @@
 ## GLOBAL CONTEXT (Add this before EVERY page prompt)
 
 ```
-BRAND: AutoStack — AI Automation Agency
+BRAND: Aethera — AI Automation Agency
 FOUNDER: Nithesh Devarla, n8n Automation Engineer from India
 AUDIENCE: Small business owners (restaurants, shops, clinics, e-commerce)
 STYLE: Skeuomorphic — realistic leather, paper, brass, wood textures
@@ -119,7 +119,7 @@ Big brass CTA button: "Schedule Your Free Call →"
 SECTION 7 — FOOTER:
 Dark wood texture footer.
 Logo left. Nav links center (metal label plates). Social icons right (brass stamps).
-Bottom bar: "© 2024 AutoStack · Built with n8n + ❤️"
+Bottom bar: "© 2024 Aethera · Built with n8n + ❤️"
 ```
 
 ---

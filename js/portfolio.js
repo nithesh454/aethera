@@ -1,5 +1,5 @@
 // ============================================================
-// AUTOSTACK — Portfolio Page JS
+// AETHERA — Portfolio Page JS
 // Load projects from Supabase, filter by category
 // ============================================================
 

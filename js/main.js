@@ -1,5 +1,5 @@
 // ============================================================
-// AUTOSTACK — Shared Main JS
+// AETHERA — Shared Main JS
 // Navbar, Footer, Scroll Animations, Toasts
 // ============================================================
 
@@ -145,7 +145,7 @@ function renderNavbar() {
     <div class="navbar-inner">
       <a href="index.html" class="navbar-logo">
         <div class="navbar-logo-icon">⚡</div>
-        <span class="navbar-logo-text">AutoStack</span>
+        <span class="navbar-logo-text">Aethera</span>
       </a>
       <ul class="navbar-links" id="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -174,7 +174,7 @@ function renderFooter() {
     <div class="footer-inner">
       <div class="footer-logo">
         <div class="footer-logo-icon">⚡</div>
-        <span class="footer-logo-text">AutoStack</span>
+        <span class="footer-logo-text">Aethera</span>
       </div>
       <ul class="footer-nav">
         <li><a href="index.html">Home</a></li>

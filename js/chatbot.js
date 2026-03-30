@@ -1,5 +1,5 @@
 // ============================================================
-// AUTOSTACK — Minimalist Chatbot Widget
+// AETHERA — Minimalist Chatbot Widget
 // ============================================================
 
 (function () {
@@ -202,14 +202,14 @@
     <div class="chatbot-header">
       <div class="chatbot-header-icon">⚡</div>
       <div class="chatbot-header-info">
-        <h4>AutoStack AI</h4>
+        <h4>Aethera AI</h4>
         <span>Ask me anything</span>
       </div>
       <button class="chatbot-close" aria-label="Close chat">×</button>
     </div>
     <div class="chatbot-messages" id="chatbot-messages">
       <div class="chat-msg bot">
-        <div class="msg-content">Hi! 👋 I'm the AutoStack assistant. Ask me about our services, pricing, or how we can help your business.</div>
+        <div class="msg-content">Hi! 👋 I'm the Aethera assistant. Ask me about our services, pricing, or how we can help your business.</div>
       </div>
     </div>
     <div class="chatbot-input-area">

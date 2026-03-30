@@ -1,5 +1,5 @@
 // ============================================================
-// AUTOSTACK — Pricing Page JS
+// AETHERA — Pricing Page JS
 // Toggle, FAQ, dynamic pricing from Supabase
 // ============================================================
 
