@@ -279,6 +279,7 @@ function initForms() {
         
         showToast('Booking request sent successfully! We will contact you soon.', 'success');
         intakeForm.reset();
+        showSuccessAnimation();
         
       } catch (err) {
         console.error('Error submitting form:', err);
@@ -292,3 +293,35 @@ function initForms() {
   }
 }
 
+
+// ================================================================
+// SUCCESS ANIMATION OVERLAY
+// ================================================================
+function showSuccessAnimation() {
+  const existingOverlay = document.getElementById('successOverlay');
+  if (existingOverlay) existingOverlay.remove();
+
+  const overlayHTML = `
+    <div class="success-overlay" id="successOverlay">
+      <div class="success-check-wrapper">
+        <svg class="success-checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+          <circle class="success-checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+          <path class="success-checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+      </div>
+      <h2 class="w3-heading-large" style="margin-bottom: 12px; font-size: 36px; text-align: center;">Booking Confirmed</h2>
+      <p class="w3-text-muted" style="text-align: center; max-width: 400px; margin-bottom: 32px;">
+        Your request has been securely placed. We will contact you shortly.
+      </p>
+      <a href="index.html" class="w3-btn-pill" style="text-decoration: none;">
+        <div class="w3-btn-pill-inner-light">Return to Home</div>
+      </a>
+    </div>
+  `;
+  document.body.insertAdjacentHTML('beforeend', overlayHTML);
+  
+  // Trigger animation slightly after DOM insertion to ensure transitions fire
+  setTimeout(() => {
+    document.getElementById('successOverlay').classList.add('active');
+  }, 50);
+}

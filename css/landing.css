@@ -57,7 +57,8 @@
   font-weight: 700;
   color: #fff;
   letter-spacing: -0.02em;
-  margin-right: 60px; /* Space between logo and links */
+  margin-right: 60px;
+  /* Space between logo and links */
   height: 25px;
   display: flex;
   align-items: center;
@@ -113,7 +114,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 140px; /* Pushed down as requested */
+  padding-top: 140px;
+  /* Pushed down as requested */
   padding-bottom: 102px;
   gap: 40px;
   text-align: center;
@@ -177,7 +179,8 @@
   color: rgba(255, 255, 255, 0.7);
   max-width: 680px;
   line-height: 1.6;
-  margin: -16px auto 0; /* Gap 24px from heading (40px base - 16px overlap) */
+  margin: -16px auto 0;
+  /* Gap 24px from heading (40px base - 16px overlap) */
 }
 
 /* Responsive Breakpoints */
@@ -191,15 +194,15 @@
   .web3-nav {
     padding: 20px 24px;
   }
-  
+
   .web3-nav-links {
     display: none;
   }
-  
+
   .hero-content {
     padding-top: 100px;
   }
-  
+
   .hero-heading {
     font-size: 36px;
     max-width: 100%;
