@@ -3,6 +3,27 @@
 <head>
   <link rel="stylesheet" href="css/globals.css">
   <link rel="stylesheet" href="css/components.css">
+  <style>
+    @media (max-width: 768px) {
+      /* Stack featured project card vertically */
+      .featured-card-grid {
+        grid-template-columns: 1fr !important;
+        min-height: unset !important;
+      }
+      /* Video thumbnail at top, full width */
+      .featured-card-grid > div:first-child {
+        min-height: 240px !important;
+        height: 240px !important;
+      }
+      /* Reduce padding on mobile content area */
+      .featured-card-grid > div:last-child {
+        padding: 24px !important;
+      }
+      /* Prevent projects outer grid overflow */
+      .w3-container { padding: 0 16px; }
+      main.w3-container { padding-top: 100px !important; }
+    }
+  </style>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -143,10 +164,10 @@
     </p>
 
     <!-- Projects Grid -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 24px; margin-bottom: 80px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 80px;">
       
       <!-- FEATURED PROJECT (Full width) -->
-      <div class="w3-card" style="grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 0; overflow: hidden; background: rgba(255,255,255,0.02); min-height: 400px; position: relative;">
+      <div class="w3-card featured-card-grid" style="grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 0; overflow: hidden; background: rgba(255,255,255,0.02); min-height: 400px; position: relative;">
         <!-- Left Side: Image -->
         <div style="width: 100%; height: 100%; min-height: 300px; display: flex; align-items: center; justify-content: center; position: relative;">
             <div style="position: absolute; top: 20px; left: 20px; background: white; color: black; font-size: 11px; font-weight: bold; padding: 4px 12px; border-radius: 20px; z-index: 10;">FEATURED</div>
