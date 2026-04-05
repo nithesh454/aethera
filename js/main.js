@@ -32,6 +32,33 @@ function initNavbar() {
     });
   }
 
+  // Hamburger menu for Web3 Nav
+  const hamburger = document.querySelector('.hamburger');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+    });
+
+    // Close menu when a link is clicked
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('open');
+      });
+    });
+    
+    // Optional overlay logic if overlay is used outside the menu
+    const overlay = document.querySelector('.mobile-overlay');
+    if (overlay) {
+      overlay.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('open');
+      });
+    }
+  }
+
   // Navbar scroll effect
   const navbar = document.querySelector('.navbar');
   if (navbar) {
@@ -46,7 +73,7 @@ function initNavbar() {
 
   // Set active page
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.navbar-links a').forEach(a => {
+  document.querySelectorAll('.navbar-links a, .web3-nav-links a, .mobile-menu a').forEach(a => {
     const href = a.getAttribute('href');
     if (href === currentPage || (currentPage === '' && href === 'index.html')) {
       a.classList.add('active');

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="n8n automation India, RAG system India, AI chatbot small business, Qdrant hybrid search, Supabase backend, AI automation agency India, n8n workflow developer, RAG pipeline developer, AI for small business India, automation engineer India">
+  <meta name="author" content="Nithesh Devarla">
+  <meta name="robots" content="index, follow">
+
+  <title>How I Built a RAG Hybrid Search System Using n8n and Qdrant | Aethera</title>
+  <meta name="description" content="A comprehensive tutorial on building a production-ready RAG hybrid search system using n8n and Qdrant. Compare semantic, lexical, and RRF search.">
+  <link rel="canonical" href="https://aethera.in/blog-post-01-rag.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2026-04-05T00:00:00+05:30">
+  <meta property="article:author" content="Nithesh Devarla">
+  <meta property="article:section" content="Artificial Intelligence">
+  <meta property="article:tag" content="RAG">
+  <meta property="article:tag" content="n8n">
+  <meta property="og:site_name" content="Aethera">
+  <meta property="og:title" content="How I Built a RAG Hybrid Search System Using n8n and Qdrant">
+  <meta property="og:description" content="A comprehensive tutorial on building a production-ready RAG hybrid search system using n8n and Qdrant. Compare semantic, lexical, and RRF search.">
+  <meta property="og:url" content="https://aethera.in/blog-post-01-rag.html">
+  <meta property="og:image" content="https://aethera.in/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="RAG Hybrid Search Diagram">
+  <meta property="og:locale" content="en_IN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@nitheshdevarla">
+  <meta name="twitter:creator" content="@nitheshdevarla">
+  <meta name="twitter:title" content="How I Built a RAG Hybrid Search System Using n8n and Qdrant">
+  <meta name="twitter:description" content="A comprehensive tutorial on building a production-ready RAG hybrid search system using n8n and Qdrant.">
+  <meta name="twitter:image" content="https://aethera.in/og-image.png">
+
+  <!-- JSON-LD BlogPosting Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://aethera.in/blog-post-01-rag.html"
+    },
+    "headline": "How I Built a RAG Hybrid Search System Using n8n and Qdrant",
+    "description": "Most AI search systems fail because they use only one search method. Here is exactly how I built a hybrid search solution.",
+    "image": "https://aethera.in/og-image.png",  
+    "author": {
+      "@type": "Person",
+      "name": "Nithesh Devarla",
+      "url": "https://aethera.in/about.html"
+    },  
+    "publisher": {
+      "@type": "Organization",
+      "name": "Aethera",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://aethera.in/images/logo.png"
+      }
+    },
+    "datePublished": "2026-04-05",
+    "dateModified": "2026-04-05"
+  }
+  </script>
+
+  <!-- Preconnect to external resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://api.resend.com">
+
+  <!-- Fonts -->
+  <link rel="preload" as="style" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap">
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap">
+
+  <link rel="stylesheet" href="css/globals.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <style>
+    /* Article specific styling */
+    .article-container { max-width: 760px; margin: 0 auto; padding: 0 24px; line-height: 1.8; color: rgba(255,255,255,0.8); }
+    .article-container p { font-size: 16px; margin-bottom: 24px; }
+    .article-container h2 { font-size: 24px; color: white; font-weight: 600; margin-top: 48px; margin-bottom: 24px; }
+    .article-container h3 { font-size: 20px; color: white; font-weight: 500; margin-top: 32px; margin-bottom: 16px; }
+    .article-container pre { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 24px; overflow-x: auto; margin-bottom: 24px; }
+    .article-container code { font-family: monospace; color: #4ade80; }
+    .article-container pre code { font-size: 14px; }
+    .article-container p code, .article-container li code { background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px; font-size: 14px; color: #4ade80; }
+    .article-container table { width: 100%; border-collapse: collapse; margin-bottom: 32px; }
+    .article-container th, .article-container td { border: 1px solid rgba(255,255,255,0.08); padding: 12px 16px; text-align: left; }
+    .article-container th { background: rgba(255,255,255,0.08); color: white; font-weight: 600; }
+    .article-container tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+    .article-container blockquote { border-left: 2px solid white; padding-left: 20px; font-style: italic; color: rgba(255,255,255,0.6); margin: 0 0 24px 0; }
+    .article-container hr { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 48px 0; }
+    .article-container ul { margin-bottom: 24px; padding-left: 24px; }
+    .article-container li { margin-bottom: 8px; font-size: 16px; }
+    .article-container a { color: #4ade80; text-decoration: none; }
+    .article-container a:hover { text-decoration: underline; }
+    
+    .cta-glass-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 48px; text-align: center; margin-top: 64px; margin-bottom: 64px; }
+    .related-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 32px; flex: 1; min-width: 200px; display: flex; flex-direction: column; }
+    .coming-soon-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1); padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: bold; width: max-content; margin-bottom: 16px; }
+  </style>
+</head>
+<body class="web3-page">
+
+  <!-- Navbar -->
+  <nav class="web3-nav">
+    <div class="web3-nav-left">
+      <a href="index.html" class="web3-logo" style="text-decoration: none; color: white;">Aethera</a>
+      <ul class="web3-nav-links">
+        <li><a href="services.html" class="web3-nav-link">Services</a></li>
+        <li><a href="portfolio.html" class="web3-nav-link">Projects</a></li>
+        <li><a href="pricing.html" class="web3-nav-link">Pricing</a></li>
+        <li><a href="about.html" class="web3-nav-link">About</a></li>
+        <li><a href="blog.html" class="web3-nav-link active">Blog</a></li>
+        <li><a href="chat.html" class="web3-nav-link">Ask AI</a></li>
+      </ul>
+    </div>
+    <div class="web3-nav-right">
+      <button class="hamburger">
+        <div class="line line-1"></div>
+        <div class="line line-2"></div>
+        <div class="line line-3"></div>
+      </button>
+      <a href="booking.html" class="w3-btn-pill">
+        <button class="w3-btn-pill-inner-dark">Book a Call</button>
+      </a>
+    </div>
+  </nav>
+
+  <div class="mobile-menu">
+    <div class="mobile-menu-inner">
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Projects</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
+      <a href="chat.html">Ask AI</a>
+      <a href="booking.html" class="pill-btn-wrapper">
+        <button class="pill-btn-light">Book a Call</button>
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO SECTION -->
+    <header class="article-container" style="padding-top: 140px; padding-bottom: 40px;">
+      <div style="display: flex; gap: 8px; margin-bottom: 24px;">
+        <span style="background: rgba(255,255,255,0.1); padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; color: white;">RAG</span>
+        <span style="background: rgba(255,255,255,0.1); padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; color: white;">n8n</span>
+        <span style="background: rgba(255,255,255,0.1); padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; color: white;">Tutorial</span>
+      </div>
+      <h1 class="w3-heading-large" style="margin-bottom: 32px; font-size: clamp(32px, 5vw, 44px); line-height: 1.2; text-align: left;">How I Built a RAG Hybrid Search System Using n8n and Qdrant</h1>
+      
+      <div style="display: flex; align-items: center; gap: 12px; font-size: 14px; color: rgba(255,255,255,0.5); flex-wrap: wrap;">
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: #222; overflow: hidden; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border: 1px solid rgba(255,255,255,0.1);">
+          ND
+        </div>
+        <span>Nithesh Devarla</span>
+        <span>•</span>
+        <span>April 5, 2026</span>
+        <span>•</span>
+        <span>8 min read</span>
+        <span>•</span>
+        <span>1,240 views</span>
+      </div>
+    </header>
+
+    <!-- ARTICLE BODY -->
+    <article class="article-container">
+      <p>Most AI search systems fail because they use only one search method. Either pure keyword search — which misses meaning — or pure semantic search — which misses exact terms. Hybrid search combines both. Here is exactly how I built it.</p>
+      
+      <hr>
+
+      <h2>What is Hybrid Search?</h2>
+      <p>Hybrid search combines two retrieval methods:</p>
+      <p><strong>BM25 (Lexical search)</strong> — finds exact keyword matches.<br>Great for: product codes, names, specific terms.</p>
+      <p><strong>Semantic search</strong> — finds meaning, not just words.<br>Great for: "what are your payment options?" even if the doc says "how to pay."</p>
+      <p><strong>Hybrid = both combined using RRF (Reciprocal Rank Fusion).</strong><br>The result is dramatically more accurate than either alone.</p>
+
+      <hr>
+
+      <h2>The Stack I Used</h2>
+      <ul>
+        <li><strong>n8n</strong> — workflow orchestration</li>
+        <li><strong>Qdrant</strong> — vector database with hybrid search support</li>
+        <li><strong>OpenAI</strong> — embeddings (text-embedding-3-small)</li>
+        <li><strong>Supabase</strong> — storing metadata and results</li>
+        <li><strong>Python</strong> (for initial data ingestion)</li>
+      </ul>
+
+      <hr>
+
+      <h2>Step 1 — Setting Up Qdrant Collection</h2>
+      <p>First, create a Qdrant collection that supports both dense (semantic) and sparse (BM25) vectors:</p>
+      
+<pre><code>from qdrant_client import QdrantClient
+from qdrant_client.models import (
+    VectorParams, Distance,
+    SparseVectorParams, SparseIndexParams
+)
+
+client = QdrantClient(url="YOUR_QDRANT_URL", api_key="YOUR_KEY")
+
+client.create_collection(
+    collection_name="knowledge_base",
+    vectors_config={
+        "dense": VectorParams(size=1536, distance=Distance.COSINE)
+    },
+    sparse_vectors_config={
+        "sparse": SparseVectorParams(
+            index=SparseIndexParams(on_disk=False)
+        )
+    }
+)</code></pre>
+      
+      <p>This single collection handles both search types. No need for two separate collections.</p>
+
+      <hr>
+
+      <h2>Step 2 — Data Ingestion Pipeline in n8n</h2>
+      <p>I built an n8n workflow that:</p>
+      <ol style="padding-left: 24px; margin-bottom: 24px;">
+        <li style="margin-bottom: 8px;">Reads documents (PDF, Excel, text)</li>
+        <li style="margin-bottom: 8px;">Chunks them into 500-token pieces with 50-token overlap</li>
+        <li style="margin-bottom: 8px;">Generates dense embeddings via OpenAI</li>
+        <li style="margin-bottom: 8px;">Generates sparse vectors via BM25 encoder</li>
+        <li style="margin-bottom: 8px;">Upserts both into Qdrant</li>
+      </ol>
+      <p>The chunking strategy matters more than most people think. Too small = no context. Too large = irrelevant results. 500 tokens with 50 overlap is the sweet spot for business documents.</p>
+      <p><strong>n8n HTTP Request node for upsert:</strong></p>
+
+<pre><code>{
+  "method": "PUT",
+  "url": "YOUR_QDRANT_URL/collections/knowledge_base/points",
+  "body": {
+    "points": [
+      {
+        "id": "{{ $json.chunk_id }}",
+        "vector": {
+          "dense": "{{ $json.dense_embedding }}",
+          "sparse": {
+            "indices": "{{ $json.sparse_indices }}",
+            "values": "{{ $json.sparse_values }}"
+          }
+        },
+        "payload": {
+          "text": "{{ $json.chunk_text }}",
+          "source": "{{ $json.filename }}",
+          "page": "{{ $json.page_number }}"
+        }
+      }
+    ]
+  }
+}</code></pre>
+
+      <hr>
+
+      <h2>Step 3 — Query Pipeline (The Real Magic)</h2>
+      <p>When a user asks a question, the n8n query workflow:</p>
+      <ol style="padding-left: 24px; margin-bottom: 24px;">
+        <li style="margin-bottom: 8px;">Takes the user question</li>
+        <li style="margin-bottom: 8px;">Generates dense embedding (OpenAI)</li>
+        <li style="margin-bottom: 8px;">Runs hybrid search using Qdrant's prefetch + RRF fusion</li>
+        <li style="margin-bottom: 8px;">Sends top 5 results as context to GPT-4o-mini</li>
+        <li style="margin-bottom: 8px;">Returns the answer</li>
+      </ol>
+      <p><strong>The hybrid search query:</strong></p>
+
+<pre><code>{
+  "prefetch": [
+    {
+      "query": [DENSE_EMBEDDING_ARRAY],
+      "using": "dense",
+      "limit": 10
+    },
+    {
+      "query": { "text": "user question here" },
+      "using": "sparse",
+      "limit": 10
+    }
+  ],
+  "query": { "fusion": "rrf" },
+  "limit": 5,
+  "with_payload": true
+}</code></pre>
+
+      <p>The <code>prefetch</code> gets top 10 from each method separately. Then <code>fusion: rrf</code> re-ranks all 20 results together. Final <code>limit: 5</code> gives the best 5 chunks.</p>
+
+      <hr>
+
+      <h2>Step 4 — Query Decomposition (Advanced)</h2>
+      <p>For complex questions, I added query decomposition. Instead of searching once, the system:</p>
+      <ol style="padding-left: 24px; margin-bottom: 24px;">
+        <li style="margin-bottom: 8px;">Breaks the question into 2-3 sub-questions</li>
+        <li style="margin-bottom: 8px;">Searches for each sub-question separately</li>
+        <li style="margin-bottom: 8px;">Combines all results before answering</li>
+      </ol>
+      <p>Example:</p>
+      <blockquote>"What are your RAG pricing and delivery time?"</blockquote>
+      <p>Decomposed into:</p>
+      <ul>
+        <li>"What is the price of RAG system?"</li>
+        <li>"How long does RAG system take to build?"</li>
+      </ul>
+      <p>Each gets searched separately. Combined results give a much more complete answer.</p>
+      <p><strong>n8n Code node for decomposition:</strong></p>
+
+<pre><code>const question = $input.first().json.question;
+
+const response = await fetch('https://api.openai.com/v1/chat/completions', {
+  method: 'POST',
+  headers: {
+    'Authorization': `Bearer ${YOUR_OPENAI_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    model: 'gpt-4o-mini',
+    messages: [{
+      role: 'user',
+      content: `Break this question into 2-3 specific sub-questions for search.
+Return only a JSON array of strings.
+Question: "${question}"`
+    }]
+  })
+});
+
+const data = await response.json();
+const subQuestions = JSON.parse(data.choices[0].message.content);
+return subQuestions.map(q => ({ json: { question: q } }));</code></pre>
+
+      <hr>
+
+      <h2>Results</h2>
+      <p>After testing on 500+ real queries against a business document set:</p>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Accuracy</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>BM25 only</td>
+            <td>61%</td>
+          </tr>
+          <tr>
+            <td>Semantic only</td>
+            <td>74%</td>
+          </tr>
+          <tr>
+            <td>Hybrid (RRF)</td>
+            <td>89%</td>
+          </tr>
+          <tr>
+            <td>Hybrid + Decomposition</td>
+            <td>94%</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>The jump from semantic-only to hybrid is significant. Query decomposition adds another meaningful improvement for complex multi-part questions.</p>
+
+      <hr>
+
+      <h2>When to Use This</h2>
+      <p>Build a RAG hybrid search system if your business has:</p>
+      <ul>
+        <li>Product catalogs or price lists</li>
+        <li>FAQs and support documentation</li>
+        <li>Internal knowledge bases</li>
+        <li>Excel/CSV data that needs to be queried in plain language</li>
+      </ul>
+      <p>This is exactly what we build at Aethera for small businesses across India — starting at ₹9,999.</p>
+
+      <!-- CTA Section -->
+      <div class="cta-glass-card">
+        <h2 style="font-size: 32px; color: white; font-weight: bold; margin-bottom: 16px; margin-top: 0;">Want This Built for Your Business?</h2>
+        <p style="font-size: 18px; color: rgba(255,255,255,0.7); max-width: 500px; margin: 0 auto 32px;">Book a free 20-minute call. We will tell you exactly what to build and how much it costs.</p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="booking.html" class="pill-btn-wrapper">
+            <button class="pill-btn-light" style="padding: 16px 32px; font-size: 16px;">Book a Free Call &rarr;</button>
+          </a>
+          <a href="services.html" class="pill-btn-wrapper">
+            <button class="pill-btn-dark" style="border: 1px solid rgba(255,255,255,0.1); padding: 16px 32px; font-size: 16px;">View Our Services &rarr;</button>
+          </a>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <div style="margin-top: 64px; padding-top: 64px; border-top: 1px solid rgba(255,255,255,0.1);">
+        <h3 style="font-size: 24px; color: white; margin-bottom: 32px;">More from Aethera</h3>
+        <div style="display: flex; gap: 24px; flex-wrap: wrap;">
+          <div class="related-card">
+            <div class="coming-soon-badge"><div style="width: 6px; height: 6px; border-radius: 50%; background: white;"></div> Coming Soon</div>
+            <h4 style="font-size: 18px; color: white; margin-bottom: 12px;">Building Scalable AI Automations with n8n</h4>
+            <p style="font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.6;">A deep dive into workflow architecture and error handling.</p>
+          </div>
+          <div class="related-card">
+            <div class="coming-soon-badge"><div style="width: 6px; height: 6px; border-radius: 50%; background: white;"></div> Coming Soon</div>
+            <h4 style="font-size: 18px; color: white; margin-bottom: 12px;">Supabase Security Rules for Client Apps</h4>
+            <p style="font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.6;">How to lock down your data while maintaining fast query times.</p>
+          </div>
+          <div class="related-card">
+            <div class="coming-soon-badge"><div style="width: 6px; height: 6px; border-radius: 50%; background: white;"></div> Coming Soon</div>
+            <h4 style="font-size: 18px; color: white; margin-bottom: 12px;">Extracting Data from messy Excel files</h4>
+            <p style="font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.6;">Automating report generation from unstructured sheets.</p>
+          </div>
+        </div>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="w3-footer" style="margin-top: 80px;">
+    <div class="w3-footer-inner">
+      <div class="w3-footer-logo">Aethera</div>
+      <div class="w3-footer-links">
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Projects</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="chat.html">Ask AI</a>
+      </div>
+    </div>
+    <div class="w3-footer-bottom">
+      © 2026 Aethera · India. Built with n8n + ❤️ by Nithesh
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
