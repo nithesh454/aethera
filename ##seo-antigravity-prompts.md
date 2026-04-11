@@ -101,7 +101,7 @@ SCHEMA 1 — Organization (add on ALL pages):
   },
   "sameAs": [
     "https://github.com/nitheshdevarla",
-    "https://linkedin.com/in/nitheshdevarla"
+    "https://www.linkedin.com/in/nithesh-devarla-7a887a358?utm_source=share_via&utm_content=profile&utm_medium=member_android"
   ]
 }
 
