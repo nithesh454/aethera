@@ -323,12 +323,6 @@ function initForms() {
   const newsletterForm = document.getElementById('newsletter-form');
   const newsletterSuccess = document.getElementById('newsletter-success-state');
   const newsletterHeader = document.getElementById('newsletter-header');
-  
-  if (newsletterForm && newsletterSuccess && localStorage.getItem('hasSubscribed') === 'true') {
-    newsletterForm.style.display = 'none';
-    if (newsletterHeader) newsletterHeader.style.display = 'none';
-    newsletterSuccess.style.display = 'flex';
-  }
 
   if (newsletterForm) {
     newsletterForm.addEventListener('submit', async (e) => {
@@ -353,7 +347,6 @@ function initForms() {
         if (error) {
           console.error("Supabase Error Details:", error);
           if (error.code === '23505') { // Unique violation
-            localStorage.setItem('hasSubscribed', 'true');
             showToast('You are already subscribed!', 'info');
             
             // Show success state
@@ -364,7 +357,6 @@ function initForms() {
             throw error;
           }
         } else {
-          localStorage.setItem('hasSubscribed', 'true');
           showToast('Subscribed securely! Incoming soon.', 'success');
           
           // Show success state
