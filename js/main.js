@@ -318,6 +318,52 @@ function initForms() {
       }
     });
   }
+
+  // Handle Newsletter Form
+  const newsletterForm = document.getElementById('newsletter-form');
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const btn = newsletterForm.querySelector('button[type="submit"]');
+      const originalText = btn.innerHTML;
+      btn.textContent = 'Subscribing...';
+      btn.style.opacity = '0.7';
+      btn.disabled = true;
+
+      try {
+        if (!window.supabaseClient) throw new Error("Supabase client not initialized.");
+
+        const formData = new FormData(newsletterForm);
+        const email = formData.get('email');
+
+        const { data, error } = await window.supabaseClient
+          .from('subscribers')
+          .insert([{ email: email, source: 'blog_page' }]);
+
+        if (error) {
+          console.error("Supabase Error Details:", error);
+          if (error.code === '23505') { // Unique violation
+            showToast('You are already subscribed!', 'info');
+          } else {
+            throw error;
+          }
+        } else {
+          showToast('Subscribed securely! Incoming soon.', 'success');
+        }
+        
+        newsletterForm.reset();
+        
+      } catch (err) {
+        console.error('Error submitting newsletter form:', err);
+        showToast('Something went wrong. Please try again.', 'error');
+      } finally {
+        btn.innerHTML = originalText;
+        btn.style.opacity = '1';
+        btn.disabled = false;
+      }
+    });
+  }
 }
 
 
