@@ -5,21 +5,10 @@
   <link rel="stylesheet" href="css/components.css">
   <style>
     @media (max-width: 768px) {
-      /* Stack featured project card vertically */
-      .featured-card-grid {
-        grid-template-columns: 1fr !important;
-        min-height: unset !important;
-      }
-      /* Video thumbnail at top, full width */
-      .featured-card-grid > div:first-child {
-        min-height: 240px !important;
-        height: 240px !important;
-      }
-      /* Reduce padding on mobile content area */
+      /* Reduce padding on content area for mobile */
       .featured-card-grid > div:last-child {
-        padding: 24px !important;
+        padding: 20px !important;
       }
-      /* Prevent projects outer grid overflow */
       .w3-container { padding: 0 16px; }
       main.w3-container { padding-top: 100px !important; }
     }
@@ -107,48 +96,45 @@
 </head>
 <body class="web3-page">
 
-  <nav class="web3-nav">
+  <nav class="web3-nav" style="position:relative;">
     <div class="web3-nav-left">
       <a href="index.html" class="web3-logo" style="text-decoration: none; color: white;">Aethera</a>
       <ul class="web3-nav-links">
         <li><a href="services.html" class="web3-nav-link">Services</a></li>
-        <li><a href="portfolio.html" class="web3-nav-link active">Projects</a></li>
+        <li><a href="portfolio.html" class="web3-nav-link">Projects</a></li>
         <li><a href="pricing.html" class="web3-nav-link">Pricing</a></li>
         <li><a href="about.html" class="web3-nav-link">About</a></li>
         <li><a href="blog.html" class="web3-nav-link">Blog</a></li>
-          <li>
-            <a href="chat.html" class="web3-nav-link">
-              Ask AI
-            </a>
-          </li>
         <li><a href="chat.html" class="web3-nav-link">Ask AI</a></li>
       </ul>
     </div>
-    <div class="web3-nav-right">
-              <button class="hamburger">
-          <div class="line line-1"></div>
-          <div class="line line-2"></div>
-          <div class="line line-3"></div>
-        </button>
-        <a href="booking.html" class="w3-btn-pill">
-        <button class="w3-btn-pill-inner-dark">Book a Call</button>
+        <div class="web3-nav-right">
+      <button class="hamburger" aria-label="Toggle navigation menu">
+        <div class="line line-1"></div>
+        <div class="line line-2"></div>
+        <div class="line line-3"></div>
+      </button>
+      <a href="booking.html" class="pill-btn-wrapper">
+        <button class="pill-btn-dark">Book a Call</button>
       </a>
     </div>
   </nav>
 
     <div class="mobile-menu">
       <div class="mobile-menu-inner">
-        <a href="services.html">Services</a>
-        <a href="portfolio.html">Projects</a>
         <a href="pricing.html">Pricing</a>
-        <a href="about.html">About</a>
+        <a href="portfolio.html">Projects</a>
         <a href="blog.html">Blog</a>
         <a href="chat.html">Ask AI</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
         <a href="booking.html" class="pill-btn-wrapper">
           <button class="pill-btn-light">Book a Call</button>
         </a>
       </div>
     </div>
+
+
 
 
   <main class="w3-container" style="padding-top: 80px;">
@@ -166,24 +152,24 @@
     <!-- Projects Grid -->
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 80px;">
       
-      <!-- FEATURED PROJECT (Full width) -->
-      <div class="w3-card featured-card-grid" style="grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 0; overflow: hidden; background: rgba(255,255,255,0.02); min-height: 400px; position: relative;">
-        <!-- Left Side: Image -->
-        <div style="width: 100%; height: 100%; min-height: 300px; display: flex; align-items: center; justify-content: center; position: relative;">
-            <div style="position: absolute; top: 20px; left: 20px; background: white; color: black; font-size: 11px; font-weight: bold; padding: 4px 12px; border-radius: 20px; z-index: 10;">FEATURED</div>
-            <video src="videos/kli_brands.mp4" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9"></video>
+      <!-- FEATURED PROJECT (Full width, stacked layout) -->
+      <div class="w3-card featured-card-grid" style="grid-column: 1 / -1; display: flex; flex-direction: column; padding: 0; overflow: hidden; background: rgba(255,255,255,0.02); border-radius: 16px; position: relative;">
+        <!-- Video: full width, visible aspect ratio -->
+        <div style="width: 100%; position: relative; overflow: hidden; border-radius: 16px 16px 0 0;">
+          <div style="position: absolute; top: 16px; left: 16px; background: white; color: black; font-size: 11px; font-weight: bold; padding: 4px 12px; border-radius: 20px; z-index: 10;">FEATURED</div>
+          <div style="position: absolute; top: 16px; right: 16px; display: inline-flex; align-items: center; gap: 6px; color: #4ade80; font-size: 12px; font-weight: 600; background: rgba(0,0,0,0.6); padding: 4px 10px; border-radius: 20px; z-index: 10;">
+            <div style="width: 6px; height: 6px; background: #4ade80; border-radius: 50%; box-shadow: 0 0 8px #4ade80;"></div> LIVE
+          </div>
+          <video src="videos/portfolio-demo.mp4" autoplay loop muted playsinline style="width: 100%; height: auto; display: block; object-fit: contain;"></video>
         </div>
         
-        <!-- Right Side: Content -->
-        <div style="padding: 40px; display: flex; flex-direction: column; justify-content: center;">
-          <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 16px;">
+        <!-- Content below video -->
+        <div style="padding: 32px 40px;">
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;">
             <span style="font-size: 12px; background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2);">n8n</span>
             <span style="font-size: 12px; background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2);">Supabase</span>
-            <span style="font-size: 12px; background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2);">Dashboard</span>
-            
-            <div style="display: inline-flex; align-items: center; gap: 6px; margin-left: auto; color: #4ade80; font-size: 12px; font-weight: 600; background: rgba(74, 222, 128, 0.1); padding: 4px 10px; border-radius: 20px;">
-              <div style="width: 6px; height: 6px; background: #4ade80; border-radius: 50%; box-shadow: 0 0 8px #4ade80;"></div> LIVE
-            </div>
+            <span style="font-size: 12px; background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2);">RAG</span>
+            <span style="font-size: 12px; background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2);">E-Commerce</span>
           </div>
           
           <h3 style="font-size: 28px; font-weight: 500; margin-bottom: 16px; color: white;">RAG Search + E-Commerce</h3>
@@ -191,7 +177,7 @@
             Complete n8n AI backend for KLI Brands. Full production system with authentication, analytics dashboard, real-time data, and custom AI features. Currently live.
           </p>
           
-          <div style="display: flex; gap: 20px;">
+          <div style="display: flex; gap: 20px; flex-wrap: wrap;">
             <a href="https://sites.google.com/view/kli-backend/home" target="_blank" style="color: white; font-weight: 500; text-decoration: underline;">View Case Study &rarr;</a>
             <a href="https://klibrand.vercel.app/auth.html" target="_blank" style="color: white; font-weight: 500; text-decoration: underline;">Visit Live App &rarr;</a>
           </div>
