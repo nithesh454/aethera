@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initSmoothScroll();
   initForms();
+  initStatsCounter();
 });
 
 // ================================================================
@@ -102,6 +103,45 @@ function initScrollReveal() {
   });
 
   revealEls.forEach(el => observer.observe(el));
+}
+
+
+// ================================================================
+// STATS COUNTER ANIMATION
+// ================================================================
+function initStatsCounter() {
+  const counters = document.querySelectorAll('.stat-counter');
+  if (!counters.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(counter => observer.observe(counter));
+}
+
+function animateCounter(el) {
+  const target = parseInt(el.getAttribute('data-target'));
+  const duration = 2000; // 2 seconds
+  const stepTime = 20; // 20ms steps
+  const steps = duration / stepTime;
+  const increment = target / steps;
+  let current = 0;
+
+  const timer = setInterval(() => {
+    current += increment;
+    if (current >= target) {
+      el.textContent = target === 0 ? "0" : target.toLocaleString();
+      clearInterval(timer);
+    } else {
+      el.textContent = Math.floor(current).toLocaleString();
+    }
+  }, stepTime);
 }
 
 
