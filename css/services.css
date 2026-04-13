@@ -1,167 +1,242 @@
 /* ============================================================
-   AETHERA — Services Page (Minimalist)
+   SERVICES PAGE STYLES
+   Handling Filtering, Featured Cards, and Specialized Visuals
    ============================================================ */
 
-.services-header {
-  padding: 140px 24px 60px;
-  text-align: center;
-  background: var(--bg-primary);
-}
-
-.services-header .breadcrumb {
-  font-size: 13px;
-  color: var(--text-muted);
-  margin-bottom: 16px;
-  font-weight: 400;
-}
-
-.services-header .breadcrumb a { color: var(--accent-light); }
-
-.services-header h1 {
-  font-size: 44px;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: var(--text-primary);
-  margin-bottom: 8px;
-}
-
-.services-header p {
-  font-size: 16px;
-  color: var(--text-secondary);
-  font-weight: 400;
-  text-transform: none;
-  letter-spacing: 0;
-}
-
-.services-filter { padding: 0 24px; margin-bottom: 48px; }
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  padding: 0 24px 80px;
-  max-width: var(--container-max);
-  margin: 0 auto;
-}
-
-.service-card {
-  position: relative;
-  padding: 28px 24px 72px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-}
-
-.service-card:hover {
-  border-color: var(--border-hover);
-  background: var(--bg-card-hover);
-}
-
-.service-card .stamp-icon {
-  width: 52px;
-  height: 52px;
-  border: none;
-  border-radius: var(--radius-sm);
-  background: var(--accent-glow);
+/* 1. FILTER BAR */
+.filter-container {
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 24px;
-  margin-bottom: 16px;
-  color: var(--text-primary);
-  opacity: 1;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 60px;
 }
 
-.service-card h3 {
-  font-family: var(--font-sans);
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 8px;
-}
-
-.service-card .service-desc {
-  font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 16px;
-}
-
-.service-card .features-list { list-style: none; margin-bottom: 16px; }
-
-.service-card .features-list li {
+.filter-pill {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+  padding: 8px 18px;
+  border-radius: 999px;
   font-size: 13px;
-  color: var(--text-secondary);
-  padding: 4px 0;
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-}
-
-.service-card .features-list li::before {
-  content: '✓';
-  color: var(--accent-green);
-  font-weight: 600;
-  flex-shrink: 0;
-}
-
-.service-card .price-tag {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-}
-
-.service-card .order-btn-wrapper {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-.service-card .btn-order {
-  width: 100%;
-  padding: 14px;
-  background: var(--accent);
-  border: none;
-  border-radius: 0 0 var(--radius-md) var(--radius-md);
-  font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 600;
-  color: white;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
-  text-transform: none;
-  letter-spacing: 0;
 }
 
-.service-card .btn-order:hover { background: var(--accent-dark); }
-
-.services-bottom-cta {
-  padding: 80px 24px;
-  text-align: center;
-  background: var(--bg-secondary);
-  border-top: 1px solid var(--border);
+.filter-pill:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
-.services-bottom-cta h2 {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 8px;
+.filter-pill.active {
+  background: white;
+  color: black;
+  border-color: white;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
 }
 
-.services-bottom-cta p {
-  font-size: 16px;
-  color: var(--text-secondary);
-  margin-bottom: 28px;
-  max-width: 440px;
+/* 2. GRID LAYOUT EXTENSIONS */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.featured-full-width {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 1100px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .featured-full-width {
+    flex-direction: column !important;
+    gap: 30px !important;
+    padding: 30px !important;
+  }
+
+  .featured-full-width .arch-stack {
+    max-width: 100% !important;
+    margin-top: 20px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .featured-full-width div[style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
+
+/* 3. CARD INTERNAL COMPONENTS */
+
+/* Meta Tags & Badges */
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.tag-pill {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Stats Comparison (Service 5) */
+.stats-comparator {
+  margin-top: 20px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat-row {
+  margin-bottom: 12px;
+}
+
+.stat-row:last-child { margin-bottom: 0; }
+
+.stat-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 6px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.stat-bar-bg {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.stat-bar-fill {
+  height: 100%;
+  background: #fff;
+  border-radius: 2px;
+  opacity: 0.4;
+}
+
+.stat-bar-fill.highlight {
+  opacity: 1;
+  box-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+/* Workflow Diagram (Service 6) */
+.workflow-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 25px 0;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+}
+
+.wf-node {
+  font-size: 10px;
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  white-space: nowrap;
+  color: #fff;
+}
+
+.wf-arrow {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 12px;
+}
+
+/* Architecture Stack (Service 7) */
+.arch-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin: 30px 0;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 16px;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.desk-bell { font-size: 40px; display: block; margin-bottom: 20px; animation: bounce 2s ease infinite; }
+.arch-box {
+  width: 100%;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+  position: relative;
+}
 
-@media (max-width: 768px) {
-  .services-grid { grid-template-columns: 1fr; }
-  .services-header h1 { font-size: 32px; }
+.arch-box.wide {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.arch-sub-box {
+  flex: 1;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.arch-connector {
+  height: 12px;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Filtering Utility */
+.service-card.hidden {
+  display: none !important;
+}
+
+.badge-most-complex {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  padding: 4px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.1em;
 }

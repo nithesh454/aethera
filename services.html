@@ -3,14 +3,15 @@
 <head>
   <link rel="stylesheet" href="css/globals.css">
   <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/services.css">
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>AI Data Intelligence Services | Excel Chatbots & RAG Systems — Aethera</title>
-  <meta name="description" content="Transform buried PDFs and messy Excel sheets into instant answers. AI Document Intelligence, RAG systems, and custom automation for global businesses. Starting from $99.">
-  <meta name="keywords" content="AI document search, Excel AI search, RAG system business, large data search AI, business data automation, real estate AI search, wholesale data management, n8n automation, Qdrant search, AI analytics dashboard">
+  <title>AI Data Intelligence Services | RAG Systems & Full-Stack AI — Aethera</title>
+  <meta name="description" content="Production-grade RAG systems, n8n automation pipelines, and full-stack AI backends. Transform messy data into instant answers with hybrid search and real-time dashboards.">
+  <meta name="keywords" content="RAG system, hybrid search, n8n automation, AI backend development, Supabase AI, Qdrant hybrid search, enterprise AI search, document intelligence, analytics dashboard">
   <link rel="canonical" href="https://aethera.in/services.html">
 
   <!-- JSON-LD Service Schema -->
@@ -58,6 +59,30 @@
             "@type": "Service",
             "name": "Automation Backend",
             "description": "Custom n8n workflows for WhatsApp, email, and operation sync."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Production RAG System",
+            "description": "Enterprise-grade Retrieval Augmented Generation with hybrid search accuracy."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "n8n RAG Pipelines",
+            "description": "Custom n8n workflows connecting RAG intelligence to WhatsApp, Slack, and CRMs."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Full Stack AI Backend",
+            "description": "Complete production-ready AI infrastructure: Database, RAG, Automation, and API."
           }
         }
       ]
@@ -114,38 +139,49 @@
 
   <main class="w3-container" style="padding-top: 100px; padding-bottom: 120px;">
     <!-- HERO -->
-    <div style="text-align: center; margin-bottom: 80px;">
-      <div class="badge-pill">● 4 Core Solutions</div>
+    <div style="text-align: center; margin-bottom: 60px;">
+      <div class="badge-pill">● AI & Data Intelligence</div>
       <h1 class="w3-heading-large text-gradient">Pick Your Data Problem.<br>We'll Build the Solution.</h1>
       <p class="w3-text-muted" style="max-width: 600px; margin: 0 auto;">
         Every system is custom built for your data, your industry, and your team's workflow.
       </p>
     </div>
 
+    <!-- FILTER BAR -->
+    <div class="filter-container">
+      <button class="filter-pill active" data-filter="all">All</button>
+      <button class="filter-pill" data-filter="document-search">Document Search</button>
+      <button class="filter-pill" data-filter="excel-data">Excel & Data</button>
+      <button class="filter-pill" data-filter="rag-systems">RAG Systems</button>
+      <button class="filter-pill" data-filter="n8n-workflows">n8n Workflows</button>
+      <button class="filter-pill" data-filter="dashboards">Dashboards</button>
+      <button class="filter-pill" data-filter="full-backend">Full Backend</button>
+    </div>
+
     <!-- SERVICES GRID -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 32px; margin-bottom: 100px;">
+    <div class="services-grid">
       
       <!-- SERVICE 1 -->
-      <div class="w3-card reveal" style="display: flex; flex-direction: column;">
-        <div style="color:rgba(255,255,255,0.4); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 15px;">Document Intelligence</div>
-        <h3 style="color: white; font-size: 24px; font-weight: 500; margin-bottom: 15px;">Buried in PDFs nobody can search?</h3>
-        <p class="w3-text-muted" style="font-size: 15px; margin-bottom: 25px; flex: 1;">
+      <div class="w3-card service-card reveal" data-category="document-search" style="display: flex; flex-direction: column;">
+        <div style="color:rgba(255,255,255,0.4); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 15px;">Document Intelligence</div>
+        <h3 style="color: white; font-size: 22px; font-weight: 500; margin-bottom: 15px;">Buried in PDFs nobody can search?</h3>
+        <p class="w3-text-muted" style="font-size: 14px; margin-bottom: 25px; flex: 1;">
           We build an AI that reads every document you have and answers questions instantly. Sources cited for every answer.
         </p>
         <div style="background: rgba(255,255,255,0.03); border-radius: 12px; padding: 20px; margin-bottom: 25px;">
-           <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-             <span style="color: white; font-size: 14px;">Price:</span>
-             <span style="color: white; font-weight: 600; font-size: 14px;">Starting $149 / ₹12,999</span>
+           <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+             <span style="color: rgba(255,255,255,0.6); font-size: 13px;">Price:</span>
+             <span style="color: white; font-weight: 600; font-size: 13px;">Starting $149 / ₹12,999</span>
            </div>
            <div style="display: flex; justify-content: space-between;">
-             <span style="color: rgba(255,255,255,0.6); font-size: 13px;">Delivery:</span>
-             <span style="color: rgba(255,255,255,0.6); font-size: 13px;">10-14 days</span>
+             <span style="color: rgba(255,255,255,0.6); font-size: 12px;">Delivery:</span>
+             <span style="color: rgba(255,255,255,0.6); font-size: 12px;">10-14 days</span>
            </div>
         </div>
-        <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 30px;">
-          <li style="font-size: 14px; color: rgba(255,255,255,0.8);">✓ Search across 10,000+ documents</li>
-          <li style="font-size: 14px; color: rgba(255,255,255,0.8);">✓ Answers in plain English</li>
-          <li style="font-size: 14px; color: rgba(255,255,255,0.8);">✓ Works with scanned PDFs too</li>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 30px; padding-left: 0;">
+          <li style="font-size: 13px; color: rgba(255,255,255,0.8);">✓ Search across 10,000+ documents</li>
+          <li style="font-size: 13px; color: rgba(255,255,255,0.8);">✓ Answers in plain English</li>
+          <li style="font-size: 13px; color: rgba(255,255,255,0.8);">✓ Works with scanned PDFs too</li>
         </ul>
         <a href="booking.html" class="w3-btn-pill">
           <div class="w3-btn-pill-inner-light">Get Started →</div>
@@ -153,26 +189,26 @@
       </div>
 
       <!-- SERVICE 2 -->
-      <div class="w3-card reveal" style="display: flex; flex-direction: column;">
-        <div style="color:rgba(255,255,255,0.4); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 15px;">Excel & Table Data</div>
-        <h3 style="color: white; font-size: 24px; font-weight: 500; margin-bottom: 15px;">Drowning in spreadsheets nobody can navigate?</h3>
-        <p class="w3-text-muted" style="font-size: 15px; margin-bottom: 25px; flex: 1;">
+      <div class="w3-card service-card reveal" data-category="excel-data" style="display: flex; flex-direction: column;">
+        <div style="color:rgba(255,255,255,0.4); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 15px;">Excel & Table Data</div>
+        <h3 style="color: white; font-size: 22px; font-weight: 500; margin-bottom: 15px;">Drowning in spreadsheets nobody can navigate?</h3>
+        <p class="w3-text-muted" style="font-size: 14px; margin-bottom: 25px; flex: 1;">
           We build an AI chatbot that searches your Excel data and answers questions like a human. Handles millions of rows.
         </p>
         <div style="background: rgba(255,255,255,0.03); border-radius: 12px; padding: 20px; margin-bottom: 25px;">
-           <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-             <span style="color: white; font-size: 14px;">Price:</span>
-             <span style="color: white; font-weight: 600; font-size: 14px;">Starting $99 / ₹8,999</span>
+           <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+             <span style="color: rgba(255,255,255,0.6); font-size: 13px;">Price:</span>
+             <span style="color: white; font-weight: 600; font-size: 13px;">Starting $99 / ₹8,999</span>
            </div>
            <div style="display: flex; justify-content: space-between;">
-             <span style="color: rgba(255,255,255,0.6); font-size: 13px;">Delivery:</span>
-             <span style="color: rgba(255,255,255,0.6); font-size: 13px;">7-10 days</span>
+             <span style="color: rgba(255,255,255,0.6); font-size: 12px;">Delivery:</span>
+             <span style="color: rgba(255,255,255,0.6); font-size: 12px;">7-10 days</span>
            </div>
         </div>
-        <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 30px;">
-          <li style="font-size: 14px; color: rgba(255,255,255,0.8);">✓ Handles 2,00,000+ rows</li>
-          <li style="font-size: 14px; color: rgba(255,255,255,0.8);">✓ Natural language queries</li>
-          <li style="font-size: 14px; color: rgba(255,255,255,0.8);">✓ Works with CSV & Sheets</li>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 30px; padding-left: 0;">
+          <li style="font-size: 13px; color: rgba(255,255,255,0.8);">✓ Handles 2,00,000+ rows</li>
+          <li style="font-size: 13px; color: rgba(255,255,255,0.8);">✓ Natural language queries</li>
+          <li style="font-size: 13px; color: rgba(255,255,255,0.8);">✓ Works with CSV & Sheets</li>
         </ul>
         <a href="booking.html" class="w3-btn-pill">
           <div class="w3-btn-pill-inner-light">Get Started →</div>
@@ -180,26 +216,26 @@
       </div>
 
       <!-- SERVICE 3 -->
-      <div class="w3-card reveal" style="display: flex; flex-direction: column;">
-        <div style="color:rgba(255,255,255,0.4); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 15px;">Live Analytics</div>
-        <h3 style="color: white; font-size: 24px; font-weight: 500; margin-bottom: 15px;">Making decisions on last week's data?</h3>
-        <p class="w3-text-muted" style="font-size: 15px; margin-bottom: 25px; flex: 1;">
+      <div class="w3-card service-card reveal" data-category="dashboards" style="display: flex; flex-direction: column;">
+        <div style="color:rgba(255,255,255,0.4); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 15px;">Live Analytics</div>
+        <h3 style="color: white; font-size: 22px; font-weight: 500; margin-bottom: 15px;">Making decisions on last week's data?</h3>
+        <p class="w3-text-muted" style="font-size: 14px; margin-bottom: 25px; flex: 1;">
           We build a live dashboard that shows your business data updating in real time. Sales, revenue, inventory.
         </p>
         <div style="background: rgba(255,255,255,0.03); border-radius: 12px; padding: 20px; margin-bottom: 25px;">
-           <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-             <span style="color: white; font-size: 14px;">Price:</span>
-             <span style="color: white; font-weight: 600; font-size: 14px;">Starting $129 / ₹10,999</span>
+           <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+             <span style="color: rgba(255,255,255,0.6); font-size: 13px;">Price:</span>
+             <span style="color: white; font-weight: 600; font-size: 13px;">Starting $129 / ₹10,999</span>
            </div>
            <div style="display: flex; justify-content: space-between;">
-             <span style="color: rgba(255,255,255,0.6); font-size: 13px;">Delivery:</span>
-             <span style="color: rgba(255,255,255,0.6); font-size: 13px;">14-21 days</span>
+             <span style="color: rgba(255,255,255,0.6); font-size: 12px;">Delivery:</span>
+             <span style="color: rgba(255,255,255,0.6); font-size: 12px;">14-21 days</span>
            </div>
         </div>
-        <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 30px;">
-          <li style="font-size: 14px; color: rgba(255,255,255,0.8);">✓ Real-time data sync</li>
-          <li style="font-size: 14px; color: rgba(255,255,255,0.8);">✓ Custom KPIs & Charts</li>
-          <li style="font-size: 14px; color: rgba(255,255,255,0.8);">✓ Mobile responsive access</li>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 30px; padding-left: 0;">
+          <li style="font-size: 13px; color: rgba(255,255,255,0.8);">✓ Real-time data sync</li>
+          <li style="font-size: 13px; color: rgba(255,255,255,0.8);">✓ Custom KPIs & Charts</li>
+          <li style="font-size: 13px; color: rgba(255,255,255,0.8);">✓ Mobile responsive access</li>
         </ul>
         <a href="booking.html" class="w3-btn-pill">
           <div class="w3-btn-pill-inner-light">Get Started →</div>
@@ -207,36 +243,184 @@
       </div>
 
       <!-- SERVICE 4 -->
-      <div class="w3-card reveal" style="display: flex; flex-direction: column;">
-        <div style="color:rgba(255,255,255,0.4); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 15px;">Automation Backend</div>
-        <h3 style="color: white; font-size: 24px; font-weight: 500; margin-bottom: 15px;">Doing the same tasks manually every day?</h3>
-        <p class="w3-text-muted" style="font-size: 15px; margin-bottom: 25px; flex: 1;">
+      <div class="w3-card service-card reveal" data-category="n8n-workflows" style="display: flex; flex-direction: column;">
+        <div style="color:rgba(255,255,255,0.4); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 15px;">Automation Backend</div>
+        <h3 style="color: white; font-size: 22px; font-weight: 500; margin-bottom: 15px;">Doing the same tasks manually every day?</h3>
+        <p class="w3-text-muted" style="font-size: 14px; margin-bottom: 25px; flex: 1;">
           We automate your repetitive operations — alerts, follow-ups, data sync, reports — all running without anyone touching them.
         </p>
         <div style="background: rgba(255,255,255,0.03); border-radius: 12px; padding: 20px; margin-bottom: 25px;">
-           <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-             <span style="color: white; font-size: 14px;">Price:</span>
-             <span style="color: white; font-weight: 600; font-size: 14px;">Starting $89 / ₹7,499</span>
+           <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+             <span style="color: rgba(255,255,255,0.6); font-size: 13px;">Price:</span>
+             <span style="color: white; font-weight: 600; font-size: 13px;">Starting $89 / ₹7,499</span>
            </div>
            <div style="display: flex; justify-content: space-between;">
-             <span style="color: rgba(255,255,255,0.6); font-size: 13px;">Delivery:</span>
-             <span style="color: rgba(255,255,255,0.6); font-size: 13px;">7-14 days</span>
+             <span style="color: rgba(255,255,255,0.6); font-size: 12px;">Delivery:</span>
+             <span style="color: rgba(255,255,255,0.6); font-size: 12px;">7-14 days</span>
            </div>
         </div>
-        <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 30px;">
-          <li style="font-size: 14px; color: rgba(255,255,255,0.8);">✓ WhatsApp & Email automation</li>
-          <li style="font-size: 14px; color: rgba(255,255,255,0.8);">✓ Source code transparency</li>
-          <li style="font-size: 14px; color: rgba(255,255,255,0.8);">✓ n8n based workflows</li>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 30px; padding-left: 0;">
+          <li style="font-size: 13px; color: rgba(255,255,255,0.8);">✓ WhatsApp & Email automation</li>
+          <li style="font-size: 13px; color: rgba(255,255,255,0.8);">✓ Source code transparency</li>
+          <li style="font-size: 13px; color: rgba(255,255,255,0.8);">✓ n8n based workflows</li>
         </ul>
         <a href="booking.html" class="w3-btn-pill">
           <div class="w3-btn-pill-inner-light">Get Started →</div>
         </a>
       </div>
 
+      <!-- SERVICE 5: RAG System -->
+      <div class="w3-card service-card reveal" data-category="rag-systems" style="display: flex; flex-direction: column;">
+        <div class="badge-pill" style="margin-bottom: 15px; background: rgba(255,255,255,0.05);">RAG ● Qdrant ● Hybrid</div>
+        <h3 style="color: white; font-size: 22px; font-weight: 500; margin-bottom: 15px;">Generic AI gives wrong answers from your data?</h3>
+        <p class="w3-text-muted" style="font-size: 14px; margin-bottom: 20px; flex: 1;">
+          We build a production-grade RAG system using hybrid search — BM25 + Semantic — so your AI finds the RIGHT information every single time. Not approximate. Exact.
+        </p>
+
+        <!-- Stats row inside card -->
+        <div class="stats-comparator">
+          <div class="stat-row">
+            <div class="stat-label"><span>BM25 alone</span> <span>61%</span></div>
+            <div class="stat-bar-bg"><div class="stat-bar-fill" style="width: 61%;"></div></div>
+          </div>
+          <div class="stat-row">
+            <div class="stat-label"><span>Semantic alone</span> <span>74%</span></div>
+            <div class="stat-bar-bg"><div class="stat-bar-fill" style="width: 74%;"></div></div>
+          </div>
+          <div class="stat-row">
+            <div class="stat-label" style="color: #fff; font-weight: 500;"><span>Our Hybrid RAG</span> <span>94%</span></div>
+            <div class="stat-bar-bg"><div class="stat-bar-fill highlight" style="width: 94%;"></div></div>
+          </div>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.03); border-radius: 12px; padding: 20px; margin: 20px 0;">
+           <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+             <span style="color: rgba(255,255,255,0.6); font-size: 13px;">Price:</span>
+             <span style="color: white; font-weight: 600; font-size: 13px;">Starting $199 / ₹16,999</span>
+           </div>
+           <div style="display: flex; justify-content: space-between;">
+             <span style="color: rgba(255,255,255,0.6); font-size: 12px;">Delivery:</span>
+             <span style="color: rgba(255,255,255,0.6); font-size: 12px;">14-21 days</span>
+           </div>
+        </div>
+
+        <div class="card-tags">
+          <span class="tag-pill">Qdrant</span>
+          <span class="tag-pill">BM25</span>
+          <span class="tag-pill">Semantic</span>
+          <span class="tag-pill">Reranking</span>
+          <span class="tag-pill">n8n</span>
+        </div>
+
+        <a href="booking.html" class="w3-btn-pill" style="margin-top: 25px;">
+          <div class="w3-btn-pill-inner-light">Build Your RAG →</div>
+        </a>
+      </div>
+
+      <!-- SERVICE 6: n8n RAG Workflows -->
+      <div class="w3-card service-card reveal" data-category="rag-systems n8n-workflows" style="display: flex; flex-direction: column;">
+        <div class="badge-pill" style="margin-bottom: 15px; background: rgba(255,255,255,0.05);">n8n ● RAG ● Automation</div>
+        <h3 style="color: white; font-size: 22px; font-weight: 500; margin-bottom: 15px;">Need RAG but also want it connected to your tools?</h3>
+        <p class="w3-text-muted" style="font-size: 14px; margin-bottom: 20px; flex: 1;">
+          We build custom n8n workflows that connect your RAG system to everything — WhatsApp, email, Slack, CRMs, and APIs. One question triggers a full intelligent pipeline.
+        </p>
+
+        <!-- Workflow Diagram -->
+        <div class="workflow-diagram">
+          <div class="wf-node">WhatsApp</div>
+          <div class="wf-arrow">→</div>
+          <div class="wf-node">n8n</div>
+          <div class="wf-arrow">→</div>
+          <div class="wf-node">Qdrant</div>
+          <div class="wf-arrow">→</div>
+          <div class="wf-node">OpenAI</div>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.03); border-radius: 12px; padding: 20px; margin: 20px 0;">
+           <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+             <span style="color: rgba(255,255,255,0.6); font-size: 13px;">Price:</span>
+             <span style="color: white; font-weight: 600; font-size: 13px;">Starting $149 / ₹12,999</span>
+           </div>
+           <div style="display: flex; justify-content: space-between;">
+             <span style="color: rgba(255,255,255,0.6); font-size: 12px;">Delivery:</span>
+             <span style="color: rgba(255,255,255,0.6); font-size: 12px;">10-14 days</span>
+           </div>
+        </div>
+
+        <div class="card-tags">
+          <span class="tag-pill">n8n</span>
+          <span class="tag-pill">Webhooks</span>
+          <span class="tag-pill">WhatsApp</span>
+          <span class="tag-pill">CRM Sync</span>
+        </div>
+
+        <a href="booking.html" class="w3-btn-pill" style="margin-top: 25px;">
+          <div class="w3-btn-pill-inner-light">Automate RAG →</div>
+        </a>
+      </div>
+
+      <!-- SERVICE 7: Full AI Backend (Full-width) -->
+      <div class="w3-card service-card featured-full-width reveal" data-category="full-backend" style="display: flex; flex-direction: row; gap: 40px; align-items: flex-start; position: relative;">
+        <div class="badge-most-complex">MOST COMPLETE</div>
+        
+        <!-- Left: Content -->
+        <div style="flex: 1;">
+          <div class="badge-pill" style="margin-bottom: 15px; background: rgba(255,255,255,0.05);">Full Stack ● Production ● End-to-End</div>
+          <h3 style="color: white; font-size: 28px; font-weight: 500; margin-bottom: 15px;">Need the whole thing — database, AI, automation, and dashboard?</h3>
+          <p class="w3-text-muted" style="font-size: 15px; margin-bottom: 30px;">
+            We design and build your complete AI backend from scratch. Supabase database, RAG search, n8n automation workflows, real-time dashboard, and API layer — all production ready, all yours. Full source code ownership.
+          </p>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 35px;">
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; padding-left: 0;">
+              <li style="font-size: 14px; color: rgba(255,255,255,0.8);">✓ Full Supabase schema design</li>
+              <li style="font-size: 14px; color: rgba(255,255,255,0.8);">✓ RAG hybrid search system</li>
+              <li style="font-size: 14px; color: rgba(255,255,255,0.8);">✓ n8n automation layer</li>
+              <li style="font-size: 14px; color: rgba(255,255,255,0.8);">✓ Real-time analytics dashboard</li>
+            </ul>
+            <div style="background: rgba(255,255,255,0.03); border-radius: 12px; padding: 25px;">
+               <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                 <span style="color: rgba(255,255,255,0.6); font-size: 14px;">Price:</span>
+                 <span style="color: white; font-weight: 600; font-size: 16px;">Starting $499 / ₹42,999</span>
+               </div>
+               <div style="display: flex; justify-content: space-between;">
+                 <span style="color: rgba(255,255,255,0.6); font-size: 13px;">Delivery:</span>
+                 <span style="color: rgba(255,255,255,0.6); font-size: 13px;">25-40 days</span>
+               </div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 16px;">
+            <a href="booking.html" class="w3-btn-pill">
+              <div class="w3-btn-pill-inner-light">Book Strategy Call</div>
+            </a>
+            <a href="portfolio.html" class="w3-btn-outline">
+              See Full Scope →
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Architecture Visual (Hidden on mobile) -->
+        <div class="arch-stack" style="flex: 1; max-width: 400px; padding: 30px; margin-top: 0;">
+          <div class="arch-box">Website / Dashboard</div>
+          <div class="arch-connector"></div>
+          <div class="arch-box">REST API Layer</div>
+          <div class="arch-connector"></div>
+          <div class="arch-box wide">
+            <div class="arch-sub-box">Supabase DB</div>
+            <div class="arch-sub-box">Qdrant RAG</div>
+          </div>
+          <div class="arch-connector"></div>
+          <div class="arch-box">n8n Automation</div>
+          <div class="arch-connector"></div>
+          <div class="arch-box" style="background: rgba(255,255,255,0.1);">Your Enterprise Data</div>
+        </div>
+      </div>
+
     </div>
 
     <!-- BOTTOM CTA -->
-    <div class="w3-card reveal" style="text-align: center; padding: 60px 24px; border: 1px solid rgba(255,255,255,0.05);">
+    <div class="w3-card reveal" style="text-align: center; padding: 60px 24px; border: 1px solid rgba(255,255,255,0.05); margin-top: 80px;">
        <h2 style="color: white; font-size: 32px; font-weight: 500; margin-bottom: 15px;">Not sure which one fits your problem?</h2>
        <p class="w3-text-muted" style="max-width: 600px; margin: 0 auto 35px;">
          Describe your data challenges to us. We'll analyze your workflow and recommend the system that will save you the most time.
@@ -265,5 +449,6 @@
 
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/services.js"></script>
 </body>
 </html>
