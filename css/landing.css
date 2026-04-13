@@ -232,38 +232,16 @@
 .tech-ticker-wrapper {
   position: relative;
   width: 100%;
-  padding: 40px 0;
-  background: #000; /* Solid background since it's now outside hero */
+  padding: 60px 0;
+  background: #000;
   overflow: hidden;
   z-index: 10;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-
-.tech-ticker-wrapper::before,
-.tech-ticker-wrapper::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 25%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.tech-ticker-wrapper::before {
-  left: 0;
-  background: linear-gradient(to right, #000 20%, transparent 100%);
-}
-
-.tech-ticker-wrapper::after {
-  right: 0;
-  background: linear-gradient(to left, #000 20%, transparent 100%);
 }
 
 .tech-ticker-track {
   display: flex;
   width: max-content;
-  animation: tech-scroll 60s linear infinite; /* Much slower, majestic float */
+  animation: tech-scroll 60s linear infinite;
   align-items: center;
 }
 
@@ -274,10 +252,10 @@
 .tech-item {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 0 80px;
+  gap: 20px;
+  padding: 0 100px;
   color: rgba(255, 255, 255, 0.85);
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 500;
   letter-spacing: 0.02em;
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s;
@@ -287,7 +265,7 @@
 
 .tech-item img {
   display: block;
-  height: 40px;
+  height: 48px;
   width: auto;
   object-fit: contain;
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
