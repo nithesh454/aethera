@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aethera For Real Estate | AI & Automation Solutions</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preload" as="style" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap">
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap">
+  
+  <link rel="stylesheet" href="css/globals.css">
+  <link rel="stylesheet" href="css/components.css">
+  
+  <style>
+    body { background: #000; color: #FFF; font-family: var(--font-general), sans-serif; overflow-x: hidden;}
+    
+    .breadcrumb { padding: 120px 24px 20px 24px; max-width: 1200px; margin: 0 auto; color: rgba(255,255,255,0.5); font-size: 13px; font-weight: 500; }
+    .breadcrumb a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    .breadcrumb a:hover { color: white; }
+    
+    .hero-section { max-width: 1200px; margin: 0 auto; padding: 20px 24px 80px 24px; display: grid; gap: 40px; }
+    @media(min-width: 900px) { .hero-section { grid-template-columns: 1fr 1fr; align-items: center; } }
+    
+    .hero-h1 { font-family: var(--font-general); font-size: clamp(40px, 6vw, 64px); font-weight: bold; line-height: 1.1; margin: 0 0 24px 0; letter-spacing: -0.02em; }
+    .hero-p { font-size: 20px; color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 40px; max-width: 500px; }
+    
+    .sticky-nav-wrap { position: sticky; top: 80px; z-index: 100; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.8); backdrop-filter: blur(12px); padding: 16px 24px; }
+    .sticky-nav { max-width: 1200px; margin: 0 auto; display: flex; gap: 16px; overflow-x: auto; scrollbar-width: none; }
+    .sticky-nav::-webkit-scrollbar { display: none; }
+    .sticky-pill { white-space: nowrap; padding: 8px 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 100px; color: rgba(255,255,255,0.8); font-size: 13px; text-decoration: none; font-weight: 500; transition: all 0.2s; }
+    .sticky-pill:hover, .sticky-pill.active { background: white; color: black; }
+
+    .problem-strip { padding: 100px 24px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .problem-strip:nth-child(even) { background: rgba(255,255,255,0.02); }
+    
+    .strip-content { max-width: 1200px; margin: 0 auto; display: grid; gap: 40px; }
+    @media(min-width: 900px) { .strip-content { grid-template-columns: 1fr 1fr; align-items: start; gap: 80px;} }
+    
+    .problem-tag { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 24px; }
+    .problem-title { font-size: clamp(28px, 4vw, 40px); font-weight: bold; color: white; margin: 0 0 24px 0; line-height: 1.2; }
+    .problem-desc { font-size: 18px; color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 32px; }
+    
+    .solution-box { background: rgba(124,58,237,0.05); border-left: 3px solid #7C3AED; padding: 24px; border-radius: 0 8px 8px 0; }
+    .solution-title { font-size: 14px; font-weight: bold; color: white; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .solution-list { padding-left: 16px; margin: 0; color: rgba(255,255,255,0.8); font-size: 15px; }
+    .solution-list li { margin-bottom: 8px; }
+    
+    .price-tag { display: inline-block; background: rgba(255,255,255,0.1); border-radius: 4px; padding: 4px 8px; font-family: monospace; color: white; font-size: 13px; margin-top: 24px; }
+
+    .bottom-cta { max-width: 800px; margin: 120px auto; padding: 64px 24px; text-align: center; border-radius: 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.1); }
+  </style>
+</head>
+<body class="web3-page">
+
+  <nav class="web3-nav">
+    <div class="web3-nav-left">
+      <a href="index.html" class="web3-logo">Aethera</a>
+      <ul class="web3-nav-links">
+        <li><a href="services.html" class="web3-nav-link">Solutions</a></li>
+        <li><a href="industry-real-estate.html" class="web3-nav-link active">Industries</a></li>
+        <li><a href="portfolio.html" class="web3-nav-link">Projects</a></li>
+        <li><a href="pricing.html" class="web3-nav-link">Pricing</a></li>
+        <li><a href="blog.html" class="web3-nav-link">Blog</a></li>
+        <li><a href="chat.html" class="web3-nav-link">Ask AI</a></li>
+        <li><a href="about.html" class="web3-nav-link">About</a></li>
+      </ul>
+    </div>
+    <div class="web3-nav-right">
+      <button class="hamburger" aria-label="Toggle navigation menu">
+        <div class="line line-1"></div>
+        <div class="line line-2"></div>
+        <div class="line line-3"></div>
+      </button>
+      <a href="booking.html" class="pill-btn-wrapper">
+        <button class="pill-btn-light">Book a Free Call</button>
+      </a>
+    </div>
+  </nav>
+
+  <div class="mobile-menu">
+    <div class="mobile-menu-inner">
+      <a href="services.html">Solutions</a>
+      <a href="industry-real-estate.html">Industries</a>
+      <a href="portfolio.html">Projects</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="blog.html">Blog</a>
+      <a href="chat.html">Ask AI</a>
+      <a href="about.html">About</a>
+      <a href="booking.html" class="pill-btn-wrapper">
+        <button class="pill-btn-light">Book a Free Call</button>
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <div class="breadcrumb">
+      <a href="index.html">Aethera</a> &nbsp; / &nbsp; <a href="index.html#industries">Industries</a> &nbsp; / &nbsp; <span style="color: white;">Real Estate</span>
+    </div>
+
+    <section class="hero-section">
+      <div>
+        <h1 class="hero-h1">Built for Real Estate Operations.</h1>
+        <p class="hero-p">From instant lease ingestion to automated lead routing. Production-grade data pipelines built exclusively for developers, aggregators, and massive property managers.</p>
+        <div style="display: flex; gap: 16px; align-items: center;">
+            <a href="booking.html" class="pill-btn-wrapper"><button class="pill-btn-light">Deploy for your portfolio</button></a>
+            <a href="#what-we-solve" style="color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; font-weight: 500;">View all solutions ↓</a>
+        </div>
+      </div>
+      <div>
+        <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 32px;">
+            <div style="font-size: 12px; color: rgba(255,255,255,0.5); text-transform: uppercase; margin-bottom: 24px; font-weight: bold; letter-spacing: 0.05em;">Capabilities Deployed</div>
+            <div style="display: grid; gap: 16px;">
+                <div style="display:flex; justify-content:space-between; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
+                    <span style="color: white; font-weight: 500;">Document Extraction RAG</span>
+                    <span style="color: #7C3AED; font-family: monospace;">Enabled</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
+                    <span style="color: white; font-weight: 500;">WhatsApp n8n Agents</span>
+                    <span style="color: #7C3AED; font-family: monospace;">Enabled</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; padding-bottom: 8px;">
+                    <span style="color: white; font-weight: 500;">Portfolio Unified SQL</span>
+                    <span style="color: #7C3AED; font-family: monospace;">Enabled</span>
+                </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sticky Jump Links -->
+    <div class="sticky-nav-wrap" id="what-we-solve">
+      <div class="sticky-nav">
+        <a href="#leads" class="sticky-pill active">01 Leads</a>
+        <a href="#leases" class="sticky-pill">02 Leases</a>
+        <a href="#tenants" class="sticky-pill">03 Tenants</a>
+        <a href="#maintenance" class="sticky-pill">04 Maintenance</a>
+        <a href="#search" class="sticky-pill">05 App Search</a>
+        <a href="blog-post-03-real-estate.html" class="sticky-pill" style="border-color: #3b82f6; color: #3b82f6;">View all 12 →</a>
+      </div>
+    </div>
+
+    <!-- STRIP 1 -->
+    <section id="leads" class="problem-strip">
+      <div class="strip-content">
+        <div>
+          <div class="problem-tag">Lead Management</div>
+          <h2 class="problem-title">Zero-delay lead engagement via WhatsApp.</h2>
+          <p class="problem-desc">Agencies lose hot leads generated from Facebook or 99acres simply because agents take 2 hours to manually assign them. We intercept webhooks instantly.</p>
+        </div>
+        <div class="solution-box">
+          <div class="solution-title"><span style="background: rgba(34,197,94,0.2); color: #22c55e; padding: 2px 8px; border-radius: 4px; font-size: 11px;">SOLUTION</span> n8n Lead Routing</div>
+          <ul class="solution-list">
+            <li>Catches incoming webhooks 24/7</li>
+            <li>Initiates WhatsApp qualification instantly</li>
+            <li>Classifies Hot/Cold based on replies</li>
+            <li>Routes hot leads directly to available agents</li>
+          </ul>
+          <div class="price-tag">System Build: Rs. 7,499</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STRIP 2 -->
+    <section id="leases" class="problem-strip">
+      <div class="strip-content">
+        <div>
+          <div class="problem-tag">Data Intelligence</div>
+          <h2 class="problem-title">Chat with thousands of complex lease documents.</h2>
+          <p class="problem-desc">Finding specific clauses ("who is responsible for HVAC repairs in the retail unit?") across hundreds of 50-page PDFs is impossible for a human to do reliably.</p>
+        </div>
+        <div class="solution-box">
+          <div class="solution-title"><span style="background: rgba(34,197,94,0.2); color: #22c55e; padding: 2px 8px; border-radius: 4px; font-size: 11px;">SOLUTION</span> Hybrid RAG Search</div>
+          <ul class="solution-list">
+            <li>Ingests every PDF into Qdrant</li>
+            <li>Extracts start/end dates to Supabase</li>
+            <li>Accurate semantic Q&A with deep citations</li>
+            <li>Never hallucinates legal terms</li>
+          </ul>
+          <div class="price-tag">System Build: Rs. 12,999</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STRIP 3 -->
+    <section id="tenants" class="problem-strip">
+      <div class="strip-content">
+        <div>
+          <div class="problem-tag">Operations</div>
+          <h2 class="problem-title">Deflect 80% of repetitive tenant queries.</h2>
+          <p class="problem-desc">Property managers act like physical FAQ boards. "Can I have a pet?", "When is rent due?", "How do I pay?"</p>
+        </div>
+        <div class="solution-box">
+          <div class="solution-title"><span style="background: rgba(34,197,94,0.2); color: #22c55e; padding: 2px 8px; border-radius: 4px; font-size: 11px;">SOLUTION</span> Support Flow Automation</div>
+          <ul class="solution-list">
+            <li>Tenant asks question on WhatsApp</li>
+            <li>Agent checks database for specific lease</li>
+            <li>Instantly answers based ONLY on actual rules</li>
+            <li>Escalates emergencies to humans immediately</li>
+          </ul>
+          <div class="price-tag">System Build: Rs. 12,999</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STRIP 4 -->
+    <section id="maintenance" class="problem-strip">
+      <div class="strip-content">
+        <div>
+          <div class="problem-tag">Workflow</div>
+          <h2 class="problem-title">Vendor dispatch and historical context.</h2>
+          <p class="problem-desc">No context when a repair ticket is opened. You don't know who fixed the plumbing last time or if it's under warranty.</p>
+        </div>
+        <div class="solution-box">
+          <div class="solution-title"><span style="background: rgba(34,197,94,0.2); color: #22c55e; padding: 2px 8px; border-radius: 4px; font-size: 11px;">SOLUTION</span> Supabase Logging</div>
+          <ul class="solution-list">
+            <li>Logs every repair ticket explicitly</li>
+            <li>Triggers automated vendor deployment via WhatsApp</li>
+            <li>Generates structured maintenance timeline</li>
+          </ul>
+          <div class="price-tag">System Build: Rs. 28,000</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STRIP 5 -->
+    <section id="search" class="problem-strip">
+      <div class="strip-content">
+        <div>
+          <div class="problem-tag">Agent Enablement</div>
+          <h2 class="problem-title">Natural language search for scattered property data.</h2>
+          <p class="problem-desc">Agents waste 130 hours a week filtering across 4 different messy Excel sheets to find the exact 3BHK flat an investor wants.</p>
+        </div>
+        <div class="solution-box">
+          <div class="solution-title"><span style="background: rgba(34,197,94,0.2); color: #22c55e; padding: 2px 8px; border-radius: 4px; font-size: 11px;">SOLUTION</span> Excel Custom RAG</div>
+          <ul class="solution-list">
+            <li>Unifies disconnected sheets safely</li>
+            <li>Enables complex text queries ("Under 2 Cr near metro")</li>
+            <li>Returns matching inventory in 2.0 seconds</li>
+          </ul>
+          <div class="price-tag">System Build: Rs. 8,999</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bottom-cta">
+      <div style="font-size: 14px; color: #7C3AED; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px;">The 12 Problem Report</div>
+      <h2 style="font-size: 36px; font-weight: bold; margin-top: 0; color: white;">These are just the first 5...</h2>
+      <p style="font-size: 18px; color: rgba(255,255,255,0.7); margin-bottom: 32px; line-height: 1.6;">We have documented 12 critical failure modes in Real Estate operations, and how AI infrastructure solves them permanently.</p>
+      
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <a href="blog-post-03-real-estate.html" class="pill-btn-wrapper"><button class="pill-btn-light" style="padding: 16px 32px;">Read the Full 12-Problem Report</button></a>
+        <a href="blog-post-02-lease.html" class="pill-btn-wrapper"><button class="pill-btn-dark" style="border: 1px solid rgba(255,255,255,0.1); padding: 16px 32px;">Read the RAG Engineering Deep-dive</button></a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="w3-footer">
+    <div class="w3-footer-inner">
+      <div class="w3-footer-logo">Aethera</div>
+      <div class="w3-footer-links">
+        <a href="services.html">Services</a>
+        <a href="industry-real-estate.html">Industries</a>
+        <a href="portfolio.html">Projects</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="blog.html">Blog</a>
+        <a href="chat.html">Ask AI</a>
+        <a href="about.html">About</a>
+      </div>
+    </div>
+    <div class="w3-footer-bottom" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.05);">
+        <div>© 2026 Aethera. All rights reserved.</div>
+        <div style="display: flex; gap: 16px; align-items: center;">
+          <a href="https://www.linkedin.com/in/nithesh-devarla-7a887a358?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" style="color: rgba(255,255,255,0.5); text-decoration: none; display: flex;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/__aethera__ai/" target="_blank" style="color: rgba(255,255,255,0.5); text-decoration: none; display: flex;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+        </div>
+      </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Sticky pill nav script
+    document.addEventListener('DOMContentLoaded', () => {
+      const pills = document.querySelectorAll('.sticky-pill');
+      const sections = document.querySelectorAll('.problem-strip');
+
+      window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          if (scrollY >= sectionTop - 200) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        pills.forEach(pill => {
+          pill.classList.remove('active');
+          if (pill.getAttribute('href').includes(current)) {
+            pill.classList.add('active');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

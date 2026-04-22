@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Lease & Contract Intelligence: A Full Engineering Breakdown | Aethera</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  
+  <link rel="preload" as="style" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap">
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap">
+  
+  <link rel="stylesheet" href="css/globals.css">
+  <link rel="stylesheet" href="css/components.css">
+  
+  <style>
+    body { background: #000; color: #FFF; font-family: var(--font-general), sans-serif; }
+    
+    .article-hero { max-width: 760px; margin: 0 auto; padding: 140px 24px 0 24px; }
+    .hero-badges span { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); padding: 4px 12px; border-radius: 100px; font-size: 12px; color: white; display: inline-block; margin-right: 8px; margin-bottom: 8px; }
+    .hero-h1 { font-family: var(--font-general); font-weight: bold; font-size: clamp(28px, 4vw, 44px); line-height: 1.2; max-width: 720px; color: white; margin: 24px 0; }
+    
+    .article-layout { display: flex; max-width: 1080px; margin: 64px auto; padding: 0 24px; position: relative; justify-content: center; gap: 40px; }
+    .article-toc { display: none; position: sticky; top: 120px; width: 220px; height: max-content; }
+    .article-toc-title { font-size: 10px; text-transform: uppercase; color: rgba(255,255,255,0.7); letter-spacing: 0.1em; margin-bottom: 16px; }
+    .article-toc a { display: block; font-size: 12px; color: rgba(255,255,255,0.7); line-height: 2; text-decoration: none; padding-left: 12px; border-left: 2px solid transparent; transition: all 0.2s; }
+    .article-toc a:hover, .article-toc a.active { color: white; border-left: 2px solid white; }
+    
+    @media (min-width: 1024px) {
+      .article-toc { display: block; }
+      .article-layout { justify-content: flex-start; }
+    }
+    
+    .article-body { max-width: 680px; width: 100%; color: rgba(255,255,255,0.82); font-size: 16px; line-height: 1.85; }
+    .article-body p { margin-bottom: 24px; }
+    .article-body h2 { font-size: 24px; font-weight: bold; color: white; margin-top: 56px; margin-bottom: 16px; border-left: 3px solid #7C3AED; padding-left: 16px; }
+    .article-body h3 { font-size: 18px; font-weight: 600; color: rgba(255,255,255,0.9); margin-top: 32px; margin-bottom: 16px; }
+    
+    .glass-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 24px; }
+    
+    /* Failure Modes */
+    .failure-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-left: 3px solid #EF4444; border-radius: 12px; padding: 20px 24px; margin-bottom: 16px; }
+    .failure-label { font-size: 10px; text-transform: uppercase; color: #EF4444; margin-bottom: 8px; letter-spacing: 0.05em; font-weight: 600; }
+    
+    .code-block { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 24px; margin-bottom: 24px; overflow-x: auto; font-family: monospace; font-size: 14px; color: #a8ff78; }
+    
+    table { width: 100%; border-collapse: collapse; margin-bottom: 32px; font-size: 14px; }
+    th, td { border: 1px solid rgba(255,255,255,0.08); padding: 12px 16px; text-align: left; }
+    th { background: rgba(124,58,237,0.2); color: white; font-weight: 600; }
+    tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+    
+    /* Architecture Diagram css */
+    .arch-layer { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 24px; margin-bottom: 16px; text-align: center; }
+    .layer-title { font-size: 12px; font-weight: bold; text-transform: uppercase; margin-bottom: 12px; color: white; letter-spacing: 0.1em; }
+    .arch-arrow { text-align: center; color: rgba(255,255,255,0.3); font-size: 20px; margin-bottom: 16px; }
+    
+    .step-item { display: flex; gap: 16px; margin-bottom: 24px; position: relative; }
+    .step-circle { width: 28px; height: 28px; background: #7C3AED; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; flex-shrink: 0; z-index: 2; }
+    .step-line { position: absolute; left: 14px; top: 28px; bottom: -24px; width: 1px; background: rgba(255,255,255,0.1); z-index: 1; }
+    .step-item:last-child .step-line { display: none; }
+    
+    .pricing-cta { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.1); border-top: 2px solid #7C3AED; border-radius: 16px; padding: 48px; text-align: center; margin-top: 64px; }
+  </style>
+</head>
+<body class="web3-page">
+
+  <!-- Navbar -->
+  <nav class="web3-nav">
+    <div class="web3-nav-left">
+      <a href="index.html" class="web3-logo">Aethera</a>
+      <ul class="web3-nav-links">
+        <li><a href="services.html" class="web3-nav-link">Solutions</a></li>
+        <li><a href="industry-real-estate.html" class="web3-nav-link">Industries</a></li>
+        <li><a href="portfolio.html" class="web3-nav-link">Projects</a></li>
+        <li><a href="pricing.html" class="web3-nav-link">Pricing</a></li>
+        <li><a href="blog.html" class="web3-nav-link active">Blog</a></li>
+        <li><a href="chat.html" class="web3-nav-link">Ask AI</a></li>
+        <li><a href="about.html" class="web3-nav-link">About</a></li>
+      </ul>
+    </div>
+    <div class="web3-nav-right">
+      <button class="hamburger" aria-label="Toggle navigation menu">
+        <div class="line line-1"></div>
+        <div class="line line-2"></div>
+        <div class="line line-3"></div>
+      </button>
+      <a href="booking.html" class="pill-btn-wrapper">
+        <button class="pill-btn-light">Book a Free Call</button>
+      </a>
+    </div>
+  </nav>
+
+  <div class="mobile-menu">
+    <div class="mobile-menu-inner">
+      <a href="services.html">Solutions</a>
+      <a href="industry-real-estate.html">Industries</a>
+      <a href="portfolio.html">Projects</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="blog.html">Blog</a>
+      <a href="chat.html">Ask AI</a>
+      <a href="about.html">About</a>
+      <a href="booking.html" class="pill-btn-wrapper">
+        <button class="pill-btn-light">Book a Free Call</button>
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <header class="article-hero">
+      <div class="hero-badges">
+        <span>RAG</span>
+        <span>Architecture</span>
+        <span>Real Estate</span>
+      </div>
+      <h1 class="hero-h1">Lease & Contract Intelligence: A Full Engineering Breakdown</h1>
+      
+      <div style="display: flex; gap: 24px; align-items: center; font-size: 13px; color: rgba(255,255,255,0.7); flex-wrap: wrap;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <div style="width: 24px; height: 24px; background: #333; border-radius: 50%;"></div>
+          <span>Nithesh Devarla</span>
+        </div>
+        <span>·</span>
+        <span>April 2026</span>
+        <span>·</span>
+        <span>13 min read</span>
+        <span>·</span>
+        <span>Deep Dive</span>
+      </div>
+      
+      <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 32px 0;">
+      <p style="font-size: 16px; color: rgba(255,255,255,0.75); font-style: italic;">"Three failure modes. Three architecture layers. One system that actually works in production."</p>
+    </header>
+
+    <div class="article-layout">
+      <!-- Sticky Sidebar -->
+      <aside class="article-toc">
+        <div class="article-toc-title">In This Article</div>
+        <a href="#sec-01">01 — The Actual Problem</a>
+        <a href="#sec-02">02 — Why Common Approach Fails</a>
+        <a href="#sec-03">03 — Correct Architecture</a>
+        <a href="#sec-04">04 — Data Flow End to End</a>
+        <a href="#sec-05">05 — Update Strategy</a>
+        <a href="#sec-06">06 — Supabase Schema</a>
+        <a href="#sec-07">07 — Qdrant Collection</a>
+        <a href="#sec-08">08 — n8n Workflows</a>
+        <a href="#sec-09">09 — Cost & Performance</a>
+        <a href="#sec-10">10 — Production Ready</a>
+      </aside>
+
+      <!-- Main Body -->
+      <article class="article-body">
+        <h2 id="sec-01">SECTION 01 — The Actual Problem</h2>
+        <p>Real estate operations and legal teams often try to implement RAG to answer queries directly from lease and contract documents. It almost always fails in production. Building a prototype on a few PDFs is easy, but making it reliable for an entire residential or commercial portfolio exposes three fatal engineering flaws.</p>
+        
+        <div class="failure-card">
+          <div class="failure-label">FAILURE MODE 01</div>
+          <h3 style="margin-top: 0; font-size: 16px; color: white;">Unstructured Data Has No Query Interface</h3>
+          <p style="margin-bottom: 0; font-size: 14px; color: rgba(255,255,255,0.7);">A lease PDF is unstructured. Keyword search misses clauses because the user searches 'no pets' but the lease says 'animals and domestic creatures are prohibited.' Vector search solves this because it works on meaning, not exact characters.</p>
+        </div>
+
+        <div class="failure-card">
+          <div class="failure-label">FAILURE MODE 02</div>
+          <h3 style="margin-top: 0; font-size: 16px; color: white;">Structured Metadata Mixed Into Unstructured</h3>
+          <p style="margin-bottom: 0; font-size: 14px; color: rgba(255,255,255,0.7);">A lease contains both types. 'Which leases expire in June 2026' should never touch a vector database — that is a SQL query. Routing this through RAG is slower, more expensive, and less accurate.</p>
+        </div>
+
+        <div class="failure-card">
+          <div class="failure-label">FAILURE MODE 03</div>
+          <h3 style="margin-top: 0; font-size: 16px; color: white;">The System Goes Stale After Day One</h3>
+          <p style="margin-bottom: 0; font-size: 14px; color: rgba(255,255,255,0.7);">If you index 500 leases and deploy — it works on day one. On day 60, new leases arrive and old ones expire. Nothing in a static RAG detects this. The solution is an event-driven update pipeline, not a smarter prompt.</p>
+        </div>
+
+        <h2 id="sec-02">SECTION 02 — Why Common Approach Fails</h2>
+        <div class="code-block">
+# COMMON (WRONG) APPROACH:
+PDF uploaded
+→ Extract text
+→ Chunk into 512-token pieces
+→ Embed with OpenAI text-embedding-3-small
+→ Store in Qdrant
+→ Done
+        </div>
+        
+        <table>
+          <thead>
+            <tr>
+              <th>Problem</th>
+              <th>What Goes Wrong</th>
+              <th>Impact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>No structured metadata</td>
+              <td>Expiry dates buried in text</td>
+              <td>Slow inaccurate date filtering</td>
+            </tr>
+            <tr>
+              <td>Full re-index on update</td>
+              <td>Re-index entire collection for one change</td>
+              <td>Expensive, slow, inconsistent</td>
+            </tr>
+            <tr>
+              <td>Semantic search only</td>
+              <td>BM25 ignored. Legal terms missed</td>
+              <td>Accuracy drops to 61-74%</td>
+            </tr>
+            <tr>
+              <td>No staleness detection</td>
+              <td>Index frozen at build time</td>
+              <td>Unreliable within weeks</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 id="sec-03">SECTION 03 — Correct Architecture: Three Layers</h2>
+        <p>To safely deploy contract intelligence into production, we isolate the architecture into three strict layers working in tandem.</p>
+        
+        <div class="arch-layer" style="border-left: 3px solid #AC87C5;">
+          <div class="layer-title" style="color: #AC87C5;">LAYER 01 — STATIC DOCUMENT LAYER (RAG)</div>
+          <p style="font-size: 14px; color: rgba(255,255,255,0.7); font-family: monospace;">PDF → OCR → Chunker → Embedder → Qdrant</p>
+        </div>
+        <div class="arch-arrow">↓</div>
+        
+        <div class="arch-layer" style="border-left: 3px solid #3b82f6;">
+          <div class="layer-title" style="color: #3b82f6;">LAYER 02 — LIVE STRUCTURED LAYER (DATABASE)</div>
+          <p style="font-size: 14px; color: rgba(255,255,255,0.7); font-family: monospace;">Supabase · leases · amendments · alerts</p>
+        </div>
+        <div class="arch-arrow">↓</div>
+        
+        <div class="arch-layer" style="border-left: 3px solid #22c55e;">
+          <div class="layer-title" style="color: #22c55e;">LAYER 03 — AUTOMATION LAYER (EVENT BRAIN)</div>
+          <p style="font-size: 14px; color: rgba(255,255,255,0.7); font-family: monospace;">n8n · Trigger · Router · Notifier · Logger</p>
+        </div>
+
+        <p><strong>Layer 1 (Qdrant)</strong> handles pure unstructured text meaning. <strong>Layer 2 (Supabase)</strong> tracks absolute facts like dates and amounts. <strong>Layer 3 (n8n)</strong> acts as the central nervous system, ensuring any document upload automatically syncs to both databases.</p>
+
+        <h2 id="sec-04">SECTION 04 — Data Flow End to End</h2>
+        <h3>Upload Flow</h3>
+        <div class="step-item">
+          <div class="step-circle">1</div><div class="step-line"></div>
+          <div><strong style="color: white;">Upload:</strong> Property manager uploads lease PDF to storage</div>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">2</div><div class="step-line"></div>
+          <div><strong style="color: white;">Webhook:</strong> Upload triggers n8n webhook automatically</div>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">3</div><div class="step-line"></div>
+          <div><strong style="color: white;">Parse:</strong> n8n calls Document Parser (OCR & SHA-256 hash)</div>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">4</div><div class="step-line"></div>
+          <div><strong style="color: white;">Extract:</strong> Metadata Extractor (LLM) writes SQL to Supabase</div>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">5</div><div class="step-line"></div>
+          <div><strong style="color: white;">Chunking:</strong> Split into 512 tokens, 64 overlap, tagged with lease_id</div>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">6</div><div class="step-line"></div>
+          <div><strong style="color: white;">Vector Embed:</strong> Batch embed + store inside Qdrant</div>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">7</div><div class="step-line"></div>
+          <div><strong style="color: white;">Status:</strong> Update Supabase index_status = 'indexed'</div>
+        </div>
+        
+        <h3>Query Routing Flow</h3>
+        <p>A decision tree instantly routes queries to the optimal database:</p>
+        <div class="code-block" style="text-align: center;">
+Query Classifier (LLM)
+       ↓
+┌──────┴──────┬─────────────┐
+│ Structured? │  Semantic?  │ Both?
+└──────┬──────┴──────┬──────┘   │
+       ↓             ↓          ↓
+    Supabase      Qdrant     Both layers
+    SQL Query     Hybrid     Merge records
+        </div>
+
+        <h2 id="sec-05">SECTION 05 — Update Strategy</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Scenario</th>
+              <th>Detection Method</th>
+              <th>Action</th>
+              <th>Cost Level</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>New lease uploaded</td>
+              <td>Storage webhook</td>
+              <td>Full ingestion pipeline</td>
+              <td style="color: #ef4444; font-weight: bold;">High</td>
+            </tr>
+            <tr>
+              <td>Lease amended</td>
+              <td>Hash comparison</td>
+              <td>Re-embed changed chunks</td>
+              <td style="color: #f97316; font-weight: bold;">Low-Medium</td>
+            </tr>
+            <tr>
+              <td>Status change</td>
+              <td>Supabase webhook</td>
+              <td>Update payload only (no re-embed)</td>
+              <td style="color: #eab308; font-weight: bold;">Very Low</td>
+            </tr>
+            <tr>
+              <td>Expiry approaching</td>
+              <td>Daily n8n schedule</td>
+              <td>WhatsApp + email alert</td>
+              <td style="color: #22c55e; font-weight: bold;">Zero</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="code-block">
+# When amendment arrives:
+1. Parse new document → compute SHA-256 hash
+2. Query Supabase for stored_hash
+3. If hash matches → STOP (no change)
+4. If hash differs:
+   a. Delete ALL vectors for lease_id from Qdrant
+   b. Re-embed full document
+   c. Update Supabase: hash, version += 1
+   d. Log in amendments table
+        </div>
+
+        <h2 id="sec-06">SECTION 06 — Supabase Schema</h2>
+        <div style="font-size: 11px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 8px;">[leases]</div>
+        <div class="code-block">
+CREATE TABLE leases (
+  id UUID PRIMARY KEY,
+  property_id UUID,
+  tenant_name TEXT,
+  start_date DATE,
+  expiry_date DATE,
+  doc_hash TEXT,
+  index_status TEXT DEFAULT 'pending'
+);
+        </div>
+
+        <div style="font-size: 11px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 8px;">[amendments]</div>
+        <div class="code-block">
+CREATE TABLE amendments (
+  id UUID PRIMARY KEY,
+  lease_id UUID REFERENCES leases(id),
+  amendment_date DATE,
+  changes_summary TEXT
+);
+        </div>
+
+        <div style="font-size: 11px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 8px;">[lease_alerts]</div>
+        <div class="code-block">
+CREATE TABLE lease_alerts (
+  lease_id UUID,
+  trigger_date DATE,
+  alert_type TEXT,
+  notified BOOLEAN DEFAULT false
+);
+        </div>
+
+        <h2 id="sec-07">SECTION 07 — Qdrant Collection Design</h2>
+        <div class="code-block">
+# Hybrid search setup in Qdrant
+client.create_collection(
+    collection_name="leases",
+    vectors_config={
+        "dense": VectorParams(size=1536, distance=Distance.COSINE)
+    },
+    sparse_vectors_config={
+        "sparse": SparseVectorParams()
+    }
+)
+        </div>
+        
+        <div style="background: rgba(6,182,212,0.1); border-left: 3px solid #06B6D4; border-radius: 8px; padding: 16px; margin: 24px 0; font-size: 14px;">
+          💡 The hybrid search prefetches top-20 from each method separately, then RRF re-ranks all 40 candidates together. Final limit:5 gives the best performing chunks.
+        </div>
+
+        <h2 id="sec-09">SECTION 09 — Cost & Performance</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Target</th>
+              <th>How Achieved</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Query response</td>
+              <td>Under 2 seconds</td>
+              <td>Pre-computed vectors & fast routing</td>
+            </tr>
+            <tr>
+              <td>Ingestion per lease</td>
+              <td>Under 90 seconds</td>
+              <td>n8n parallel processing</td>
+            </tr>
+            <tr>
+              <td>Amendment lag</td>
+              <td>Under 60 seconds</td>
+              <td>Webhook triggers instantly</td>
+            </tr>
+            <tr style="background: rgba(124,58,237,0.2);">
+              <td>Retrieval accuracy</td>
+              <td>94%+ for clauses</td>
+              <td>Hybrid RRF fusion search</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="border-left: 3px solid #22c55e; background: rgba(34,197,94,0.05); padding: 24px; border-radius: 12px; margin-top: 24px;">
+          <p style="margin:0; text-align:center;">Total infrastructure for 500 leases: approx <strong>Rs. 5,800</strong> to <strong>Rs. 8,300 per month</strong>. At 200 queries per day, the entire system operates within Rs. 10,000 per month.</p>
+        </div>
+
+        <h2 id="sec-10">SECTION 10 — Production Ready</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Concern</th>
+              <th style="color: #ef4444;">Tutorial Approach</th>
+              <th style="color: #22c55e;">Production Approach</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Document Revisions</td>
+              <td>No logic to handle file updates</td>
+              <td>Automatic delta detection using SHA-256 hash</td>
+            </tr>
+            <tr>
+              <td>Data Source</td>
+              <td>Local folder loading</td>
+              <td>Supabase bucket webhooks directly to n8n</td>
+            </tr>
+            <tr>
+              <td>Data Types</td>
+              <td>Text only semantic search</td>
+              <td>Layered Structured (SQL) + Unstructured (RAG)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="pricing-cta">
+          <h2 style="font-size: 32px; color: white; border: none; padding: 0; margin-top: 0;">Want This Built for Your Business?</h2>
+          <p style="font-size: 16px; color: rgba(255,255,255,0.7); max-width: 500px; margin: 0 auto 32px;">Every real estate agency managing 50+ properties has this problem. We build this system custom for your data and deploy it in 10-14 days.</p>
+          <div style="display: flex; gap: 16px; justify-content: center;">
+            <a href="booking.html" class="pill-btn-wrapper"><button class="pill-btn-light">Book a Free Call &rarr;</button></a>
+            <a href="services.html" class="pill-btn-wrapper"><button class="pill-btn-dark" style="border: 1px solid rgba(255,255,255,0.1);">View Our Services &rarr;</button></a>
+          </div>
+          <div style="font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 24px;">RAG Hybrid Search service · Starting Rs. 12,999 · 10-14 day delivery</div>
+        </div>
+
+      </article>
+    </div>
+
+  </main>
+
+  <footer class="w3-footer">
+    <div class="w3-footer-inner">
+      <div class="w3-footer-logo">Aethera</div>
+      <div class="w3-footer-links">
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Projects</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="chat.html">Ask AI</a>
+      </div>
+    </div>
+    <div class="w3-footer-bottom" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.05);">
+      <div>© 2026 Aethera. All rights reserved.</div>
+      <div style="display: flex; gap: 16px; align-items: center;">
+        <a href="https://www.linkedin.com/in/nithesh-devarla-7a887a358?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" style="color: rgba(255,255,255,0.5); text-decoration: none; display: flex;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/__aethera__ai/" target="_blank" style="color: rgba(255,255,255,0.5); text-decoration: none; display: flex;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Simple intersection observer for TOC
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          const id = entry.target.getAttribute('id');
+          const tocLink = document.querySelector(`.article-toc a[href="#${id}"]`);
+          if (entry.intersectionRatio > 0 && tocLink) {
+            document.querySelectorAll('.article-toc a').forEach(a => a.classList.remove('active'));
+            tocLink.classList.add('active');
+          }
+        });
+      }, { rootMargin: '0px 0px -80% 0px' });
+      
+      document.querySelectorAll('h2[id]').forEach(h2 => observer.observe(h2));
+    });
+  </script>
+</body>
+</html>
