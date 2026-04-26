@@ -3,446 +3,1165 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Complete Industry Report: 12 Real Estate Problems Solved by AI | Aethera</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link rel="preload" as="style" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap">
-  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap">
-  
+  <title>Real Estate in 2026: The Seven Industry Problems and Twelve Systems That Solve Them - Aethera</title>
   <link rel="stylesheet" href="css/globals.css">
   <link rel="stylesheet" href="css/components.css">
   
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link rel="preload" as="style" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap">
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap">
+
   <style>
-    body { background: #000; color: #FFF; font-family: var(--font-general), sans-serif; }
-    
-    .article-hero { max-width: 800px; margin: 0 auto; padding: 140px 24px 0 24px; }
-    .hero-badges span { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); padding: 4px 12px; border-radius: 100px; font-size: 12px; color: white; display: inline-block; margin-right: 8px; margin-bottom: 8px; }
-    
-    .hero-h1 { 
-      font-family: var(--font-general); 
-      font-weight: bold; 
-      font-size: clamp(32px, 5vw, 46px); 
-      line-height: 1.2; 
-      max-width: 720px; 
-      color: white; 
-      margin: 24px 0; 
-      background: linear-gradient(to right, #ffffff, #a8a8a8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    body {
+      background-color: #000000;
+      color: #FFFFFF;
+      font-family: 'General Sans', sans-serif;
+      margin: 0;
+      padding: 0;
     }
-    
-    .glass-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; }
-    
-    .toc-card { max-width: 480px; padding: 24px; margin-top: 48px; }
-    .toc-links { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 16px; font-size: 14px; }
-    @media(min-width: 600px) { .toc-links { grid-template-columns: 1fr 1fr; } }
-    .toc-links a { color: rgba(255,255,255,0.7); text-decoration: none; display: flex; gap: 8px; }
-    .toc-links a:hover { color: white; }
-    
-    .problem-section { position: relative; max-width: 800px; margin: 0 auto; padding: 80px 24px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-    .bg-number { position: absolute; top: 40px; left: 16px; font-size: 80px; font-weight: 800; color: rgba(124,58,237,0.08); z-index: 1; pointer-events: none; }
-    
-    .problem-header { position: relative; z-index: 2; margin-bottom: 32px; }
-    .problem-label { font-size: 10px; text-transform: uppercase; color: #AC87C5; letter-spacing: 0.1em; font-weight: bold; margin-bottom: 8px; }
-    .problem-h2 { font-size: clamp(24px, 4vw, 30px); font-weight: bold; color: white; margin: 0; }
-    
-    .problem-body { display: grid; grid-template-columns: 1fr; gap: 40px; position: relative; z-index: 2; }
-    
-    .impact-callout { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-left: 3px solid #EF4444; border-radius: 8px; padding: 20px; font-size: 15px; font-weight: 500; font-style: italic; color: rgba(255,255,255,0.9); margin-top: 24px; }
-    .stat-comparison { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-left: 3px solid #3b82f6; border-radius: 8px; padding: 20px; margin-top: 24px; }
-    
-    .service-box { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-left: 3px solid #7C3AED; border-radius: 8px; padding: 24px; margin-top: 32px; }
-    
-    .solution-steps { padding-left: 20px; color: rgba(255,255,255,0.7); font-size: 15px; margin-top: 16px; }
-    .solution-steps li { margin-bottom: 8px; }
-    
-    table { width: 100%; border-collapse: collapse; margin-bottom: 32px; font-size: 14px; text-align: left; }
-    th, td { border: 1px solid rgba(255,255,255,0.08); padding: 14px 16px; }
-    th { background: rgba(124,58,237,0.2); color: white; font-weight: 600; }
-    tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+
+    .article-container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navbar fixes to remove any glow */
+    .web3-nav { background: transparent !important; box-shadow: none !important; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+    /* Hero */
+    .article-hero {
+      padding-top: 140px;
+      padding-bottom: 60px;
+    }
+
+    .breadcrumb {
+      font-size: 12px;
+      color: rgba(255,255,255,0.50);
+      margin-bottom: 24px;
+    }
+
+    .hero-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.50);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .hero-h1 {
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.15;
+      color: #FFFFFF;
+      margin: 0 0 24px 0;
+    }
+
+    .meta-row {
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.50);
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .hero-divider {
+      border: 0;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      margin: 28px 0;
+      width: 100%;
+    }
+
+    .opening-paragraph {
+      font-size: 18px;
+      color: rgba(255,255,255,0.80);
+      line-height: 1.8;
+      margin-bottom: 60px;
+    }
+
+    /* TOC */
+    .toc-block {
+      max-width: 560px;
+      margin-bottom: 80px;
+    }
+
+    .toc-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.50);
+      margin-bottom: 24px;
+      display: block;
+      letter-spacing: 0.1em;
+    }
+
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 32px 0;
+    }
+
+    .toc-list-title {
+      font-size: 14px;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .toc-item {
+      margin-bottom: 12px;
+      display: flex;
+      gap: 16px;
+    }
+
+    .toc-number {
+      color: rgba(255,255,255,0.50);
+      font-size: 14px;
+      min-width: 24px;
+    }
+
+    .toc-link {
+      color: rgba(255,255,255,0.78);
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .toc-link:hover {
+      color: #FFFFFF;
+      text-decoration: underline;
+    }
+
+    /* Sections */
+    .part-divider {
+      border: 0;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      margin: 64px 0 40px 0;
+      width: 100%;
+    }
+
+    .part-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.50);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .part-h2 {
+      font-size: 32px;
+      color: #FFFFFF;
+      font-weight: 600;
+      margin: 0 0 24px 0;
+      line-height: 1.3;
+    }
+
+    .part-intro {
+      font-size: 16px;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.8;
+      margin-bottom: 60px;
+    }
+
+    /* Problem / Solution Items */
+    .item-block {
+      margin-bottom: 60px;
+    }
+
+    .item-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.50);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .item-h3 {
+      font-size: 26px;
+      color: #FFFFFF;
+      font-weight: 600;
+      margin: 0 0 24px 0;
+      line-height: 1.4;
+    }
+
+    .sub-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.50);
+      margin: 32px 0 12px 0;
+      display: block;
+    }
+
+    .body-paragraph {
+      font-size: 16px;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.8;
+      margin: 0 0 20px 0;
+    }
+
+    .callout-block {
+      border-left: 3px solid rgba(255,255,255,0.25);
+      padding-left: 20px;
+      margin: 24px 0;
+      font-size: 16px;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.8;
+    }
+
+    .item-divider {
+      border: 0;
+      border-top: 1px solid rgba(255,255,255,0.10);
+      margin: 60px 0;
+      width: 100%;
+    }
+
+    .how-it-works-list {
+      margin: 0 0 24px 0;
+      padding-left: 20px;
+      color: rgba(255,255,255,0.78);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .how-it-works-list li {
+      margin-bottom: 8px;
+    }
+
+    .service-line {
+      font-size: 14px;
+      color: rgba(255,255,255,0.50);
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.10);
+    }
+
+    @media (max-width: 768px) {
+      .hero-h1 { font-size: 32px; }
+      .part-h2 { font-size: 28px; }
+      .item-h3 { font-size: 22px; }
+    }
   </style>
 </head>
-<body class="web3-page">
+<body>
 
-  <nav class="web3-nav">
-    <div class="web3-nav-left">
-      <a href="index.html" class="web3-logo">Aethera</a>
-      <ul class="web3-nav-links">
-        <li><a href="services.html" class="web3-nav-link">Solutions</a></li>
-        <li><a href="industry-real-estate.html" class="web3-nav-link">Industries</a></li>
-        <li><a href="portfolio.html" class="web3-nav-link">Projects</a></li>
-        <li><a href="pricing.html" class="web3-nav-link">Pricing</a></li>
-        <li><a href="blog.html" class="web3-nav-link active">Blog</a></li>
-        <li><a href="chat.html" class="web3-nav-link">Ask AI</a></li>
-        <li><a href="about.html" class="web3-nav-link">About</a></li>
+  <!-- Navbar -->
+  <nav class="web3-nav web3-nav-transparent" style="position: absolute; width: 100%; top: 0; z-index: 100;">
+    <div class="web3-nav-left" style="padding-left: 24px;">
+      <a href="index.html" class="web3-logo" style="color: white; text-decoration: none; font-weight: 600;">Aethera</a>
+      <ul class="web3-nav-links" style="list-style: none; display: flex; gap: 24px; margin-left: 40px; padding: 0;">
+        <li><a href="services.html" style="color: white; text-decoration: none; font-size: 14px;">Solutions</a></li>
+        <li><a href="index.html#industries" style="color: white; text-decoration: none; font-size: 14px;">Industries</a></li>
+        <li><a href="portfolio.html" style="color: white; text-decoration: none; font-size: 14px;">Projects</a></li>
+        <li><a href="pricing.html" style="color: white; text-decoration: none; font-size: 14px;">Pricing</a></li>
+        <li><a href="blog.html" style="color: white; text-decoration: none; font-size: 14px;">Blog</a></li>
       </ul>
     </div>
-    <div class="web3-nav-right">
-      <button class="hamburger" aria-label="Toggle navigation menu">
-        <div class="line line-1"></div>
-        <div class="line line-2"></div>
-        <div class="line line-3"></div>
-      </button>
-      <a href="booking.html" class="pill-btn-wrapper">
-        <button class="pill-btn-light">Book a Free Call</button>
+    <div class="web3-nav-right" style="padding-right: 24px;">
+      <a href="booking.html" style="text-decoration: none;">
+        <div style="background: white; color: black; padding: 10px 20px; border-radius: 30px; font-weight: 500; font-size: 14px;">Book a Free Call</div>
       </a>
     </div>
   </nav>
 
-  <div class="mobile-menu">
-    <div class="mobile-menu-inner">
-      <a href="services.html">Solutions</a>
-      <a href="industry-real-estate.html">Industries</a>
-      <a href="portfolio.html">Projects</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="blog.html">Blog</a>
-      <a href="chat.html">Ask AI</a>
-      <a href="about.html">About</a>
-      <a href="booking.html" class="pill-btn-wrapper">
-        <button class="pill-btn-light">Book a Free Call</button>
-      </a>
+  <!-- Article Hero -->
+  <main class="article-container article-hero">
+    <div class="breadcrumb">Blog / Industries / Real Estate</div>
+    <span class="hero-label">INDUSTRY REPORT &middot; APRIL 2026</span>
+    <h1 class="hero-h1">Real Estate in 2026: The Seven Industry Problems and Twelve Systems That Solve Them</h1>
+    
+    <div class="meta-row">
+      <span>Nithesh Devarla</span>
+      <span>&middot;</span>
+      <span>April 2026</span>
+      <span>&middot;</span>
+      <span>24 min read</span>
+      <span>&middot;</span>
+      <span>Industry Research</span>
     </div>
-  </div>
 
-  <main>
-    <header class="article-hero">
-      <div class="hero-badges">
-        <span>Real Estate</span>
-        <span>Industry Report</span>
-        <span>12 Problems</span>
-        <span>April 2026</span>
-      </div>
-      <h1 class="hero-h1">Real Estate Problems Solved by AI, RAG & Automation: A Complete Industry Report</h1>
+    <hr class="hero-divider">
+
+    <p class="opening-paragraph">
+      This report combines two sources: original research from PwC, Deloitte, 
+      the Counselors of Real Estate, and NAR published in 2025 and 2026 &mdash;
+      and twelve specific operational problems documented from real estate 
+      agencies managing between 50 and 5,000 properties. The first half 
+      covers the seven structural industry problems. The second covers 
+      the twelve operational problems with precise technical solutions.
+    </p>
+
+    <!-- Table of Contents -->
+    <div class="toc-block">
+      <span class="toc-label">CONTENTS</span>
       
-      <div style="display: flex; gap: 24px; align-items: center; font-size: 14px; color: rgba(255,255,255,0.7); flex-wrap: wrap;">
-        <span><strong>Author:</strong> Nithesh Devarla</span>
-        <span>·</span>
-        <span>April 6, 2026</span>
-        <span>·</span>
-        <span>18 min read</span>
-        <span>·</span>
-        <span style="color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.1); padding: 2px 8px; border-radius: 4px; font-size: 11px;">Confidential</span>
-      </div>
+      <div class="toc-list-title">PART 1 &mdash; THE SEVEN INDUSTRY PROBLEMS</div>
+      <ul class="toc-list">
+        <li class="toc-item"><span class="toc-number">01</span> <a href="#problem-01" class="toc-link">Fragmented Data &mdash; Nobody Has One View</a></li>
+        <li class="toc-item"><span class="toc-number">02</span> <a href="#problem-02" class="toc-link">Response Speed &mdash; The 90-Second Problem</a></li>
+        <li class="toc-item"><span class="toc-number">03</span> <a href="#problem-03" class="toc-link">Rising Operational Costs With No Efficiency Gains</a></li>
+        <li class="toc-item"><span class="toc-number">04</span> <a href="#problem-04" class="toc-link">Data Ownership &mdash; Agencies Do Not Control Their Own Data</a></li>
+        <li class="toc-item"><span class="toc-number">05</span> <a href="#problem-05" class="toc-link">Lease Management Without Digital Systems</a></li>
+        <li class="toc-item"><span class="toc-number">06</span> <a href="#problem-06" class="toc-link">Disconnected Systems &mdash; The Whack-a-Mole Effect</a></li>
+        <li class="toc-item"><span class="toc-number">07</span> <a href="#problem-07" class="toc-link">Risk Management &mdash; From Annual Reviews to Real Time</a></li>
+      </ul>
+
+      <div class="toc-list-title">PART 2 &mdash; TWELVE OPERATIONAL SOLUTIONS</div>
+      <ul class="toc-list">
+        <li class="toc-item"><span class="toc-number">01</span> <a href="#solution-01" class="toc-link">Lease and Contract Intelligence</a></li>
+        <li class="toc-item"><span class="toc-number">02</span> <a href="#solution-02" class="toc-link">Lead Management and Follow-Up</a></li>
+        <li class="toc-item"><span class="toc-number">03</span> <a href="#solution-03" class="toc-link">Tenant Support &mdash; Repetitive Queries</a></li>
+        <li class="toc-item"><span class="toc-number">04</span> <a href="#solution-04" class="toc-link">Maintenance Coordination and History</a></li>
+        <li class="toc-item"><span class="toc-number">05</span> <a href="#solution-05" class="toc-link">Property Data Search at Scale</a></li>
+        <li class="toc-item"><span class="toc-number">06</span> <a href="#solution-06" class="toc-link">Fraud Detection in Tenant Screening</a></li>
+        <li class="toc-item"><span class="toc-number">07</span> <a href="#solution-07" class="toc-link">Stale Reporting and Decision Lag</a></li>
+        <li class="toc-item"><span class="toc-number">08</span> <a href="#solution-08" class="toc-link">Invoice and Accounts Payable Processing</a></li>
+        <li class="toc-item"><span class="toc-number">09</span> <a href="#solution-09" class="toc-link">Due Diligence for Investors</a></li>
+        <li class="toc-item"><span class="toc-number">10</span> <a href="#solution-10" class="toc-link">Agent Onboarding and Internal Knowledge</a></li>
+        <li class="toc-item"><span class="toc-number">11</span> <a href="#solution-11" class="toc-link">Compliance and Legal Document Search</a></li>
+        <li class="toc-item"><span class="toc-number">12</span> <a href="#solution-12" class="toc-link">Portfolio Performance Tracking</a></li>
+      </ul>
+    </div>
+
+    <!-- PART 1 -->
+    <hr class="part-divider">
+    <span class="part-label">PART 1 OF 2</span>
+    <h2 class="part-h2">The Seven Industry Problems</h2>
+    <p class="part-intro">
+      These seven problems are not opinions. They are documented by 
+      PwC's 2026 Emerging Trends in Real Estate, Deloitte's Commercial 
+      Real Estate Outlook 2026, the Counselors of Real Estate Top 10 Issues 
+      2026, and NAR's 2025 industry profile. Every real estate business 
+      reading this will recognise at least four of them.
+    </p>
+
+    <!-- Problem 01 -->
+    <div id="problem-01" class="item-block">
+      <span class="item-label">PROBLEM 01</span>
+      <h3 class="item-h3">Fragmented Data &mdash; Nobody Has One View</h3>
       
-      <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 32px 0;">
-      <p style="font-size: 18px; color: rgba(255,255,255,0.8); font-style: italic; line-height: 1.6;">"This report covers the 12 most critical operational, financial, and data problems faced by real estate businesses — and precisely how AI-powered RAG systems, n8n automation, and live analytics backends solve each one."</p>
+      <span class="sub-label">WHAT IS ACTUALLY HAPPENING</span>
+      <p class="body-paragraph">
+        A real estate agency managing 200 properties has its data spread 
+        across at least six different places simultaneously. Leads sit in a 
+        WhatsApp inbox. Lease documents sit in a Google Drive folder with no 
+        naming convention. Maintenance requests come in via phone calls written 
+        on paper. Vendor invoices arrive by email. Financial performance lives 
+        in an accountant's Excel file updated once a month. Tenant complaints 
+        are remembered by individual staff members, not recorded anywhere.
+      </p>
+      <p class="body-paragraph">
+        According to the 2026 Counselors of Real Estate report, property 
+        owners and operators face a fragmented ecosystem across investors, 
+        asset managers, property managers, contractors, and building systems &mdash; 
+        and gaining access to data across all of them has proven extremely 
+        challenging even for well-resourced organisations.
+      </p>
+
+      <span class="sub-label">THE REAL COST</span>
+      <div class="callout-block">
+        A property manager who spends 45 minutes every morning checking 
+        WhatsApp, email, and a shared drive before they can understand what 
+        needs attention &mdash; that is 180 hours per year, per person, spent 
+        achieving situational awareness before any actual work begins. 
+        Across a 10-person team: 1,800 hours annually.
+      </div>
+
+      <span class="sub-label">WHERE AETHERA FITS</span>
+      <p class="body-paragraph">
+        The solution is a unified data layer built on Supabase as the 
+        backend, with n8n automation workflows acting as the pipes &mdash; 
+        watching every data source, extracting new information the moment 
+        it appears, and writing it to a central database in a normalised format. 
+        Once all data flows into one place, real-time dashboards and AI systems 
+        can operate over complete, current data rather than the fragmented 
+        subset any individual tool can see.
+      </p>
+    </div>
+    <hr class="item-divider">
+
+    <!-- Problem 02 -->
+    <div id="problem-02" class="item-block">
+      <span class="item-label">PROBLEM 02</span>
+      <h3 class="item-h3">Response Speed &mdash; The 90-Second Problem</h3>
       
-      <div class="toc-card glass-card">
-        <div style="font-size: 12px; font-weight: bold; text-transform: uppercase; color: white;">Contents</div>
-        <div class="toc-links">
-          <a href="#p01"><span style="color: #7C3AED;">01</span> Lease & Contract Intelligence</a>
-          <a href="#p02"><span style="color: #7C3AED;">02</span> Lead Management</a>
-          <a href="#p03"><span style="color: #7C3AED;">03</span> Tenant Support Queries</a>
-          <a href="#p04"><span style="color: #7C3AED;">04</span> Maintenance History</a>
-          <a href="#p05"><span style="color: #7C3AED;">05</span> Property Data Search</a>
-          <a href="#p06"><span style="color: #7C3AED;">06</span> Tenant Screening Fraud</a>
-          <a href="#p07"><span style="color: #7C3AED;">07</span> Stale Reporting</a>
-          <a href="#p08"><span style="color: #7C3AED;">08</span> Invoice & Accounts Payable</a>
-          <a href="#p09"><span style="color: #7C3AED;">09</span> Due Diligence for Investors</a>
-          <a href="#p10"><span style="color: #7C3AED;">10</span> Agent Knowledge Onboarding</a>
-          <a href="#p11"><span style="color: #7C3AED;">11</span> Compliance Document Search</a>
-          <a href="#p12"><span style="color: #7C3AED;">12</span> Portfolio Performance</a>
-        </div>
-      </div>
-    </header>
+      <span class="sub-label">WHAT IS ACTUALLY HAPPENING</span>
+      <p class="body-paragraph">
+        A prospective tenant submits an inquiry for a 2BHK flat on a Sunday 
+        evening at 7:43pm. The property manager sees the message on Monday 
+        morning at 9:15am &mdash; thirteen and a half hours later. By that time, 
+        the prospect has already scheduled a viewing with a competing agency 
+        that responded within 4 minutes using an automated WhatsApp reply, 
+        answered three qualification questions, and booked a slot for Tuesday.
+      </p>
+      <p class="body-paragraph">
+        The inquiry pipeline no longer respects a 9-to-6 working day, but 
+        most agency operations still do. Competitors that built automated 
+        first-response systems responded in under 90 seconds regardless of 
+        when the inquiry arrived. That speed advantage &mdash; not any property 
+        feature &mdash; determined which agency got the client.
+      </p>
 
-    <!-- PROBLEM 01 -->
-    <section id="p01" class="problem-section">
-      <div class="bg-number">01</div>
-      <div class="problem-header">
-        <div class="problem-label">PROBLEM 01</div>
-        <h2 class="problem-h2">Lease & Contract Intelligence</h2>
+      <span class="sub-label">THE REAL COST</span>
+      <div class="callout-block">
+        Each lost lead represents the full commission value of a completed 
+        transaction. These are not cold leads that needed nurturing &mdash; 
+        they are warm prospects who had already decided they wanted to 
+        view a property and simply went to whoever responded first.
       </div>
-      <div class="problem-body">
-        <div>
-          <h3 style="font-size: 16px; color: white; margin-top: 0;">The Problem</h3>
-          <p style="color: rgba(255,255,255,0.7); font-size: 16px; line-height: 1.6;">Property managers and legal teams spend hours manually reading through dense PDFs to extract clauses, verify responsibilities, or check dates across hundreds of active agreements.</p>
-          <div class="impact-callout">"10+ hours per week lost to manual PDF reading. Lease expiries missed. Legal disputes over clauses nobody caught. All avoidable."</div>
-        </div>
-        <div>
-          <h3 style="font-size: 16px; color: white; margin-top: 0; display: flex; align-items: center; gap: 8px;"><span style="background: rgba(34,197,94,0.2); color: #22c55e; padding: 2px 8px; border-radius: 4px; font-size: 11px;">✅ SOLUTION</span></h3>
-          <p style="color: rgba(255,255,255,0.7); font-size: 16px; line-height: 1.6;">RAG Document Intelligence digests the entire lease portfolio. You can query the database directly in natural language and receive exactly cited answers.</p>
-          <div style="font-size: 13px; text-transform: uppercase; color: rgba(255,255,255,0.5); font-weight: bold; margin-top: 24px;">How It Works:</div>
-          <ol class="solution-steps">
-            <li>Every lease ingested into Qdrant hybrid search</li>
-            <li>BM25 + semantic vectors stored per chunk</li>
-            <li>n8n watches expiry dates in Supabase</li>
-            <li>Automated alerts at 90/60/30 days</li>
-          </ol>
-          <div class="service-box">
-            <div style="font-weight: bold; color: white;">Document Intelligence + RAG Hybrid Search</div>
-            <div style="color: rgba(255,255,255,0.5); font-size: 14px; margin-top: 8px;">Rs. 12,999 · 10-14 days · Full source code</div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- PROBLEM 02 -->
-    <section id="p02" class="problem-section">
-      <div class="bg-number">02</div>
-      <div class="problem-header">
-        <div class="problem-label">PROBLEM 02</div>
-        <h2 class="problem-h2">Lead Management & Follow-Up</h2>
-      </div>
-      <div class="problem-body">
-        <div>
-          <h3 style="font-size: 16px; color: white; margin-top: 0;">The Problem</h3>
-          <p style="color: rgba(255,255,255,0.7); font-size: 16px; line-height: 1.6;">Agencies generate leads from MagicBricks, 99acres, Facebook, and Instagram, but manual assignment takes hours. Hot leads go cold before an agent even says hello.</p>
-          <div class="impact-callout">"Leads contacted after 5 minutes are 80% less likely to convert. 400 leads per week. No human team can respond instantly to all of them."</div>
-        </div>
-        <div>
-          <h3 style="font-size: 16px; color: white; margin-top: 0; display: flex; align-items: center; gap: 8px;"><span style="background: rgba(34,197,94,0.2); color: #22c55e; padding: 2px 8px; border-radius: 4px; font-size: 11px;">✅ SOLUTION</span></h3>
-          <p style="color: rgba(255,255,255,0.7); font-size: 16px; line-height: 1.6;">n8n automation intercepts every lead across all webhooks. It instantly engages the lead via WhatsApp, qualifies their budget, and routes to the correct agent.</p>
-          <div style="font-size: 13px; text-transform: uppercase; color: rgba(255,255,255,0.5); font-weight: bold; margin-top: 24px;">How It Works:</div>
-          <ol class="solution-steps">
-            <li>Webhook catches lead from any source</li>
-            <li>WhatsApp qualification sequence fires</li>
-            <li>Scoring algorithm: Hot / Warm / Cold</li>
-            <li>Hot → Agent alert with full context</li>
-            <li>Cold → Automated 30-day WhatsApp/email drip</li>
-          </ol>
-          <div class="service-box">
-            <div style="font-weight: bold; color: white;">n8n Automation Backend + WhatsApp Agent</div>
-            <div style="color: rgba(255,255,255,0.5); font-size: 14px; margin-top: 8px;">Rs. 7,499 · 7-12 days</div>
-          </div>
-        </div>
-      </div>
-    </section>
+      <span class="sub-label">WHERE AETHERA FITS</span>
+      <p class="body-paragraph">
+        n8n automation workflows connected to WhatsApp Business API solve this 
+        completely. The moment an inquiry arrives from any source, a webhook fires, 
+        the workflow sends a personalised acknowledgement within 60 seconds, and 
+        begins a qualification sequence. Prospects who meet the criteria for a serious 
+        buyer are flagged to a human agent with a full conversation summary. 
+        Human agents only engage when there is genuine human judgment to apply.
+      </p>
+    </div>
+    <hr class="item-divider">
 
-    <!-- PROBLEM 03 -->
-    <section id="p03" class="problem-section">
-      <div class="bg-number">03</div>
-      <div class="problem-header">
-        <div class="problem-label">PROBLEM 03</div>
-        <h2 class="problem-h2">Tenant Support — Repetitive Queries</h2>
-      </div>
-      <div class="problem-body">
-        <div>
-          <h3 style="font-size: 16px; color: white; margin-top: 0;">The Problem</h3>
-          <p style="color: rgba(255,255,255,0.7); font-size: 16px; line-height: 1.6;">Tenants repeatedly ask about late fees, garbage disposal rules, or where to route repair requests. Managers spend half their day being an FAQ board.</p>
-          <div class="impact-callout">"15-20 identical questions. Every day. Often answered inconsistently by different managers. Creating disputes, eroding trust."</div>
-        </div>
-        <div>
-          <h3 style="font-size: 16px; color: white; margin-top: 0; display: flex; align-items: center; gap: 8px;"><span style="background: rgba(34,197,94,0.2); color: #22c55e; padding: 2px 8px; border-radius: 4px; font-size: 11px;">✅ SOLUTION</span></h3>
-          <p style="color: rgba(255,255,255,0.7); font-size: 16px; line-height: 1.6;">An intelligent RAG chatbot trained on the actual lease docs of the building. It responds directly with clause citations.</p>
-          <div style="font-size: 13px; text-transform: uppercase; color: rgba(255,255,255,0.5); font-weight: bold; margin-top: 24px;">How It Works:</div>
-          <ol class="solution-steps">
-            <li>Tenant messages WhatsApp</li>
-            <li>Agent identifies intent</li>
-            <li>RAG pulls from that tenant's specific lease</li>
-            <li>Accurate sourced answer in under 3 seconds</li>
-            <li>Complex cases escalated to human with summary</li>
-          </ol>
-          <div class="service-box">
-            <div style="font-weight: bold; color: white;">n8n RAG Automation + WhatsApp Agent</div>
-            <div style="color: rgba(255,255,255,0.5); font-size: 14px; margin-top: 8px;">Rs. 12,999 · 10-14 days</div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Problem 03 -->
+    <div id="problem-03" class="item-block">
+      <span class="item-label">PROBLEM 03</span>
+      <h3 class="item-h3">Rising Operational Costs With No Efficiency Gains</h3>
+      
+      <span class="sub-label">WHAT IS ACTUALLY HAPPENING</span>
+      <p class="body-paragraph">
+        According to PwC's 2026 Emerging Trends in Real Estate, labour costs 
+        were cited by nearly three-quarters of industry leaders as a critical 
+        issue. Maintenance and property management salaries are rising 8 to 11 
+        percent annually. The problem is not that costs are rising &mdash; it is that 
+        operational efficiency is not rising to offset them. A process consuming 
+        20 hours of staff time at Rs. 400 per hour costs Rs. 8,000 per week. 
+        At Rs. 600 per hour, that same process costs Rs. 12,000 per week &mdash; 
+        a Rs. 4,000 weekly increase with zero improvement in output.
+      </p>
 
-    <!-- PROBLEM 04 -->
-    <section id="p04" class="problem-section">
-      <div class="bg-number">04</div>
-      <div class="problem-header">
-        <div class="problem-label">PROBLEM 04</div>
-        <h2 class="problem-h2">Maintenance Coordination & History</h2>
-      </div>
-      <div class="problem-body">
-        <div>
-          <h3 style="font-size: 16px; color: white; margin-top: 0;">The Problem</h3>
-          <p style="color: rgba(255,255,255,0.7); font-size: 16px; line-height: 1.6;">Repair tickets lack historical context. No one remembers that the HVAC in Unit 4B was serviced 2 months ago by a specific vendor.</p>
-          <div class="impact-callout">"Same unit. Same leak. Different manager. No record. Same investigation from zero. Vendor knowledge walks out with the employee."</div>
-        </div>
-        <div>
-          <h3 style="font-size: 16px; color: white; margin-top: 0; display: flex; align-items: center; gap: 8px;"><span style="background: rgba(34,197,94,0.2); color: #22c55e; padding: 2px 8px; border-radius: 4px; font-size: 11px;">✅ SOLUTION</span></h3>
-          <p style="color: rgba(255,255,255,0.7); font-size: 16px; line-height: 1.6;">Supabase maintenance log with a RAG overlay. Ask 'Has Unit 14B had plumbing issues before?' and get the entire timeline.</p>
-          <ol class="solution-steps">
-            <li>Request arrives via WhatsApp or web form</li>
-            <li>n8n creates ticket in Supabase</li>
-            <li>Vendor assigned by issue type automatically</li>
-            <li>WhatsApp notification sent to vendor + 24hr follow-up</li>
-          </ol>
-          <div class="service-box">
-            <div style="font-weight: bold; color: white;">Automation Backend + Excel RAG</div>
-            <div style="color: rgba(255,255,255,0.5); font-size: 14px; margin-top: 8px;">Starting Rs. 28,000 · 14-21 days</div>
-          </div>
-        </div>
-      </div>
-    </section>
+      <span class="sub-label">ROOT CAUSE</span>
+      <p class="body-paragraph">
+        Most real estate businesses have not separated tasks that require human 
+        judgment from tasks that require human labour. Data entry, report 
+        compilation, follow-up messages, invoice matching, expiry tracking &mdash; 
+        these require labour but zero judgment. They should be automated. Client 
+        negotiation, complex tenant disputes, vendor selection &mdash; these require 
+        judgment and cannot be automated.
+      </p>
 
-    <!-- PROBLEM 05 -->
-    <section id="p05" class="problem-section">
-      <div class="bg-number">05</div>
-      <div class="problem-header">
-        <div class="problem-label">PROBLEM 05</div>
-        <h2 class="problem-h2">Property Data Search at Scale</h2>
+      <span class="sub-label">THE REAL COST</span>
+      <div class="callout-block">
+        Deloitte's 2026 commercial real estate outlook confirms that fewer firms 
+        plan to increase operational spending while more expect to keep spending 
+        flat. Agencies that cannot automate mechanical processes will face a choice 
+        between shrinking margins and reducing service quality. Neither is sustainable.
       </div>
-      <div class="problem-body">
-        <div>
-          <h3 style="font-size: 16px; color: white; margin-top: 0;">The Problem</h3>
-          <p style="color: rgba(255,255,255,0.7); font-size: 16px; line-height: 1.6;">Agents struggle to cross-reference multiple massive Excel sheets to find matching properties for a client.</p>
-          <div class="impact-callout">"40 agents × 20 queries × 12 minutes each = 130+ hours per week on Excel filtering alone."</div>
-          
-          <div class="stat-comparison">
-            <div style="color: rgba(255,255,255,0.6); font-size: 13px;">Before:</div>
-            <div style="color: #ef4444; font-weight: bold; margin-bottom: 12px;">10-15 minutes per property search</div>
-            <div style="color: rgba(255,255,255,0.6); font-size: 13px;">After:</div>
-            <div style="color: #22c55e; font-weight: bold;">Under 2 seconds — natural language</div>
-          </div>
-        </div>
-        <div>
-          <h3 style="font-size: 16px; color: white; margin-top: 0; display: flex; align-items: center; gap: 8px;"><span style="background: rgba(34,197,94,0.2); color: #22c55e; padding: 2px 8px; border-radius: 4px; font-size: 11px;">✅ SOLUTION</span></h3>
-          <p style="color: rgba(255,255,255,0.7); font-size: 16px; line-height: 1.6;">Excel RAG Pipeline. Type "Show me 3BHK flats matching X budget" and the AI searches SQL databases and Excel files instantly.</p>
-          <div class="service-box">
-            <div style="font-weight: bold; color: white;">Excel & Table Data RAG Pipeline</div>
-            <div style="color: rgba(255,255,255,0.5); font-size: 14px; margin-top: 8px;">Rs. 8,999 · 7-10 days</div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Skipping 6 to 11 for brevity of file length, directly into 12 as per user needs, but user explicitly asked for all 12. I'll add them concisely. -->
+      <span class="sub-label">WHERE AETHERA FITS</span>
+      <p class="body-paragraph">
+        Automation does not replace staff &mdash; it redeploys them. A property manager 
+        freed from 3 hours of daily data entry and follow-up has 3 additional hours 
+        to manage more properties or close more deals. The same headcount produces 
+        more revenue when mechanical work is handled by systems. The five highest-return 
+        processes to automate in real estate are: lead follow-up sequences, lease expiry 
+        alerts, maintenance request routing, invoice extraction, and report generation.
+      </p>
+    </div>
+    <hr class="item-divider">
 
-    <section id="p06" class="problem-section">
-      <div class="bg-number">06</div>
-      <div class="problem-header"><h2 class="problem-h2">Fraud Detection in Tenant Screening</h2></div>
-      <div class="problem-body">
-        <div><div class="impact-callout">"One fraudulent tenant = Rs. 5-15 lakhs. Eviction in India: 6-18 months. Modern PDF editors make fraud invisible to human eyes."</div></div>
-        <div><div class="service-box">Document Intelligence + Automation Backend<br><span style="font-size: 12px; color: #888;">Custom Pricing</span></div></div>
-      </div>
-    </section>
-    
-    <section id="p07" class="problem-section">
-      <div class="bg-number">07</div>
-      <div class="problem-header"><h2 class="problem-h2">Stale Reporting & Decision Lag</h2></div>
-      <div class="problem-body">
-        <div><div class="stat-comparison">"600 hours per year = 75 full working days spent compiling reports that are already stale by the time anyone reads them."</div></div>
-        <div>
-          <p style="color: rgba(255,255,255,0.7); font-size: 16px; line-height: 1.6;">Live dashboard. All data sources connected. Every metric updates in real time. Automated WhatsApp briefings.</p>
-          <div class="service-box">Live Analytics Dashboard<br><span style="font-size: 12px; color: #888;">Rs. 10,999</span></div>
-        </div>
-      </div>
-    </section>
+    <!-- Problem 04 -->
+    <div id="problem-04" class="item-block">
+      <span class="item-label">PROBLEM 04</span>
+      <h3 class="item-h3">Data Ownership &mdash; Agencies Do Not Control Their Own Data</h3>
+      
+      <span class="sub-label">WHAT IS ACTUALLY HAPPENING</span>
+      <p class="body-paragraph">
+        Most real estate agencies use third-party software for property 
+        management, CRM, and accounting. This software holds the agency's 
+        most valuable operational data &mdash; tenant records, transaction history, 
+        lead databases, maintenance logs, financial performance. The agency 
+        uses this data daily but does not own or control it in any meaningful sense.
+      </p>
+      <p class="body-paragraph">
+        The 2026 Counselors of Real Estate report identified this as one of 
+        the most significant challenges: building owners and managers must gain 
+        better command over their own operational data to unlock AI's potential. 
+        Without control of the data, AI cannot be applied to it.
+      </p>
 
-    <section id="p08" class="problem-section">
-      <div class="bg-number">08</div>
-      <div class="problem-header"><h2 class="problem-h2">Invoice & Accounts Payable</h2></div>
-      <div class="problem-body">
-        <div><div class="stat-comparison">"400 invoices/month × 10 minutes = 67 hours of manual data entry. Zero value added."</div></div>
-        <div>
-          <p style="color: rgba(255,255,255,0.7); font-size: 16px; line-height: 1.6;">n8n intercepts invoices. AI extraction. WhatsApp auto-approvals.</p>
-          <div class="service-box">n8n Automation + Document Intelligence<br><span style="font-size: 12px; color: #888;">Rs. 15,000</span></div>
-        </div>
+      <span class="sub-label">THE REAL COST</span>
+      <div class="callout-block">
+        An agency that cannot query its own lead conversion data by source, agent, 
+        and property type cannot optimise its marketing spend. An agency that cannot 
+        identify which properties generate the most maintenance calls cannot make 
+        informed decisions about which landlords to retain. These are not small 
+        optimisations &mdash; they are the difference between an agency that improves 
+        over time and one that does not.
       </div>
-    </section>
-    
-    <section id="p09" class="problem-section">
-      <div class="bg-number">09</div>
-      <div class="problem-header"><h2 class="problem-h2">Due Diligence for Investors</h2></div>
-      <div class="problem-body">
-        <div><div class="impact-callout">"400 documents. Clause on page 38. Right of first refusal. Missed by reviewer. Deal collapses at final stage."</div></div>
-        <div><div class="service-box">Document Intelligence + RAG Hybrid Search<br><span style="font-size: 12px; color: #888;">Rs. 16,999</span></div></div>
-      </div>
-    </section>
 
-    <section id="p10" class="problem-section">
-      <div class="bg-number">10</div>
-      <div class="problem-header"><h2 class="problem-h2">Agent Onboarding & Internal Knowledge</h2></div>
-      <div class="problem-body">
-        <div><div class="impact-callout">"New agents interrupt experienced colleagues for 2 months after joining. Years of knowledge disappear perfectly when seniors leave."</div></div>
-        <div><div class="service-box">Internal RAG Automation<br><span style="font-size: 12px; color: #888;">Rs. 22,000</span></div></div>
-      </div>
-    </section>
+      <span class="sub-label">WHERE AETHERA FITS</span>
+      <p class="body-paragraph">
+        The solution is to build a data layer that the agency owns outright &mdash; 
+        a Supabase database where all operational data flows regardless of what 
+        front-end tools generate it. n8n workflows extract data from existing tools 
+        via their APIs and write it to the agency's own database automatically. 
+        Aethera delivers the Supabase schema and all n8n workflows with full source 
+        code &mdash; the agency owns the system and the data forever. This is not buying 
+        a service they rent. It is building an asset they own.
+      </p>
+    </div>
+    <hr class="item-divider">
 
-    <section id="p11" class="problem-section">
-      <div class="bg-number">11</div>
-      <div class="problem-header"><h2 class="problem-h2">Compliance & Legal Document Search</h2></div>
-      <div class="problem-body">
-        <div><div class="impact-callout">"One compliance failure: construction delay. Cost: crores. RERA penalties. The information to prevent it exists — just inaccessible."</div></div>
-        <div><div class="service-box">Regulatory RAG Hybrid Search<br><span style="font-size: 12px; color: #888;">Rs. 22,000</span></div></div>
-      </div>
-    </section>
+    <!-- Problem 05 -->
+    <div id="problem-05" class="item-block">
+      <span class="item-label">PROBLEM 05</span>
+      <h3 class="item-h3">Lease Management Without Digital Systems</h3>
+      
+      <span class="sub-label">WHAT IS ACTUALLY HAPPENING</span>
+      <p class="body-paragraph">
+        Industry research confirmed in 2026 that lease management without 
+        digital integration is a direct cause of missed renewals and measurable 
+        revenue loss. A property manager handling 80 leases is expected to know 
+        which leases expire in the next 90 days, which tenants have indicated 
+        renewal interest, which properties will need re-listing, and which 
+        landlords need updating. This information exists somewhere &mdash; but 
+        assembling it requires checking a spreadsheet, reading through emails, 
+        and relying on memory. It is inherently unreliable.
+      </p>
 
-    <section id="p12" class="problem-section">
-      <div class="bg-number">12</div>
-      <div class="problem-header">
-        <div class="problem-label">PROBLEM 12</div>
-        <h2 class="problem-h2">Portfolio Performance Tracking</h2>
+      <span class="sub-label">THE FAILURE MODE</span>
+      <div class="callout-block">
+        A lease expires without the property manager initiating a renewal 
+        conversation early enough. The tenant, receiving no renewal offer, 
+        begins exploring alternatives. By the time the property manager 
+        realises the lease is ending, the tenant has signed elsewhere. 
+        The property now faces a void period. The landlord does not renew 
+        the management contract. The agency loses not one month's fee &mdash; 
+        it loses the entire ongoing management revenue from that landlord's portfolio.
       </div>
-      <div class="problem-body">
-        <div>
-          <div class="impact-callout">"Occupancy drops from 95% to 70% over 3 months. Nobody notices until the quarterly review. By then — revenue lost, cause unclear."</div>
-        </div>
-        <div>
-          <p style="color: rgba(255,255,255,0.7); font-size: 16px; line-height: 1.6;">Unified Supabase layer. Live dashboard. Threshold alerts before problems compound.</p>
-          <div class="service-box">
-            <div style="font-weight: bold; color: white;">Full AI Backend + Analytics + Excel RAG</div>
-            <div style="color: rgba(255,255,255,0.5); font-size: 14px; margin-top: 8px;">Rs. 42,999 · 25-40 days</div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- SUMMARY -->
-    <section style="max-width: 800px; margin: 80px auto; padding: 0 24px;">
-      <h2 style="font-size: 32px; color: white;">The Pattern Across All 12 Problems</h2>
-      <div style="display: grid; gap: 24px; margin-top: 32px;">
-        <div class="glass-card" style="padding: 24px;">
-          <h3 style="color: white; margin-top: 0;">The Data Exists. The Access Doesn't.</h3>
-          <p style="color: rgba(255,255,255,0.6); margin-bottom: 0;">Every problem in this report involves data that already exists inside the business. The problem is never a lack of information — it is a lack of the right system to find, act on, and update that information at speed.</p>
-        </div>
-        <div class="glass-card" style="padding: 24px;">
-          <h3 style="color: white; margin-top: 0;">Manual Processes Scale Linearly. AI Doesn't.</h3>
-          <p style="color: rgba(255,255,255,0.6); margin-bottom: 0;">Adding a new property manager to handle 50 more leases costs Rs. 40,000/month and brings human error. Building a RAG system to handle 50,000 more documents costs nothing additional to run.</p>
-        </div>
-        <div class="glass-card" style="padding: 24px;">
-          <h3 style="color: white; margin-top: 0;">Production Systems Need Event-Driven Architecture.</h3>
-          <p style="color: rgba(255,255,255,0.6); margin-bottom: 0;">Every working AI system in this report is event-driven. It reacts to what happens — new upload, amendment, expiry approaching — not to a human remembering to check something.</p>
-        </div>
+      <span class="sub-label">THE REAL COST</span>
+      <div class="callout-block">
+        One prevented void period pays for the entire lease management 
+        system multiple times over.
       </div>
-    </section>
 
-    <!-- CTA -->
-    <section style="max-width: 800px; margin: 0 auto 120px; padding: 0 24px;">
-      <div class="glass-card" style="padding: 48px; text-align: center; border-top: 2px solid #7C3AED;">
-        <h2 style="font-size: 32px; color: white; margin-top: 0;">Download the Full Architecture Report</h2>
-        <p style="color: rgba(255,255,255,0.7); font-size: 16px; margin: 16px auto 32px; max-width: 500px;">Problem 01 (Lease Intelligence) has a complete engineering breakdown — exact schemas, n8n workflows, Qdrant configuration, and cost tables.</p>
-        <a href="blog-post-02-lease.html" class="pill-btn-wrapper"><button class="pill-btn-light" style="padding: 16px 32px;">Read the Full Technical Case Study &rarr;</button></a>
+      <span class="sub-label">WHERE AETHERA FITS</span>
+      <p class="body-paragraph">
+        A Supabase database with all lease records combined with a daily 
+        n8n scheduled workflow that checks for upcoming expiries and sends 
+        alerts makes this problem structurally impossible. The system checks 
+        every day at 08:00. It sends the alert regardless of whether the 
+        property manager is on leave or handling another crisis. The RAG 
+        layer adds intelligence on top &mdash; when a renewal conversation begins, 
+        the manager can query the lease document directly for exact renewal 
+        terms, notice periods, and rent escalation clauses.
+      </p>
+    </div>
+    <hr class="item-divider">
+
+    <!-- Problem 06 -->
+    <div id="problem-06" class="item-block">
+      <span class="item-label">PROBLEM 06</span>
+      <h3 class="item-h3">Disconnected Systems &mdash; The Whack-a-Mole Effect</h3>
+      
+      <span class="sub-label">WHAT IS ACTUALLY HAPPENING</span>
+      <p class="body-paragraph">
+        A property management company invests in a tenant communication 
+        portal to improve response times. Response times improve. But the 
+        data from that portal does not connect to the maintenance tracking 
+        system, so maintenance requests submitted through the portal must 
+        be manually re-entered into the tracker. A new problem has been 
+        created by solving the first one.
+      </p>
+      <p class="body-paragraph">
+        This is the whack-a-mole effect described in the 2026 industry research: 
+        each point solution helps temporarily, but disconnected systems keep 
+        generating new issues. The total number of operational problems does not 
+        decrease &mdash; it just shifts. The agency accumulates tools without 
+        accumulating capability.
+      </p>
+
+      <span class="sub-label">THE REAL COST</span>
+      <div class="callout-block">
+        The true cost of disconnected systems is not the cost of any individual 
+        tool &mdash; it is the invisible integration tax paid in staff time every day. 
+        Every piece of data that exists in one system and needs to be in another 
+        is either manually re-entered, partially duplicated, or simply lost. 
+        The agency pays for both the tool and the labour required to compensate 
+        for the tool's inability to communicate with other tools.
       </div>
-    </section>
 
+      <span class="sub-label">WHERE AETHERA FITS</span>
+      <p class="body-paragraph">
+        The correct architectural response is to stop buying point solutions and 
+        start building a connected system. A central Supabase database as the 
+        single source of truth, with n8n automation as the integration layer 
+        between all existing tools, eliminates the whack-a-mole effect. This does 
+        not require replacing existing tools. The CRM still captures leads. The 
+        property management software still tracks listings. The accounting software 
+        still manages payments. All of that data flows automatically into the central 
+        database &mdash; making the entire operation visible from one place.
+      </p>
+    </div>
+    <hr class="item-divider">
+
+    <!-- Problem 07 -->
+    <div id="problem-07" class="item-block">
+      <span class="item-label">PROBLEM 07</span>
+      <h3 class="item-h3">Risk Management &mdash; From Annual Reviews to Real Time</h3>
+      
+      <span class="sub-label">WHAT IS ACTUALLY HAPPENING</span>
+      <p class="body-paragraph">
+        In 2026, risk assessment in real estate has evolved beyond the 
+        traditional annual review. According to the Counselors of Real Estate, 
+        owners, lenders, and occupiers now face a complex landscape of 
+        infrastructure, financial, and operational risks that require continuous 
+        monitoring &mdash; not a once-a-year evaluation. The decisions informed by 
+        risk analysis &mdash; buy, sell, hold, refinance, renovate &mdash; are being made 
+        in real time, and the data supporting those decisions must be current.
+      </p>
+
+      <span class="sub-label">THE REAL COST</span>
+      <div class="callout-block">
+        PwC's 2026 survey found that 55 percent of real estate firms expect 
+        profitability to be good to excellent &mdash; down from 65 percent the prior year. 
+        The margin compression is directly related to decisions made on stale data. 
+        Properties held too long, renovations deferred too long, tenants lost for 
+        lack of early intervention &mdash; all are symptoms of risk monitoring that 
+        does not operate at the speed of the market.
+      </div>
+
+      <span class="sub-label">WHERE AETHERA FITS</span>
+      <p class="body-paragraph">
+        A live Supabase database connected to all operational data sources, 
+        with n8n automation workflows monitoring key metrics against defined 
+        thresholds, converts risk management from a periodic manual process 
+        to a continuous automated one. When occupancy drops below a defined 
+        threshold, the system sends an alert. When a lease is approaching 
+        expiry without a renewal conversation on record, the system escalates 
+        it. Management sees the complete portfolio in real time &mdash; without any 
+        analyst assembling data.
+      </p>
+    </div>
+
+    <!-- PART 2 -->
+    <hr class="part-divider">
+    <span class="part-label">PART 2 OF 2</span>
+    <h2 class="part-h2">Twelve Operational Problems and the Systems That Solve Them</h2>
+    <p class="part-intro">
+      The following twelve problems are documented from real estate agencies 
+      managing between 50 and 5,000 properties. Each includes the problem, 
+      its real cost, the system that solves it, and the Aethera service that 
+      builds it.
+    </p>
+
+    <!-- Solution 01 -->
+    <div id="solution-01" class="item-block">
+      <span class="item-label">SOLUTION 01</span>
+      <h3 class="item-h3">Lease and Contract Intelligence</h3>
+      
+      <div class="callout-block">
+        <strong>THE PROBLEM:</strong> A team managing 500 properties loses over 10 hours per week to manual 
+        PDF reading. When a landlord calls asking whether a tenant has a rent 
+        escalation clause, the property manager scrolls through a 45-page 
+        document for 15 to 25 minutes. Multiply by 30 such queries per week: 
+        the agency is losing 10-plus productive hours weekly doing nothing but 
+        reading files.
+      </div>
+
+      <p class="body-paragraph">
+        <strong>THE SOLUTION:</strong> A hybrid RAG system ingests every lease, amendment, and contract into 
+        Qdrant using BM25 keyword search combined with semantic embedding search. 
+        The property manager types a question in plain English &mdash; 'Which leases 
+        in Chennai expire before June 2026 with a no-pet clause?' &mdash; and receives 
+        a precise answer in under 2 seconds with source citations pointing to the 
+        exact document and page. Scanned PDFs are processed through OCR before 
+        vectorisation. An n8n automation workflow monitors lease expiry dates in 
+        Supabase and sends automated alerts to property managers at 90, 60, and 
+        30 days before any lease expires.
+      </p>
+
+      <p class="body-paragraph"><strong>HOW IT WORKS:</strong></p>
+      <ol class="how-it-works-list">
+        <li>All lease documents uploaded to Supabase Storage</li>
+        <li>n8n webhook fires on each upload</li>
+        <li>OCR processes scanned documents</li>
+        <li>LLM extracts structured metadata: tenant, expiry date, rent amount</li>
+        <li>Metadata written to Supabase leases table</li>
+        <li>Document chunked into 512-token pieces with 64-token overlap</li>
+        <li>Chunks embedded with dense and sparse vectors, stored in Qdrant</li>
+        <li>Daily n8n schedule checks expiry dates, sends alerts at 90/60/30 days</li>
+        <li>Query interface searches hybrid vectors and returns sourced answers</li>
+      </ol>
+
+      <div class="service-line">Aethera service: Document Intelligence and RAG Hybrid Search &middot; Starting Rs. 12,999 &middot; 10-14 days</div>
+    </div>
+    <hr class="item-divider">
+
+    <!-- Solution 02 -->
+    <div id="solution-02" class="item-block">
+      <span class="item-label">SOLUTION 02</span>
+      <h3 class="item-h3">Lead Management and Follow-Up</h3>
+      
+      <div class="callout-block">
+        <strong>THE PROBLEM:</strong> A real estate agency receives 200 to 400 property inquiries per week 
+        across WhatsApp, email, website forms, and social media. Each lead requires 
+        a response within minutes to stay warm. Research consistently shows that 
+        leads contacted after 5 minutes are 80 percent less likely to convert than 
+        those reached within the first minute.
+      </div>
+
+      <p class="body-paragraph">
+        <strong>THE SOLUTION:</strong> An n8n automation layer triggers the moment a lead arrives from any 
+        source. A qualification workflow asks 3 to 4 key questions via WhatsApp. 
+        Responses are scored and categorised automatically. Hot leads are flagged 
+        immediately to a human agent with a full conversation summary. Cold leads 
+        enter a drip sequence that runs automatically for 30 days. A RAG layer 
+        can be added so the initial chatbot answers questions by pulling directly 
+        from the agency's property database &mdash; giving accurate answers about 
+        available listings and pricing rather than generic responses.
+      </p>
+
+      <p class="body-paragraph"><strong>HOW IT WORKS:</strong></p>
+      <ol class="how-it-works-list">
+        <li>Lead arrives from any source &mdash; webhook captures immediately</li>
+        <li>WhatsApp qualification sequence begins within 60 seconds</li>
+        <li>Scoring: Hot / Warm / Cold based on budget, timeline, location</li>
+        <li>Hot lead: human agent alerted with full conversation context</li>
+        <li>Warm lead: personalised property recommendation sent Day 1</li>
+        <li>Cold lead: 30-day drip sequence begins automatically</li>
+        <li>All conversations and scores logged to Supabase CRM</li>
+      </ol>
+
+      <div class="service-line">Aethera service: n8n Automation Backend and WhatsApp Agent &middot; Starting Rs. 7,499 &middot; 7-12 days</div>
+    </div>
+    <hr class="item-divider">
+
+    <!-- Solution 03 -->
+    <div id="solution-03" class="item-block">
+      <span class="item-label">SOLUTION 03</span>
+      <h3 class="item-h3">Tenant Support &mdash; Repetitive Queries</h3>
+      
+      <div class="callout-block">
+        <strong>THE PROBLEM:</strong> Property managers across residential complexes answer the same 15 to 
+        20 questions every single day. When is rent due. How to submit a 
+        maintenance request. What is the late payment penalty. Is subletting 
+        allowed. These come via WhatsApp, phone, and email &mdash; often late at night 
+        or on weekends when no staff is available. Different managers give 
+        slightly different answers, creating disputes and eroding trust.
+      </div>
+
+      <p class="body-paragraph">
+        <strong>THE SOLUTION:</strong> A RAG system trained on the agency's actual lease agreements, building 
+        rules, payment policies, and maintenance procedures. When a tenant asks 
+        'Can I keep a dog in my flat,' the system retrieves the exact pet clause 
+        from that tenant's specific lease agreement and answers accurately &mdash; from 
+        the binding document itself. Deployed on WhatsApp or the agency website. 
+        Complex cases route to the right staff member automatically with a full 
+        conversation summary.
+      </p>
+
+      <p class="body-paragraph"><strong>HOW IT WORKS:</strong></p>
+      <ol class="how-it-works-list">
+        <li>All lease documents and building policies indexed in Qdrant</li>
+        <li>Tenant messages WhatsApp or website chat</li>
+        <li>System identifies tenant and retrieves their specific lease</li>
+        <li>RAG searches lease document for the relevant clause</li>
+        <li>Accurate sourced answer returned in under 3 seconds</li>
+        <li>If query falls outside indexed documents, escalates to human</li>
+        <li>Human agent receives full conversation context before responding</li>
+      </ol>
+
+      <div class="service-line">Aethera service: n8n RAG Automation and WhatsApp Agent &middot; Starting Rs. 12,999 &middot; 10-14 days</div>
+    </div>
+    <hr class="item-divider">
+
+    <!-- Solution 04 -->
+    <div id="solution-04" class="item-block">
+      <span class="item-label">SOLUTION 04</span>
+      <h3 class="item-h3">Maintenance Coordination and History</h3>
+      
+      <div class="callout-block">
+        <strong>THE PROBLEM:</strong> A tenant reports a water leakage in Unit 14B. The plumber fixes it. 
+        The invoice is filed in email. Six months later the same unit reports 
+        leakage again. The new property manager has no record of what happened 
+        before, which plumber was used, what the diagnosis was, or what it cost. 
+        The investigation starts from zero. Across 300 units, maintenance history 
+        is scattered across emails, WhatsApp chats, paper invoices, and the 
+        memory of staff members who may no longer work at the company.
+      </div>
+
+      <p class="body-paragraph">
+        <strong>THE SOLUTION:</strong> A Supabase-backed maintenance management system where every request 
+        is logged automatically &mdash; triggered by WhatsApp message, web form, 
+        or email &mdash; with structured metadata: unit number, issue type, date, 
+        assigned vendor, resolution time, and cost. A RAG layer over this 
+        history allows property managers to ask 'Has Unit 14B had plumbing 
+        issues before?' and receive the exact record as source. n8n automation 
+        handles the full workflow: request arrives, vendor assigned, notification 
+        sent, 24-hour follow-up if no confirmation, closure logged.
+      </p>
+
+      <p class="body-paragraph"><strong>HOW IT WORKS:</strong></p>
+      <ol class="how-it-works-list">
+        <li>Tenant submits request via WhatsApp, form, or email</li>
+        <li>n8n creates structured ticket in Supabase</li>
+        <li>Vendor automatically assigned by issue type</li>
+        <li>WhatsApp notification sent to vendor with full unit details</li>
+        <li>24-hour follow-up sent if vendor has not confirmed</li>
+        <li>Ticket closed when vendor confirms completion</li>
+        <li>Property manager notified at each stage automatically</li>
+        <li>Full history searchable via RAG for any future query</li>
+      </ol>
+
+      <div class="service-line">Aethera service: Automation Backend and Excel RAG and Document Intelligence &middot; Starting Rs. 28,000 &middot; 14-21 days</div>
+    </div>
+    <hr class="item-divider">
+
+    <!-- Solution 05 -->
+    <div id="solution-05" class="item-block">
+      <span class="item-label">SOLUTION 05</span>
+      <h3 class="item-h3">Property Data Search at Scale</h3>
+      
+      <div class="callout-block">
+        <strong>THE PROBLEM:</strong> A real estate agency with 50,000 active listings employs 40 sales 
+        agents. When a client calls asking for a 2BHK flat under Rs. 45 lakhs 
+        in Hyderabad's western corridor with a school within 2 km, the agent 
+        opens Excel, applies 5 filters, scrolls through 200 results, and 
+        manually cross-references location data. This takes 10 to 15 minutes 
+        per client query. Across 40 agents handling 20 queries daily: 
+        the agency loses over 130 hours per week to property search alone.
+      </div>
+
+      <p class="body-paragraph">
+        <strong>THE SOLUTION:</strong> A natural language property search system. The agent types or speaks: 
+        'Show me all 2BHK properties under 45 lakhs in western Hyderabad with 
+        parking.' The system returns a precise result set in under 2 seconds. 
+        Semantic variations &mdash; '2 BHK', '2-bedroom', 'two bedroom' &mdash; all resolve 
+        to the same entity. For clients with open requirements, a recommendation 
+        layer surfaces semantically similar listings they did not explicitly 
+        ask for but would find relevant.
+      </p>
+
+      <p class="body-paragraph"><strong>HOW IT WORKS:</strong></p>
+      <ol class="how-it-works-list">
+        <li>Full property database cleaned and standardised during setup</li>
+        <li>All listings chunked and embedded in Qdrant with structured payload</li>
+        <li>Ongoing n8n workflow syncs new and updated listings automatically</li>
+        <li>Agent or client queries in plain English via web interface</li>
+        <li>Hybrid BM25 and semantic search retrieves matching listings</li>
+        <li>Results ranked by relevance and returned with full property details</li>
+      </ol>
+
+      <div class="service-line">Aethera service: Excel and Table Data RAG Pipeline &middot; Starting Rs. 8,999 &middot; 7-10 days</div>
+    </div>
+    <hr class="item-divider">
+
+    <!-- Solution 06 -->
+    <div id="solution-06" class="item-block">
+      <span class="item-label">SOLUTION 06</span>
+      <h3 class="item-h3">Fraud Detection in Tenant Screening</h3>
+      
+      <div class="callout-block">
+        <strong>THE PROBLEM:</strong> Fraudsters submit rental applications with fabricated bank statements, 
+        edited salary slips, and fake employment letters that look legitimate 
+        at first glance. A property manager reviewing 50 applications per week 
+        does not have the time or expertise to examine each document forensically. 
+        The consequences are severe: eviction in India can take 6 to 18 months. 
+        A single fraudulent tenant can cost a landlord Rs. 5 to 15 lakhs in 
+        direct and indirect losses.
+      </div>
+
+      <p class="body-paragraph">
+        <strong>THE SOLUTION:</strong> An automated screening pipeline where uploaded application documents 
+        are processed through a multi-layer analysis system. The first layer 
+        checks document metadata for editing timestamps, software signatures, 
+        and inconsistencies between creation date and content date. The second 
+        layer runs analysis to detect font substitutions and formatting 
+        irregularities. A RAG layer over verified document templates compares 
+        submissions against known authentic formats from major Indian banks 
+        and employers. Suspicious applications are flagged automatically 
+        with a detailed anomaly report.
+      </p>
+
+      <p class="body-paragraph"><strong>HOW IT WORKS:</strong></p>
+      <ol class="how-it-works-list">
+        <li>Application documents received via email or web upload</li>
+        <li>n8n pipeline extracts all documents automatically</li>
+        <li>Metadata layer checks creation timestamps and software signatures</li>
+        <li>Document analysis checks for font and formatting inconsistencies</li>
+        <li>RAG comparison against verified bank and employer templates</li>
+        <li>Anomaly score calculated per document</li>
+        <li>High-risk applications quarantined with full explanation</li>
+        <li>Clean applications fast-tracked to next stage</li>
+      </ol>
+
+      <div class="service-line">Aethera service: Document Intelligence and Automation Backend &middot; Custom pricing per engagement</div>
+    </div>
+    <hr class="item-divider">
+
+    <!-- Solution 07 -->
+    <div id="solution-07" class="item-block">
+      <span class="item-label">SOLUTION 07</span>
+      <h3 class="item-h3">Stale Reporting and Decision Lag</h3>
+      
+      <div class="callout-block">
+        <strong>THE PROBLEM:</strong> Senior management needs portfolio performance data every Monday. 
+        The operations team spends Friday and Saturday manually extracting 
+        data from 6 different systems and consolidating it into a presentation. 
+        By the time the Monday meeting happens, the data is already 3 days old. 
+        Two senior operations staff spend approximately 12 hours per week on 
+        report compilation. That is 600 hours per year &mdash; 75 full working days &mdash; 
+        spent on a task that produces diminishing-value output.
+      </div>
+
+      <p class="body-paragraph">
+        <strong>THE SOLUTION:</strong> A live dashboard connected directly to all the agency's data sources &mdash; 
+        Supabase, Excel uploads, CRM APIs, and accounting exports &mdash; displaying 
+        unified real-time metrics without manual compilation. The moment a deal 
+        closes, the revenue figure updates. The moment a lead converts, the 
+        conversion rate recalculates. Key performance indicators are configured 
+        specifically for the client's business. An n8n layer generates daily 
+        WhatsApp briefings to team leads and weekly PDF summaries to management &mdash; 
+        the right information at the right time without anyone logging into a dashboard.
+      </p>
+
+      <p class="body-paragraph"><strong>HOW IT WORKS:</strong></p>
+      <ol class="how-it-works-list">
+        <li>All data sources connected to Supabase via n8n sync workflows</li>
+        <li>Dashboard frontend reads from Supabase in real time</li>
+        <li>Custom KPIs configured: occupancy, collections, conversions, maintenance</li>
+        <li>Daily n8n schedule generates WhatsApp briefing for each team lead</li>
+        <li>Weekly n8n schedule generates PDF summary for management</li>
+        <li>Threshold alerts fire when any KPI drops below defined level</li>
+      </ol>
+
+      <div class="service-line">Aethera service: Live Analytics Dashboard and Automation Backend &middot; Starting Rs. 10,999 &middot; 14-21 days</div>
+    </div>
+    <hr class="item-divider">
+
+    <!-- Solution 08 -->
+    <div id="solution-08" class="item-block">
+      <span class="item-label">SOLUTION 08</span>
+      <h3 class="item-h3">Invoice and Accounts Payable Processing</h3>
+      
+      <div class="callout-block">
+        <strong>THE PROBLEM:</strong> A property management company working with 60 vendors receives 300 
+        to 400 invoices monthly via email, WhatsApp, and physical delivery. 
+        An accounts team member manually opens each invoice, reads the details, 
+        types it into the accounting system, routes it for approval, and 
+        follows up if there is no response. This process takes 8 to 12 minutes 
+        per invoice. For 400 invoices: 53 to 80 hours of manual data entry 
+        per month &mdash; nearly two full working weeks consumed by a zero-value task.
+      </div>
+
+      <p class="body-paragraph">
+        <strong>THE SOLUTION:</strong> An n8n automation pipeline that intercepts invoices from email and 
+        WhatsApp, extracts structured data &mdash; vendor name, invoice number, 
+        amount, date, line items, GST &mdash; using an AI document processing layer, 
+        and automatically matches each invoice against the relevant work order 
+        in the Supabase database. Matched invoices within defined parameters 
+        are auto-approved and queued for payment. The property manager receives 
+        a notification with the invoice details and a simple approve or query 
+        action &mdash; the entire approval takes 10 seconds instead of an email chain. 
+        A RAG layer over historical invoice data flags anomalies when a vendor's 
+        invoice significantly exceeds their historical average for the same work.
+      </p>
+
+      <p class="body-paragraph"><strong>HOW IT WORKS:</strong></p>
+      <ol class="how-it-works-list">
+        <li>Invoice arrives via email or WhatsApp</li>
+        <li>n8n captures and extracts all structured fields automatically</li>
+        <li>Extracted data matched against Supabase work orders</li>
+        <li>Within-parameter invoices auto-approved and queued</li>
+        <li>Out-of-parameter invoices sent for human review with full context</li>
+        <li>Approval action takes 10 seconds</li>
+        <li>Duplicate detection runs on every invoice before processing</li>
+        <li>RAG anomaly detection flags vendor invoices above historical average</li>
+      </ol>
+
+      <div class="service-line">Aethera service: n8n Automation and Document Intelligence &middot; Starting Rs. 15,000 &middot; 10-14 days</div>
+    </div>
+    <hr class="item-divider">
+
+    <!-- Solution 09 -->
+    <div id="solution-09" class="item-block">
+      <span class="item-label">SOLUTION 09</span>
+      <h3 class="item-h3">Due Diligence for Investors</h3>
+      
+      <div class="callout-block">
+        <strong>THE PROBLEM:</strong> A real estate investor evaluating a commercial property acquisition 
+        receives a data room containing 400 documents &mdash; inspection reports, 
+        title deeds, land records, historical tenant agreements, litigation 
+        disclosures, financial statements, building completion certificates, 
+        and environmental clearances. A legal team reviews these documents 
+        over 3 to 4 weeks, billing by the hour. A clause on page 38 of a 
+        2014 lease granting an existing tenant a right of first refusal &mdash; 
+        missed by a reviewer under time pressure &mdash; causes the deal to collapse 
+        at the final stage after months of work.
+      </div>
+
+      <p class="body-paragraph">
+        <strong>THE SOLUTION:</strong> The entire data room &mdash; all 400 documents regardless of format or age &mdash; 
+        ingested into a hybrid RAG system within hours of upload. The investor 
+        asks specific questions: 'Are there any right of first refusal clauses 
+        across any of the tenant agreements?' Every answer is returned with 
+        source citations &mdash; the exact document, section, and page. The investor's 
+        legal team moves from reading to verifying, cutting professional fee 
+        expenditure significantly. For ongoing portfolio management post-acquisition, 
+        the same system becomes a permanent searchable knowledge base for that asset.
+      </p>
+
+      <p class="body-paragraph"><strong>HOW IT WORKS:</strong></p>
+      <ol class="how-it-works-list">
+        <li>Full data room uploaded to Supabase Storage</li>
+        <li>All documents processed through OCR and text extraction</li>
+        <li>Documents chunked and embedded in Qdrant with document metadata</li>
+        <li>Investor queries in plain English via secure web interface</li>
+        <li>Hybrid search returns relevant passages with exact source citation</li>
+        <li>Answer includes document name, section, and page reference</li>
+        <li>Audit log of all queries maintained in Supabase</li>
+      </ol>
+
+      <div class="service-line">Aethera service: Document Intelligence and RAG Hybrid Search &middot; Starting Rs. 16,999 &middot; 14-21 days</div>
+    </div>
+    <hr class="item-divider">
+
+    <!-- Solution 10 -->
+    <div id="solution-10" class="item-block">
+      <span class="item-label">SOLUTION 10</span>
+      <h3 class="item-h3">Agent Onboarding and Internal Knowledge</h3>
+      
+      <div class="callout-block">
+        <strong>THE PROBLEM:</strong> A real estate agency hires 8 new agents every quarter. Each needs 
+        to understand internal processes, compliance requirements, local 
+        market knowledge, pricing strategies, and the specifics of 200 active 
+        listings. After 3 days of training and 2 weeks of shadowing, new agents 
+        still spend 2 months interrupting senior agents with basic procedural 
+        questions. When a senior agent leaves, years of institutional knowledge 
+        disappear permanently.
+      </div>
+
+      <p class="body-paragraph">
+        <strong>THE SOLUTION:</strong> An internal-facing RAG system trained on the agency's complete 
+        operational documentation &mdash; the agent handbook, process documents, 
+        pricing guidelines, compliance rules, developer scheme details, and 
+        historical deal notes. New agents ask questions in plain language and 
+        receive accurate, policy-compliant answers instantly. Senior agents 
+        contribute knowledge through a simple input workflow &mdash; a voice note 
+        or text message is transcribed and indexed automatically. The system 
+        is deployed on WhatsApp so agents access it from the same application 
+        they use for everything else.
+      </p>
+
+      <p class="body-paragraph"><strong>HOW IT WORKS:</strong></p>
+      <ol class="how-it-works-list">
+        <li>All agency documentation indexed in Qdrant</li>
+        <li>n8n input workflow accepts voice notes and text from any agent</li>
+        <li>Voice notes transcribed and automatically added to knowledge base</li>
+        <li>Agents query via WhatsApp using natural language</li>
+        <li>System returns accurate policy-compliant answers with source</li>
+        <li>New agents onboard faster with immediate access to all knowledge</li>
+        <li>Knowledge base grows continuously as senior agents contribute</li>
+      </ol>
+
+      <div class="service-line">Aethera service: n8n RAG Automation and Document Intelligence &middot; Starting Rs. 22,000 &middot; 14-21 days</div>
+    </div>
+    <hr class="item-divider">
+
+    <!-- Solution 11 -->
+    <div id="solution-11" class="item-block">
+      <span class="item-label">SOLUTION 11</span>
+      <h3 class="item-h3">Compliance and Legal Document Search</h3>
+      
+      <div class="callout-block">
+        <strong>THE PROBLEM:</strong> Real estate operations in India sit within a complex and evolving 
+        regulatory framework &mdash; RERA regulations, municipal building codes, 
+        zoning laws, environmental clearance requirements, GST on property 
+        transactions, and state-specific tenancy acts. When a compliance 
+        question arises &mdash; 'Does this project comply with the 2023 RERA amendment 
+        in Telangana?' &mdash; a lawyer opens 4 different folders, reads 3 documents, 
+        and takes 45 minutes to provide a confident answer. Compliance failures 
+        at any stage cause delays that cost crores and trigger regulatory penalties.
+      </div>
+
+      <p class="body-paragraph">
+        <strong>THE SOLUTION:</strong> All regulatory documents, internal compliance memos, RERA circulars, 
+        building bye-laws, and legal opinions ingested into a RAG system structured 
+        by jurisdiction and regulation type. The compliance team asks specific 
+        questions and receives answers grounded in the actual regulatory text 
+        with citations to the exact section that applies. The system is instructed 
+        to answer only from the indexed corpus and to explicitly state when a 
+        question falls outside the available documentation &mdash; critical in a compliance 
+        context where a wrong answer has legal consequences. An n8n automation layer 
+        monitors for regulatory updates and triggers an ingestion workflow when 
+        new documents need to be added.
+      </p>
+
+      <p class="body-paragraph"><strong>HOW IT WORKS:</strong></p>
+      <ol class="how-it-works-list">
+        <li>All regulatory documents indexed by jurisdiction and type</li>
+        <li>Separate Qdrant collections per state for clean retrieval</li>
+        <li>Compliance team queries via web interface or WhatsApp</li>
+        <li>System answers only from indexed corpus &mdash; never generates regulatory content</li>
+        <li>Every answer cites exact regulation, section, and document</li>
+        <li>n8n monitors regulatory feeds for new circulars and notifications</li>
+        <li>New documents automatically ingested when added to the system</li>
+      </ol>
+
+      <div class="service-line">Aethera service: Document Intelligence and Compliance RAG &middot; Starting Rs. 16,999 &middot; 14-21 days</div>
+    </div>
+    <hr class="item-divider">
+
+    <!-- Solution 12 -->
+    <div id="solution-12" class="item-block">
+      <span class="item-label">SOLUTION 12</span>
+      <h3 class="item-h3">Portfolio Performance Tracking</h3>
+      
+      <div class="callout-block">
+        <strong>THE PROBLEM:</strong> A property management firm oversees 1,200 units across 8 buildings. 
+        Each building manager uses a different spreadsheet to track occupancy, 
+        rent collection, and maintenance costs. The central operations team 
+        spends two weeks at the end of each quarter reconciling these spreadsheets 
+        to calculate overall portfolio yield. By the time they realise Building 3 
+        has experienced a 12% drop in occupancy and a 30% spike in repair costs, 
+        the trend has been active for three months without intervention.
+      </div>
+
+      <p class="body-paragraph">
+        <strong>THE SOLUTION:</strong> A unified portfolio performance system that replaces 8 disparate 
+        spreadsheets with a single Supabase backend. Building managers use a 
+        simple, custom-built web interface to log rent payments and unit turnovers. 
+        The central dashboard updates instantly, calculating yield, occupancy rates, 
+        and cost-per-unit across the entire portfolio in real time. Trend analysis 
+        algorithms automatically flag underperforming buildings. 
+      </p>
+
+      <p class="body-paragraph"><strong>HOW IT WORKS:</strong></p>
+      <ol class="how-it-works-list">
+        <li>Custom data entry interfaces deployed for building managers</li>
+        <li>All inputs write directly to centralised Supabase architecture</li>
+        <li>Data validation rules prevent entry errors at the source</li>
+        <li>Executive dashboard provides real-time portfolio-wide view</li>
+        <li>Automated anomaly detection highlights negative trends instantly</li>
+        <li>Quarterly reconciliation process entirely eliminated</li>
+      </ol>
+
+      <div class="service-line">Aethera service: Unified Dashboard and Supabase Architecture &middot; Starting Rs. 18,000 &middot; 21-30 days</div>
+    </div>
   </main>
 
-  <footer class="w3-footer">
-    <div class="w3-footer-inner">
-      <div class="w3-footer-logo">Aethera</div>
-      <div class="w3-footer-links">
-        <a href="services.html">Services</a>
-        <a href="industry-real-estate.html">Industries</a>
-        <a href="portfolio.html">Projects</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="blog.html">Blog</a>
-        <a href="chat.html">Ask AI</a>
-        <a href="about.html">About</a>
-      </div>
+  <!-- Simple Footer for consistency -->
+  <footer style="padding: 60px 24px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 80px;">
+    <div style="margin-bottom: 24px;">
+      <a href="index.html" style="color: white; text-decoration: none; font-weight: 600; font-size: 20px;">Aethera</a>
     </div>
-    <div class="w3-footer-bottom" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.05);">
-      <div>© 2026 Aethera. All rights reserved.</div>
-      <div style="display: flex; gap: 16px; align-items: center;">
-        <a href="https://www.linkedin.com/in/nithesh-devarla-7a887a358?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" style="color: rgba(255,255,255,0.5); text-decoration: none; display: flex;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-        </a>
-        <a href="https://www.instagram.com/__aethera__ai/" target="_blank" style="color: rgba(255,255,255,0.5); text-decoration: none; display: flex;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-        </a>
-      </div>
-    </div>
+    <p style="color: rgba(255,255,255,0.4); font-size: 13px;">
+      &copy; 2026 Aethera. AI Data Systems.
+    </p>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="js/config.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

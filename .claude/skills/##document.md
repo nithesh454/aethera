@@ -488,3 +488,191 @@ LONG TAIL (easy to rank):
 - "n8n automation for wholesale business"
 - "custom analytics dashboard for small business"
 ```
+
+
+
+
+
+
+Add these 3 additional service cards to the 
+Aethera services/solutions section. 
+Same card design as existing 4 cards.
+Dark glass, hover lift, problem → solution format.
+
+─────────────────────────────────────────────────────
+SERVICE 5: RAG System (Hybrid Search)
+─────────────────────────────────────────────────────
+Badge tag: [RAG] [Qdrant] [Hybrid Search]
+
+Problem headline:
+"Generic AI gives wrong answers from your data?"
+
+Solution:
+"We build a production-grade RAG system using
+hybrid search — BM25 + Semantic — so your AI
+finds the RIGHT information every single time.
+Not approximate. Exact."
+
+Technical tags shown as pills:
+[Qdrant] [BM25] [Semantic Search] [Query Decomposition] 
+[Reranking] [n8n]
+
+Price: Starting $199 / ₹16,999
+Delivery: 14-21 days
+
+Best for:
+[Large Document Libraries] [Knowledge Bases] 
+[Internal Search Tools] [Customer Support AI]
+
+Features:
+✓ Hybrid BM25 + Semantic retrieval
+✓ Query decomposition for complex questions
+✓ Positive & negative similarity scoring
+✓ Reranking for maximum accuracy
+✓ Handles 1M+ documents
+✓ API ready — plug into any frontend
+
+Real numbers:
+Show a small stats row inside card:
+"BM25 alone: 61% accuracy →
+ Semantic alone: 74% →
+ Our Hybrid RAG: 94%"
+Styled as a mini progress bar or comparison row
+in muted text at bottom of card.
+
+─────────────────────────────────────────────────────
+SERVICE 6: Custom n8n RAG Workflows
+─────────────────────────────────────────────────────
+Badge tag: [n8n] [RAG] [Automation]
+
+Problem headline:
+"Need RAG but also want it connected 
+to your existing tools?"
+
+Solution:
+"We build custom n8n workflows that connect
+your RAG system to everything — WhatsApp,
+email, Slack, CRMs, databases, APIs.
+One question triggers a full intelligent pipeline."
+
+Technical tags:
+[n8n] [RAG] [Webhooks] [WhatsApp] [OpenAI] [Qdrant]
+
+Price: Starting $149 / ₹12,999
+Delivery: 10-14 days
+
+Best for:
+[Businesses needing RAG + Automation together]
+[Teams using WhatsApp for operations]
+[Companies with existing tool stacks]
+
+Features:
+✓ RAG search triggered by any event
+✓ WhatsApp → AI answer pipeline
+✓ Scheduled RAG reports
+✓ CRM + document search combined
+✓ Error handling & monitoring built in
+✓ Full workflow visibility in n8n
+
+Example workflow shown visually
+as a simple horizontal flow inside card:
+"WhatsApp message → n8n → Qdrant search
+→ OpenAI answer → WhatsApp reply"
+Styled as connected pill nodes, dark glass,
+white text, arrow connectors between them.
+
+─────────────────────────────────────────────────────
+SERVICE 7: Full AI Backend
+─────────────────────────────────────────────────────
+Badge tag: [Full Stack] [Production] [End-to-End]
++ "MOST COMPLEX" badge pill top right corner
+  white border, muted text
+
+Problem headline:
+"Need the whole thing — database, AI,
+automation, and dashboard — all connected?"
+
+Solution:
+"We design and build your complete AI backend
+from scratch. Supabase database, RAG search,
+n8n automation workflows, real-time dashboard,
+and API layer — all production ready, all connected,
+all yours."
+
+Technical tags:
+[n8n] [Qdrant] [Supabase] [RAG] [PostgreSQL]
+[OpenAI] [Vercel] [REST API]
+
+Price: Starting $499 / ₹42,999
+Delivery: 25-40 days
+
+Best for:
+[Startups building AI products]
+[Enterprises replacing legacy systems]
+[Businesses wanting complete AI transformation]
+
+Features:
+✓ Full Supabase schema design
+✓ RAG hybrid search system
+✓ n8n automation layer
+✓ Real-time analytics dashboard
+✓ REST API for your frontend
+✓ Authentication & role management
+✓ 60 days post-delivery support
+✓ Full source code ownership
+
+Architecture diagram inside card:
+Show a simple visual stack:
+
+"Your Data"
+    ↓
+"Supabase DB"
+    ↓
+"Qdrant RAG Layer"      "n8n Automation"
+    ↓                        ↓
+        "API Layer"
+            ↓
+    "Dashboard + Frontend"
+
+Style as dark glass mini diagram,
+boxes connected by thin white lines,
+all inside the card below the description.
+
+─────────────────────────────────────────────────────
+PLACEMENT IN PAGE
+─────────────────────────────────────────────────────
+Services grid is now 7 cards total:
+
+Row 1 (3 cards):
+Document Search | Excel Chatbot | Analytics Dashboard
+
+Row 2 (3 cards):  
+Automation Backend | RAG System | n8n RAG Workflows
+
+Row 3 (1 card — full width):
+Full AI Backend
+(Full width card, larger, more detail, premium feel)
+
+Full width card gets:
+- Slightly brighter border
+- Architecture diagram visible
+- "MOST COMPLETE" badge
+- Two CTA buttons: "See Full Scope →" + "Book a Call"
+
+─────────────────────────────────────────────────────
+FILTER PILLS UPDATE
+─────────────────────────────────────────────────────
+Update filter bar to:
+[All] [Document Search] [Excel & Data] 
+[RAG Systems] [n8n Workflows] [Dashboards] [Full Backend]
+
+RAG Systems filter shows: cards 5 + 6
+n8n Workflows filter shows: card 4 + 6
+Full Backend filter shows: card 7 only
+
+
+Simple problems    →  Document Search, Excel Chatbot
+Live data needs    →  Analytics Dashboard  
+Automation needs   →  n8n Automation Backend
+Technical/AI       →  RAG System, n8n RAG Workflows
+Everything         →  Full AI Backend
