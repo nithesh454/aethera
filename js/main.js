@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initStatsCounter();
   if (document.getElementById('calendar-grid')) {
     renderCalendar();
+    updateTimeSlotLabels();
   }
 });
 
@@ -590,6 +591,7 @@ function selectDate(dateStr, el) {
   el.style.color = 'black';
   el.style.fontWeight = '600';
   el.style.boxShadow = '0 0 16px rgba(255,255,255,0.3)';
+  updateTimeSlotLabels();
 }
 
 function selectTimeSlot(timeStr, el) {
@@ -622,4 +624,42 @@ function calendarNext() {
   currentMonth++;
   if (currentMonth > 11) { currentMonth = 0; currentYear++; }
   renderCalendar();
+}
+
+function updateTimeSlotLabels() {
+  const localTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'Asia/Kolkata';
+  const labelEl = document.querySelector('.time-slots-label');
+  if (labelEl) {
+    if (localTimezone === 'Asia/Kolkata' || localTimezone.includes('Calcutta')) {
+      labelEl.innerHTML = `Available Time Slots (Asia/Kolkata - IST):`;
+    } else {
+      labelEl.innerHTML = `Available Time Slots (IST / Your Local Time - ${localTimezone}):`;
+    }
+  }
+
+  const slotTimes = {
+    '10:00': '10:00 AM',
+    '11:30': '11:30 AM',
+    '14:00': '02:00 PM',
+    '15:30': '03:30 PM',
+    '17:00': '05:00 PM'
+  };
+
+  const todayStr = selectedDate || new Date().toISOString().split('T')[0];
+
+  document.querySelectorAll('.time-slot').forEach(slot => {
+    const timeVal = slot.getAttribute('data-time');
+    if (!timeVal) return;
+
+    if (localTimezone === 'Asia/Kolkata' || localTimezone.includes('Calcutta')) {
+      slot.textContent = slotTimes[timeVal];
+    } else {
+      // Calculate local time conversion
+      // Construct date object using selectedDate or today in IST timezone (+05:30)
+      const istString = `${todayStr}T${timeVal}:00+05:30`;
+      const dateObj = new Date(istString);
+      const formattedLocal = dateObj.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
+      slot.innerHTML = `${slotTimes[timeVal]} <span style="font-size: 11px; opacity: 0.75; display: block; margin-top: 2px;">(${formattedLocal} Local)</span>`;
+    }
+  });
 }
