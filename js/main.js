@@ -383,7 +383,7 @@ function initForms() {
         const selectedTimeVal = document.getElementById('selected-booking-time')?.value;
 
         if (selectedDateVal && selectedTimeVal) {
-          const scheduledAt = new Date(`${selectedDateVal}T${selectedTimeVal}:00`);
+          const scheduledAt = new Date(`${selectedDateVal}T${selectedTimeVal}:00+05:30`);
           const bookingData = {
             order_id: orderId,
             client_name: orderData.client_name,
@@ -584,7 +584,7 @@ function renderCalendar() {
   grid.innerHTML = html;
 }
 
-function selectDate(dateStr, el) {
+async function selectDate(dateStr, el) {
   selectedDate = dateStr;
   const dateInput = document.getElementById('selected-booking-date');
   if (dateInput) dateInput.value = dateStr;
@@ -604,7 +604,13 @@ function selectDate(dateStr, el) {
   el.style.color = 'black';
   el.style.fontWeight = '600';
   el.style.boxShadow = '0 0 16px rgba(255,255,255,0.3)';
-  updateTimeSlotLabels();
+
+  // Reset slot choice in inputs
+  selectedTime = '';
+  const timeInput = document.getElementById('selected-booking-time');
+  if (timeInput) timeInput.value = '';
+
+  await updateTimeSlotAvailability(dateStr);
 }
 
 function selectTimeSlot(timeStr, el) {
@@ -675,4 +681,77 @@ function updateTimeSlotLabels() {
       slot.innerHTML = `${slotTimes[timeVal]} <span style="font-size: 11px; opacity: 0.75; display: block; margin-top: 2px;">(${formattedLocal} Local)</span>`;
     }
   });
+}
+
+async function fetchBookedSlots(dateStr) {
+  if (!window.supabaseClient) return [];
+  
+  // Calculate start and end of day in UTC for the selected date in IST (+05:30)
+  const start = new Date(`${dateStr}T00:00:00+05:30`).toISOString();
+  const end = new Date(`${dateStr}T23:59:59+05:30`).toISOString();
+
+  try {
+    const { data, error } = await window.supabaseClient
+      .from('bookings')
+      .select('scheduled_at')
+      .gte('scheduled_at', start)
+      .lte('scheduled_at', end)
+      .in('status', ['scheduled', 'confirmed']);
+
+    if (error) {
+      console.error("Error fetching booked slots:", error);
+      return [];
+    }
+
+    return data.map(b => {
+      const d = new Date(b.scheduled_at);
+      const parts = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'Asia/Kolkata',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+      }).formatToParts(d);
+      const hour = parts.find(p => p.type === 'hour')?.value || '00';
+      const minute = parts.find(p => p.type === 'minute')?.value || '00';
+      const normalizedHour = hour === '24' ? '00' : hour;
+      return `${String(normalizedHour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`;
+    });
+  } catch (e) {
+    console.error("Exception in fetchBookedSlots:", e);
+    return [];
+  }
+}
+
+async function updateTimeSlotAvailability(dateStr) {
+  // Show quick loading state on slots while querying
+  document.querySelectorAll('.time-slot').forEach(s => {
+    s.style.opacity = '0.5';
+    s.style.pointerEvents = 'none';
+  });
+
+  const bookedSlots = await fetchBookedSlots(dateStr);
+
+  document.querySelectorAll('.time-slot').forEach(s => {
+    const slotTime = s.getAttribute('data-time');
+    
+    // Reset properties default
+    s.style.opacity = '1';
+    s.style.pointerEvents = 'auto';
+    s.style.background = 'rgba(255,255,255,0.02)';
+    s.style.borderColor = 'rgba(255,255,255,0.1)';
+    s.style.color = 'white';
+    s.style.textDecoration = 'none';
+    s.classList.remove('selected');
+
+    if (bookedSlots.includes(slotTime)) {
+      // Disable slot since it's already booked
+      s.style.opacity = '0.2';
+      s.style.pointerEvents = 'none';
+      s.style.textDecoration = 'line-through';
+      s.title = "This slot is already booked";
+    }
+  });
+
+  // Re-calculate the local timezone conversion labels
+  updateTimeSlotLabels();
 }
