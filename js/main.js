@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initForms();
   initStatsCounter();
+  if (document.getElementById('calendar-grid')) {
+    renderCalendar();
+  }
 });
 
 // ================================================================
@@ -333,10 +336,15 @@ function initForms() {
         const problemTypes = formData.getAll('problem_type_multi');
         const problemTypeStr = problemTypes.join(', ');
 
+        // Combine Country Code and Phone Number for WhatsApp field
+        const countryCode = formData.get('country_code') || '';
+        const rawPhoneNumber = formData.get('client_phone_number') || '';
+        const combinedWhatsapp = countryCode && rawPhoneNumber ? `${countryCode} ${rawPhoneNumber}` : (rawPhoneNumber || countryCode);
+
         const orderData = {
           client_name: formData.get('client_name'),
           client_email: formData.get('client_email'),
-          client_whatsapp: formData.get('client_whatsapp'),
+          client_whatsapp: combinedWhatsapp,
           business_name: formData.get('business_name') || null,
           business_type: formData.get('business_type') || null,
           problem_type: problemTypeStr || null,
@@ -345,17 +353,57 @@ function initForms() {
           source: 'website'
         };
 
+        // Insert into 'orders' table and return details for order_id reference
         const { data, error } = await window.supabaseClient
           .from('orders')
-          .insert([orderData]);
+          .insert([orderData])
+          .select();
 
         if (error) {
           console.error("Supabase Error Details:", error);
           throw error;
         }
+
+        // Try inserting into 'bookings' table if calendar is selected
+        const selectedDateVal = document.getElementById('selected-booking-date')?.value;
+        const selectedTimeVal = document.getElementById('selected-booking-time')?.value;
+
+        if (selectedDateVal && selectedTimeVal && data && data.length > 0) {
+          const scheduledAt = new Date(`${selectedDateVal}T${selectedTimeVal}:00`);
+          const bookingData = {
+            order_id: data[0].id,
+            client_name: orderData.client_name,
+            client_email: orderData.client_email,
+            client_phone: orderData.client_whatsapp,
+            scheduled_at: scheduledAt.toISOString(),
+            booking_type: 'discovery',
+            timezone: 'Asia/Kolkata',
+            platform: 'google_meet'
+          };
+
+          const { error: bookingError } = await window.supabaseClient
+            .from('bookings')
+            .insert([bookingData]);
+
+          if (bookingError) {
+            console.error("Supabase Booking Error Details:", bookingError);
+          }
+        }
         
         showToast('Booking request sent successfully! We will contact you soon.', 'success');
         intakeForm.reset();
+        
+        // Reset selected slot styling and hidden inputs
+        document.querySelectorAll('.time-slot').forEach(s => {
+          s.style.background = 'rgba(255,255,255,0.02)';
+          s.style.borderColor = 'rgba(255,255,255,0.1)';
+          s.classList.remove('selected');
+        });
+        const dateInput = document.getElementById('selected-booking-date');
+        if (dateInput) dateInput.value = '';
+        const timeInput = document.getElementById('selected-booking-time');
+        if (timeInput) timeInput.value = '';
+        
         showSuccessAnimation();
         
       } catch (err) {
@@ -460,4 +508,118 @@ function showSuccessAnimation() {
   setTimeout(() => {
     document.getElementById('successOverlay').classList.add('active');
   }, 50);
+}
+
+// ================================================================
+// DYNAMIC CALENDAR BOOKING SYSTEM
+// ================================================================
+let currentMonth = new Date().getMonth();
+let currentYear = new Date().getFullYear();
+let selectedDate = '';
+let selectedTime = '';
+
+function renderCalendar() {
+  const grid = document.getElementById('calendar-grid');
+  const title = document.getElementById('calendar-month-title');
+  if (!grid || !title) return;
+
+  const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'];
+  title.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+
+  const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  let html = dayNames.map(d => `<div class="calendar-day-name" style="font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.4); padding: 8px 0; text-transform: uppercase;">${d}</div>`).join('');
+
+  const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+  
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  // Empty cells before first day
+  for (let i = 0; i < firstDay; i++) {
+    html += '<div class="calendar-day empty" style="padding: 8px 0;"></div>';
+  }
+
+  for (let d = 1; d <= daysInMonth; d++) {
+    const date = new Date(currentYear, currentMonth, d);
+    const dateStr = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+    const isPast = date < today;
+    const isWeekend = date.getDay() === 0 || date.getDay() === 6;
+    const isSelected = selectedDate === dateStr;
+
+    let classes = 'calendar-day';
+    let style = 'padding: 10px 4px; border-radius: 8px; font-size: 14px; color: rgba(255,255,255,0.6); cursor: pointer; transition: all 0.15s ease; border: none; background: none; font-family: var(--font-general); outline: none;';
+    
+    if (isPast || isWeekend) {
+      classes += ' disabled';
+      style += ' opacity: 0.25; cursor: default;';
+    } else {
+      classes += ' available';
+      style += ' color: white;';
+    }
+    
+    if (isSelected) {
+      classes += ' selected';
+      style += ' background: white !important; color: black !important; box-shadow: 0 0 16px rgba(255,255,255,0.3); font-weight: 600;';
+    }
+
+    html += `<button type="button" class="${classes}" style="${style}" data-date="${dateStr}" ${isPast || isWeekend ? 'disabled' : ''} onclick="selectDate('${dateStr}', this)">${d}</button>`;
+  }
+
+  grid.innerHTML = html;
+}
+
+function selectDate(dateStr, el) {
+  selectedDate = dateStr;
+  const dateInput = document.getElementById('selected-booking-date');
+  if (dateInput) dateInput.value = dateStr;
+  
+  document.querySelectorAll('.calendar-day').forEach(d => {
+    if (!d.classList.contains('disabled')) {
+      d.style.background = 'none';
+      d.style.color = 'white';
+      d.style.fontWeight = 'normal';
+      d.style.boxShadow = 'none';
+    }
+    d.classList.remove('selected');
+  });
+  
+  el.classList.add('selected');
+  el.style.background = 'white';
+  el.style.color = 'black';
+  el.style.fontWeight = '600';
+  el.style.boxShadow = '0 0 16px rgba(255,255,255,0.3)';
+}
+
+function selectTimeSlot(timeStr, el) {
+  selectedTime = timeStr;
+  const timeInput = document.getElementById('selected-booking-time');
+  if (timeInput) timeInput.value = timeStr;
+  
+  document.querySelectorAll('.time-slot').forEach(s => {
+    s.style.background = 'rgba(255,255,255,0.02)';
+    s.style.borderColor = 'rgba(255,255,255,0.1)';
+    s.style.color = 'white';
+    s.style.fontWeight = 'normal';
+    s.classList.remove('selected');
+  });
+  
+  el.classList.add('selected');
+  el.style.background = 'rgba(255, 255, 255, 0.15)';
+  el.style.borderColor = 'white';
+  el.style.color = 'white';
+  el.style.fontWeight = '600';
+}
+
+function calendarPrev() {
+  currentMonth--;
+  if (currentMonth < 0) { currentMonth = 11; currentYear--; }
+  renderCalendar();
+}
+
+function calendarNext() {
+  currentMonth++;
+  if (currentMonth > 11) { currentMonth = 0; currentYear++; }
+  renderCalendar();
 }
