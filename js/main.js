@@ -342,7 +342,21 @@ function initForms() {
         const rawPhoneNumber = formData.get('client_phone_number') || '';
         const combinedWhatsapp = countryCode && rawPhoneNumber ? `${countryCode} ${rawPhoneNumber}` : (rawPhoneNumber || countryCode);
 
+        // Fallback UUID v4 generator to bypass RLS SELECT restrictions
+        const generateUUID = () => {
+          if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+            return crypto.randomUUID();
+          }
+          return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+            const r = Math.random() * 16 | 0;
+            const v = c === 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+          });
+        };
+        const orderId = generateUUID();
+
         const orderData = {
+          id: orderId,
           client_name: formData.get('client_name'),
           client_email: formData.get('client_email'),
           client_whatsapp: combinedWhatsapp,
@@ -354,11 +368,10 @@ function initForms() {
           source: 'website'
         };
 
-        // Insert into 'orders' table and return details for order_id reference
-        const { data, error } = await window.supabaseClient
+        // Insert into 'orders' table without .select() to respect RLS insert-only policy
+        const { error } = await window.supabaseClient
           .from('orders')
-          .insert([orderData])
-          .select();
+          .insert([orderData]);
 
         if (error) {
           console.error("Supabase Error Details:", error);
@@ -369,10 +382,10 @@ function initForms() {
         const selectedDateVal = document.getElementById('selected-booking-date')?.value;
         const selectedTimeVal = document.getElementById('selected-booking-time')?.value;
 
-        if (selectedDateVal && selectedTimeVal && data && data.length > 0) {
+        if (selectedDateVal && selectedTimeVal) {
           const scheduledAt = new Date(`${selectedDateVal}T${selectedTimeVal}:00`);
           const bookingData = {
-            order_id: data[0].id,
+            order_id: orderId,
             client_name: orderData.client_name,
             client_email: orderData.client_email,
             client_phone: orderData.client_whatsapp,
